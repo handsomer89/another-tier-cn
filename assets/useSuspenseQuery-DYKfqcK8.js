@@ -1,0 +1,1 @@
+import{A as e,P as t,j as n}from"./character-BWOG_BU2.js";function r(r,i){return e({...r,enabled:!0,suspense:!0,throwOnError:n,placeholderData:void 0},t,i)}export{r as t};
