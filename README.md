@@ -1,6 +1,6 @@
 # Another Tier — English mirror
 
-This repository contains a static snapshot of [anothertier.com](https://anothertier.com/), captured on 2026-09-24 with the site author's permission. The original English text, rankings, layouts, public routes, scripts, styles, fonts, and image references are preserved without translation.
+This repository contains a static snapshot of [anothertier.com](https://anothertier.com/), captured on 2026-09-24. The original English text, rankings, layouts, public routes, scripts, styles, fonts, and image references are preserved without translation.
 
 - 326 rendered page routes, including character pages, `/free`, `/no-sa`, and the beta `/teams?beta=true` page.
 - The original scripts, stylesheets, fonts, and site assets are included.
