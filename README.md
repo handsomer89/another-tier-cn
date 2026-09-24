@@ -6,4 +6,4 @@ This repository contains a static snapshot of [anothertier.com](https://anothert
 - The original scripts, stylesheets, fonts, and site assets are included.
 - The original public API and Cloudinary image CDN remain connected for client-side data and images, matching the source site's behavior.
 
-To preview from the repository root, run `python -m http.server 8000` and open `http://localhost:8000/`.
+GitHub Pages serves this repository at `/another-tier-cn/`; the mirrored styles, assets, and client router use that base path. To preview locally, run `python -m http.server 8000` from the repository's parent directory and open `http://localhost:8000/another-tier-cn/`.
