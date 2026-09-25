@@ -1,6 +1,6 @@
-# Another Tier — English mirror
+# Another Tier — Chinese localized mirror
 
-This repository contains a static snapshot of [anothertier.com](https://anothertier.com/), captured on 2026-09-24. The source dataset, rankings, layouts, public routes, scripts, styles, fonts, and image references are preserved. A Chinese display-name layer localizes character names while retaining their English source names.
+This repository contains a static snapshot of [anothertier.com](https://anothertier.com/), captured on 2026-09-24. The source dataset, rankings, layouts, public routes, scripts, styles, fonts, and image references are preserved. Chinese display names and workbook-backed UI/classification translations are applied while retaining English source values in routes and API-facing data.
 
 - 326 rendered page routes, including character pages, `/free`, `/no-sa`, and the beta `/teams?beta=true` page.
 - The original scripts, stylesheets, fonts, and site assets are included.
@@ -8,16 +8,18 @@ This repository contains a static snapshot of [anothertier.com](https://anothert
 
 GitHub Pages serves this repository at `/another-tier-cn/`; the mirrored styles, assets, and client router use that base path. To preview locally, run `python -m http.server 8000` from the repository's parent directory and open `http://localhost:8000/another-tier-cn/`.
 
-## Chinese character names
+## Chinese localization
 
-Character names in the visible page UI use the corrected mappings in `data/cn-names.json`. English names remain in site data, URLs, and API-facing values. Character cards and pages display Chinese names, and character search accepts both English and Chinese names.
+Character names use the corrected mappings in `data/cn-names.json`. The 48 fixed UI strings and 152 translated terms in `data/cn-ui.json` and `data/cn-terms.json` cover page copy, tier filters, and character details, including personalities shared between filters and detail pages. English source values remain in site data, URLs, and API-facing fields. Character search accepts both English and Chinese names.
 
-After updating the source snapshot or corrected name workbook, refresh the mapping and localized page output with:
+After updating the source snapshot or translation workbooks, refresh the mappings and localized page output with:
 
 ```sh
 python3 scripts/import-cn-names.py /path/to/Another_Tier_Character_Forms_CN_corrected.xlsx
+python3 scripts/import-cn-terms.py /path/to/Another_Tier_待精译术语_筛选与分类已翻译.xlsx
 python3 scripts/localize-cn.py
 python3 scripts/check-cn.py
 ```
 
-The importer reads the exact English/form and corrected Chinese columns; blank translation rows are skipped. The localizer patches the display and search bundles and updates only visible HTML names, image alt text, and character-page metadata. Embedded source data and route slugs are left intact.
+The importers read the workbook's exact source/translation columns and skip blank translations. The localizer updates visible HTML copy and matching browser bundles, with category-aware term translations so labels such as personalities agree on the filter and character detail pages. Embedded source data and route slugs are left intact. The tome-name worksheet has no completed Chinese values, so tome names retain their current display until translations are supplied.
+

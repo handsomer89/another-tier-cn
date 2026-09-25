@@ -56,11 +56,28 @@ def main() -> int:
         if "export const cnNames" not in generated:
             raise ValueError("Generated browser mapping is missing")
 
+        ui = json.loads((ROOT / "data" / "cn-ui.json").read_text(encoding="utf-8"))
+        terms = json.loads((ROOT / "data" / "cn-terms.json").read_text(encoding="utf-8"))
+        if len(ui) != 48 or sum(len(group) for group in terms.values()) != 152:
+            raise ValueError("Workbook copy mappings are incomplete; expected 48 UI strings and 152 terms")
+        ui_runtime = (ROOT / "assets" / "cn-ui.js").read_text(encoding="utf-8")
+        terms_runtime = (ROOT / "assets" / "cn-terms.js").read_text(encoding="utf-8")
+        if "export const cnUi" not in ui_runtime or "export function translateUi" not in ui_runtime:
+            raise ValueError("Generated UI runtime mapping is missing")
+        if "export const cnTerms" not in terms_runtime:
+            raise ValueError("Generated term runtime mapping is missing")
+
         assets = list((ROOT / "assets").glob("*.js"))
         required_patterns = {
             "card display and search": "cnNames[",
             "Chinese name search": "It(cnNames[t.name]??t.name).includes(n)",
             "character detail title": "children:cnNames[r.name]??r.name",
+            "localized tier filter personalities": "label:cnTerms.personalities[e]??e",
+            "localized detail personalities": "children:cnTerms.personalities[e]??e",
+            "localized detail roles": "cnTerms.roles[t]??t",
+            "localized detail weapons": "cnTerms.weapons[m[r.weapon]]??m[r.weapon]",
+            "localized detail tiers": "cnTerms.tiers[r.tierSA]??r.tierSA",
+            "localized team categories": "cnTerms.teams[e.name]??e.name",
         }
         combined = "\n".join(path.read_text(encoding="utf-8") for path in assets)
         for label, pattern in required_patterns.items():
@@ -69,9 +86,17 @@ def main() -> int:
 
         pages = sorted(ROOT.rglob("*.html"))
         remaining: dict[str, int] = {}
+        detail_pages = 0
         for path in pages:
+            page = path.read_text(encoding="utf-8")
+            if path.relative_to(ROOT).parts[:1] == ("c",):
+                detail_pages += 1
+                if "定位" not in page or "个性" not in page:
+                    raise ValueError(f"Character detail copy is not localized: {path.relative_to(ROOT)}")
+            if '<html lang="zh-CN"' not in page:
+                raise ValueError(f"HTML language is not set to zh-CN: {path.relative_to(ROOT)}")
             parser = VisibleNameCheck(names)
-            parser.feed(path.read_text(encoding="utf-8"))
+            parser.feed(page)
             parser.close()
             for english in parser.english_headings:
                 remaining[english] = remaining.get(english, 0) + 1
@@ -79,7 +104,8 @@ def main() -> int:
             preview = ", ".join(f"{name} ({count})" for name, count in list(remaining.items())[:20])
             raise ValueError(f"English names remain in visible HTML text or alt attributes: {preview}")
 
-        print(f"[OK] {len(names)} mappings, {len(pages)} HTML pages, browser display/search patches verified")
+        print(f"[OK] {len(names)} name mappings, {len(ui)} UI strings, {sum(len(group) for group in terms.values())} terms")
+        print(f"[OK] {detail_pages} character pages and {len(pages)} rendered pages, browser display/search/copy patches verified")
         return 0
     except Exception as error:
         print(f"[ERROR] {error}", file=sys.stderr)
@@ -88,3 +114,4 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
