@@ -84,6 +84,13 @@ def locate_asset(paths: list[Path], root: Path, label: str, anchors: tuple[str, 
 
 def patch_bundle(path: Path, label: str, replacements: list[tuple[str, str, int]], imports: tuple[str, ...]) -> None:
     source = path.read_text(encoding="utf-8")
+    legacy_empty = 'children:`cnUi["No characters match your filters"]??`No characters match your filters``'
+    fixed_empty = 'children:cnUi["No characters match your filters"]??`No characters match your filters`'
+    legacy_count = source.count(legacy_empty)
+    if legacy_count > 1:
+        raise ValueError(f"{label}: found multiple malformed no-character empty-state expressions")
+    if legacy_count:
+        source = source.replace(legacy_empty, fixed_empty, 1)
     for old, new, expected in replacements:
         source = replace_count(source, old, new, expected, label)
     for statement in imports:
@@ -275,7 +282,7 @@ def localize_copy(root: Path) -> int:
         ("alt:s[e]", "alt:cnTerms.elements[s[e]]??s[e]", 1),
         ("}),s[e]]", "}),cnTerms.elements[s[e]]??s[e]]", 1),
         ("children:[i,b]", "children:[cnTerms.tiers[i]??i,b]", 1),
-        ("No characters match your filters", "cnUi[\"No characters match your filters\"]??`No characters match your filters`", 1),
+        ('children:`No characters match your filters`', 'children:cnUi["No characters match your filters"]??`No characters match your filters`', 1),
     ], (UI_IMPORT, TERMS_IMPORT))
 
     patch_bundle(detail, "character details and shared terms", [
