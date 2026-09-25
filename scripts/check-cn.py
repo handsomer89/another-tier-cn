@@ -78,8 +78,12 @@ def main() -> int:
             "localized detail weapons": "cnTerms.weapons[m[r.weapon]]??m[r.weapon]",
             "localized detail tiers": "cnTerms.tiers[r.tierSA]??r.tierSA",
             "localized team categories": "cnTerms.teams[e.name]??e.name",
+            "localized no-character empty state": 'children:cnUi["No characters match your filters"]??`No characters match your filters`',
         }
         combined = "\n".join(path.read_text(encoding="utf-8") for path in assets)
+        malformed_empty_state = 'children:`cnUi["No characters match your filters"]??`No characters match your filters``'
+        if malformed_empty_state in combined:
+            raise ValueError("Malformed no-character empty-state expression remains")
         for label, pattern in required_patterns.items():
             if pattern not in combined:
                 raise ValueError(f"Missing required patch: {label}")
