@@ -298,6 +298,9 @@ def main() -> int:
         changed = sum(localize_html(path, names) for path in pages)
         print(f"[OK] localized visible names in {changed}/{len(pages)} HTML pages")
         print(f"[OK] {len(names)} exact-name mappings available to the browser")
+        from cn_localization import apply_copy_localization
+
+        apply_copy_localization(ROOT)
         return 0
     except Exception as error:
         print(f"[ERROR] {error}", file=sys.stderr)
@@ -306,3 +309,4 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
