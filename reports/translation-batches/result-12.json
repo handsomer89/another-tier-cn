@@ -1,0 +1,301 @@
+[
+  {
+    "id": 227,
+    "english": "Futsunomitama Codex",
+    "chinese": "布都御魂之改典",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/383506309904860038",
+        "title": "【国服】职业书异节大全（职业书分类及对应副本）",
+        "evidence": "紫苑（ES）对应ES改典/AC典录列：布都御魂之改典"
+      }
+    ],
+    "note": "据国服职业材料对照图保留完整「之改典/之典录」原文。"
+  },
+  {
+    "id": 228,
+    "english": "Hecatoncheires Codex",
+    "chinese": "百腕巨人之改典",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/383506309904860038",
+        "title": "【国服】职业书异节大全（职业书分类及对应副本）",
+        "evidence": "梅丽娜（ES）对应ES改典/AC典录列：百腕巨人之改典"
+      }
+    ],
+    "note": "据国服职业材料对照图保留完整「之改典/之典录」原文。"
+  },
+  {
+    "id": 229,
+    "english": "Holy Sentinel Codex",
+    "chinese": "誓圣骑士之改典",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/383506309904860038",
+        "title": "【国服】职业书异节大全（职业书分类及对应副本）",
+        "evidence": "安娜贝尔（ES）对应ES改典/AC典录列：誓圣骑士之改典"
+      }
+    ],
+    "note": "据国服职业材料对照图保留完整「之改典/之典录」原文。"
+  },
+  {
+    "id": 230,
+    "english": "Justitia Codex",
+    "chinese": "正义女神之改典",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/383506309904860038",
+        "title": "【国服】职业书异节大全（职业书分类及对应副本）",
+        "evidence": "伊丝卡（ES）对应ES改典/AC典录列：正义女神之改典"
+      },
+      {
+        "url": "https://wiki.biligame.com/ae/%E4%BC%8A%E4%B8%9D%E5%8D%A1",
+        "title": "伊丝卡",
+        "evidence": "ES进阶材料具体列出正义女神之改典×5"
+      }
+    ],
+    "note": "据国服职业材料对照图保留完整「之改典/之典录」原文。"
+  },
+  {
+    "id": 231,
+    "english": "Kelkale Codex",
+    "chinese": "克琉凯尔之改典",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/383506309904860038",
+        "title": "【国服】职业书异节大全（职业书分类及对应副本）",
+        "evidence": "克罗德（ES）对应ES改典/AC典录列：克琉凯尔之改典"
+      }
+    ],
+    "note": "据国服职业材料对照图保留完整「之改典/之典录」原文。"
+  },
+  {
+    "id": 232,
+    "english": "Lucifer Codex",
+    "chinese": "路西法之改典",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/383506309904860038",
+        "title": "【国服】职业书异节大全（职业书分类及对应副本）",
+        "evidence": "修杰特（ES）对应ES改典/AC典录列：路西法之改典"
+      }
+    ],
+    "note": "据国服职业材料对照图保留完整「之改典/之典录」原文。"
+  },
+  {
+    "id": 233,
+    "english": "Nekomata Avatar Codex",
+    "chinese": "猫又权现之改典",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/383506309904860038",
+        "title": "【国服】职业书异节大全（职业书分类及对应副本）",
+        "evidence": "猫可可（ES）对应ES改典/AC典录列：猫又权现之改典"
+      }
+    ],
+    "note": "据国服职业材料对照图保留完整「之改典/之典录」原文。"
+  },
+  {
+    "id": 234,
+    "english": "Sacrament Codex",
+    "chinese": "神圣恩宠之改典",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/383506309904860038",
+        "title": "【国服】职业书异节大全（职业书分类及对应副本）",
+        "evidence": "琪路莉露（ES）对应ES改典/AC典录列：神圣恩宠之改典"
+      }
+    ],
+    "note": "据国服职业材料对照图保留完整「之改典/之典录」原文。"
+  },
+  {
+    "id": 235,
+    "english": "Shinatsuhime Codex",
+    "chinese": "志那都比古神之改典",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/383506309904860038",
+        "title": "【国服】职业书异节大全（职业书分类及对应副本）",
+        "evidence": "月华（ES）对应ES改典/AC典录列：志那都比古神之改典"
+      }
+    ],
+    "note": "据国服职业材料对照图保留完整「之改典/之典录」原文。"
+  },
+  {
+    "id": 236,
+    "english": "Unut Codex",
+    "chinese": "",
+    "status": "待核实",
+    "sources": [],
+    "note": "缪露丝ES的Unut Codex未出现在已取得国服对照图中，BWIKI基页改典字段为空模板，无法作为证据。"
+  },
+  {
+    "id": 237,
+    "english": "Ame-no-Uzume Opus",
+    "chinese": "天钿女命之典录",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/383506309904860038",
+        "title": "【国服】职业书异节大全（职业书分类及对应副本）",
+        "evidence": "雪乃（AC）对应ES改典/AC典录列：天钿女命之典录"
+      }
+    ],
+    "note": "据国服职业材料对照图保留完整「之改典/之典录」原文。"
+  },
+  {
+    "id": 238,
+    "english": "Briar Rose Opus",
+    "chinese": "玫瑰公主之典录",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/383506309904860038",
+        "title": "【国服】职业书异节大全（职业书分类及对应副本）",
+        "evidence": "希耶尼（AC）对应ES改典/AC典录列：玫瑰公主之典录"
+      }
+    ],
+    "note": "据国服职业材料对照图保留完整「之改典/之典录」原文。"
+  },
+  {
+    "id": 239,
+    "english": "Bête Théâtrale Opus",
+    "chinese": "戏剧之兽之典录",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/383506309904860038",
+        "title": "【国服】职业书异节大全（职业书分类及对应副本）",
+        "evidence": "洛基德（AC）对应ES改典/AC典录列：戏剧之兽之典录"
+      }
+    ],
+    "note": "据国服职业材料对照图保留完整「之改典/之典录」原文。"
+  },
+  {
+    "id": 240,
+    "english": "Chernobog Opus",
+    "chinese": "",
+    "status": "来源冲突待核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/383506309904860038",
+        "title": "【国服】职业书异节大全（职业书分类及对应副本）",
+        "evidence": "修杰特（AC）对应ES改典/AC典录列：黑色死神之典录"
+      },
+      {
+        "url": "https://wiki.biligame.com/ae/%E7%A2%A7%E5%85%89%E9%95%B0%E5%88%80%E6%89%8B",
+        "title": "碧光镰刀手",
+        "evidence": "对应异时层角色进阶材料：黑色死神的典录×3"
+      }
+    ],
+    "note": "候选1：黑色死神之典录（国服职业材料对照图）；候选2：黑色死神的典录（BWIKI对应异时层角色进阶材料）。根名一致，但「之/的」后缀冲突；无国服游戏材料截图消歧，主译名留空。"
+  },
+  {
+    "id": 241,
+    "english": "Daikokuten Opus",
+    "chinese": "大黑天之典录",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/383506309904860038",
+        "title": "【国服】职业书异节大全（职业书分类及对应副本）",
+        "evidence": "时雨（AC）对应ES改典/AC典录列：大黑天之典录"
+      }
+    ],
+    "note": "据国服职业材料对照图保留完整「之改典/之典录」原文。"
+  },
+  {
+    "id": 242,
+    "english": "Dicé Opus",
+    "chinese": "",
+    "status": "来源冲突待核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/383506309904860038",
+        "title": "【国服】职业书异节大全（职业书分类及对应副本）",
+        "evidence": "霞诺（AC）对应ES改典/AC典录列：狄刻之典录"
+      },
+      {
+        "url": "https://wiki.biligame.com/ae/%E6%AE%8B%E5%BD%B1%E4%BD%B3%E4%BA%BA",
+        "title": "残影佳人",
+        "evidence": "对应异时层角色进阶材料：狄刻的典录×3"
+      }
+    ],
+    "note": "候选1：狄刻之典录（国服职业材料对照图）；候选2：狄刻的典录（BWIKI对应异时层角色进阶材料）。根名一致，但「之/的」后缀冲突；无国服游戏材料截图消歧，主译名留空。"
+  },
+  {
+    "id": 243,
+    "english": "Enforcer Opus",
+    "chinese": "执行者之典录",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/383506309904860038",
+        "title": "【国服】职业书异节大全（职业书分类及对应副本）",
+        "evidence": "莲莉（AC）对应ES改典/AC典录列：执行者之典录"
+      }
+    ],
+    "note": "据国服职业材料对照图保留完整「之改典/之典录」原文。"
+  },
+  {
+    "id": 245,
+    "english": "Felis Lord Opus",
+    "chinese": "忍猫领主之典录",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/383506309904860038",
+        "title": "【国服】职业书异节大全（职业书分类及对应副本）",
+        "evidence": "燕（AC）对应ES改典/AC典录列：忍猫领主之典录"
+      }
+    ],
+    "note": "据国服职业材料对照图保留完整「之改典/之典录」原文。"
+  },
+  {
+    "id": 246,
+    "english": "Fraulein Opus",
+    "chinese": "",
+    "status": "来源冲突待核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/383506309904860038",
+        "title": "【国服】职业书异节大全（职业书分类及对应副本）",
+        "evidence": "希斯美娜（AC）对应ES改典/AC典录列：千金小姐之典录"
+      },
+      {
+        "url": "https://wiki.biligame.com/ae/%E6%9C%88%E5%8D%8E%E5%8D%83%E9%87%91",
+        "title": "月华千金",
+        "evidence": "对应异时层角色进阶材料：千金小姐的典录×3"
+      }
+    ],
+    "note": "候选1：千金小姐之典录（国服职业材料对照图）；候选2：千金小姐的典录（BWIKI对应异时层角色进阶材料）。根名一致，但「之/的」后缀冲突；无国服游戏材料截图消歧，主译名留空。"
+  },
+  {
+    "id": 247,
+    "english": "Jinni Opus",
+    "chinese": "",
+    "status": "来源冲突待核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/383506309904860038",
+        "title": "【国服】职业书异节大全（职业书分类及对应副本）",
+        "evidence": "明芳（AC）对应ES改典/AC典录列：精灵之典录"
+      },
+      {
+        "url": "https://wiki.biligame.com/ae/%E7%99%BD%E7%93%B7%E9%AD%94%E4%BA%BA",
+        "title": "白瓷魔人",
+        "evidence": "对应异时层角色进阶材料：精灵的典录×3"
+      }
+    ],
+    "note": "候选1：精灵之典录（国服职业材料对照图）；候选2：精灵的典录（BWIKI对应异时层角色进阶材料）。根名一致，但「之/的」后缀冲突；无国服游戏材料截图消歧，主译名留空。"
+  }
+]

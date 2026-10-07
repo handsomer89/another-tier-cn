@@ -1,0 +1,618 @@
+[
+  {
+    "类别": "诗篇",
+    "英文原文": "Flare Witch Psalms",
+    "中文译名（待填）": "",
+    "出现页数": "1",
+    "关联角色/形态": "毕维特",
+    "掉落地点或关联材料": "",
+    "难度（页面已汉化）": "",
+    "页面字段": "职业书",
+    "源文件（相对项目根目录）": "c/bivette/index.html",
+    "备注": "页面未列出掉落地点",
+    "id": 265,
+    "国服关联角色": [
+      "毕维特"
+    ],
+    "首次译文": {
+      "id": 265,
+      "english": "Flare Witch Psalms",
+      "chinese": "",
+      "status": "待核实",
+      "sources": [
+        {
+          "url": "https://wiki.biligame.com/ae/毕维特",
+          "title": "毕维特 - BWIKI",
+          "evidence": "★5进阶道具：火炎女巫的诗篇×10"
+        },
+        {
+          "url": "https://www.taptap.cn/moment/191516101861967332",
+          "title": "人物攻略毕维特五星",
+          "evidence": "进阶为★5火焰女巫后开启"
+        }
+      ],
+      "note": "BWIKI毕维特人物页材料“火炎女巫的诗篇”，但国服人物攻略与剧情页职阶为“火焰女巫”，炎/焰冲突待游戏截图核定。"
+    }
+  },
+  {
+    "类别": "职业书（Tome）",
+    "英文原文": "Alchemist Tome",
+    "中文译名（待填）": "",
+    "出现页数": "1",
+    "关联角色/形态": "诺诺鲁德",
+    "掉落地点或关联材料": "Beast King's Castle；Industrial Ruins；Toto Dreamland；Tower of Stars；Xeno-Domain",
+    "难度（页面已汉化）": "困难；困难 / 非常困难",
+    "页面字段": "职业书",
+    "源文件（相对项目根目录）": "c/nonold/index.html",
+    "备注": "",
+    "id": 5,
+    "国服关联角色": [
+      "诺诺鲁德"
+    ],
+    "首次译文": {
+      "id": 5,
+      "english": "Alchemist Tome",
+      "chinese": "炼金术师之书",
+      "status": "已核实",
+      "sources": [
+        {
+          "url": "https://wiki.biligame.com/ae/诺诺鲁德",
+          "title": "诺诺鲁德 - 另一个伊甸WIKI_BWIKI",
+          "evidence": "诺诺鲁德角色页★4道具名称：炼金术师之书×1"
+        }
+      ],
+      "note": ""
+    }
+  },
+  {
+    "类别": "职业书（Tome）",
+    "英文原文": "Assassin's Fist Tome",
+    "中文译名（待填）": "",
+    "出现页数": "1",
+    "关联角色/形态": "艾米",
+    "掉落地点或关联材料": "Beast King's Castle；Industrial Ruins；Miglance Castle；The Riftbreaker；Toto Dreamland；Tower of Stars",
+    "难度（页面已汉化）": "困难；困难 / 非常困难",
+    "页面字段": "职业书",
+    "源文件（相对项目根目录）": "c/amy/index.html",
+    "备注": "",
+    "id": 16,
+    "国服关联角色": [
+      "艾米"
+    ],
+    "首次译文": {
+      "id": 16,
+      "english": "Assassin's Fist Tome",
+      "chinese": "潜行拳手之书",
+      "status": "已核实",
+      "sources": [
+        {
+          "url": "https://wiki.biligame.com/ae/艾米",
+          "title": "艾米 - 另一个伊甸WIKI_BWIKI",
+          "evidence": "艾米角色页★4道具名称：潜行拳手之书×1"
+        }
+      ],
+      "note": ""
+    }
+  },
+  {
+    "类别": "职业书（Tome）",
+    "英文原文": "Bard Tome",
+    "中文译名（待填）": "",
+    "出现页数": "1",
+    "关联角色/形态": "希尔",
+    "掉落地点或关联材料": "Antiquity Zerberiya Continent: Crystal；Antiquity Zerberiya Continent: Shade；Antiquity Zerberiya Continent: Thunder；Beast King's Castle；Industrial Ruins；Man-eating Marsh；Sapient Complex: Midnight；Toto Dreamland；Tower of Stars；Xeno-Domain",
+    "难度（页面已汉化）": "困难；困难 / 非常困难；非常困难",
+    "页面字段": "职业书",
+    "源文件（相对项目根目录）": "c/ciel/index.html",
+    "备注": "",
+    "id": 18,
+    "国服关联角色": [
+      "希尔"
+    ],
+    "首次译文": {
+      "id": 18,
+      "english": "Bard Tome",
+      "chinese": "歌者之书",
+      "status": "已核实",
+      "sources": [
+        {
+          "url": "https://wiki.biligame.com/ae/希尔",
+          "title": "希尔 - 另一个伊甸WIKI_BWIKI",
+          "evidence": "希尔角色页★4道具名称：歌者之书×1"
+        }
+      ],
+      "note": ""
+    }
+  },
+  {
+    "类别": "职业书（Tome）",
+    "英文原文": "Bishop Tome",
+    "中文译名（待填）": "",
+    "出现页数": "1",
+    "关联角色/形态": "普莱",
+    "掉落地点或关联材料": "Antiquity Zerberiya Continent: Crystal；Antiquity Zerberiya Continent: Shade；Antiquity Zerberiya Continent: Thunder；Beast King's Castle；Corridor of Time Layers；Miglance Castle；Nadara Volcano；Sapient Complex: Midnight；Tower of Stars",
+    "难度（页面已汉化）": "困难；困难 / 非常困难；非常困难",
+    "页面字段": "职业书",
+    "源文件（相对项目根目录）": "c/prai/index.html",
+    "备注": "",
+    "id": 20,
+    "国服关联角色": [
+      "普莱"
+    ],
+    "首次译文": {
+      "id": 20,
+      "english": "Bishop Tome",
+      "chinese": "主教之书",
+      "status": "已核实",
+      "sources": [
+        {
+          "url": "https://wiki.biligame.com/ae/普莱",
+          "title": "普莱 - 另一个伊甸WIKI_BWIKI",
+          "evidence": "普莱角色页★4道具名称：主教之书×1"
+        }
+      ],
+      "note": ""
+    }
+  },
+  {
+    "类别": "职业书（Tome）",
+    "英文原文": "Bladesaint Tome",
+    "中文译名（待填）": "",
+    "出现页数": "1",
+    "关联角色/形态": "洁尔法妮",
+    "掉落地点或关联材料": "Xeno-Domain",
+    "难度（页面已汉化）": "非常困难",
+    "页面字段": "职业书",
+    "源文件（相对项目根目录）": "c/jillfunny/index.html",
+    "备注": "",
+    "id": 21,
+    "国服关联角色": [
+      "洁尔法妮"
+    ],
+    "首次译文": {
+      "id": 21,
+      "english": "Bladesaint Tome",
+      "chinese": "剑圣之书",
+      "status": "已核实",
+      "sources": [
+        {
+          "url": "https://www.taptap.cn/moment/490982939618709041",
+          "title": "全角色书籍掉落出处/规则 - TapTap 国服攻略",
+          "evidence": "异元晶控制所列表明确列 洁尔法妮：剑圣之书。"
+        }
+      ],
+      "note": ""
+    }
+  },
+  {
+    "类别": "职业书（Tome）",
+    "英文原文": "Diviner Tome",
+    "中文译名（待填）": "",
+    "出现页数": "1",
+    "关联角色/形态": "赛文",
+    "掉落地点或关联材料": "Beast King's Castle；Corridor of Time Layers；Industrial Ruins；Man-eating Marsh；Toto Dreamland；Tower of Stars",
+    "难度（页面已汉化）": "困难；困难 / 非常困难",
+    "页面字段": "职业书",
+    "源文件（相对项目根目录）": "c/sevyn/index.html",
+    "备注": "",
+    "id": 30,
+    "国服关联角色": [
+      "赛文"
+    ],
+    "首次译文": {
+      "id": 30,
+      "english": "Diviner Tome",
+      "chinese": "占卜师之书",
+      "status": "已核实",
+      "sources": [
+        {
+          "url": "https://wiki.biligame.com/ae/赛文",
+          "title": "赛文 - BWIKI",
+          "evidence": "赛文 ★4道具名称明确列 占卜师之书×1；此英文条目为四星职业书。"
+        }
+      ],
+      "note": ""
+    }
+  },
+  {
+    "类别": "职业书（Tome）",
+    "英文原文": "Era Blaster Tome",
+    "中文译名（待填）": "",
+    "出现页数": "1",
+    "关联角色/形态": "赫蕾娜",
+    "掉落地点或关联材料": "Industrial Ruins；The Riftbreaker；Toto Dreamland；Tower of Stars；Tower of Time",
+    "难度（页面已汉化）": "困难；困难 / 非常困难",
+    "页面字段": "职业书",
+    "源文件（相对项目根目录）": "c/helena/index.html",
+    "备注": "",
+    "id": 41,
+    "国服关联角色": [
+      "赫蕾娜"
+    ],
+    "首次译文": {
+      "id": 41,
+      "english": "Era Blaster Tome",
+      "chinese": "世纪毁灭者之书",
+      "status": "已核实",
+      "sources": [
+        {
+          "url": "https://wiki.biligame.com/ae/赫蕾娜",
+          "title": "赫蕾娜 - BWIKI",
+          "evidence": "赫蕾娜 ★4道具名称明确列 世纪毁灭者之书×1；此英文条目为四星职业书。"
+        }
+      ],
+      "note": ""
+    }
+  },
+  {
+    "类别": "职业书（Tome）",
+    "英文原文": "Griffin Lance Tome",
+    "中文译名（待填）": "",
+    "出现页数": "1",
+    "关联角色/形态": "布里亚",
+    "掉落地点或关联材料": "Burning Beast King's Castle；Man-eating Marsh；Nadara Volcano；Snake Liver Damaku；The Riftbreaker；Tower of Stars",
+    "难度（页面已汉化）": "困难；困难 / 非常困难",
+    "页面字段": "职业书",
+    "源文件（相对项目根目录）": "c/bria/index.html",
+    "备注": "",
+    "id": 51,
+    "国服关联角色": [
+      "布里亚"
+    ],
+    "首次译文": {
+      "id": 51,
+      "english": "Griffin Lance Tome",
+      "chinese": "狮鹫枪兵之书",
+      "status": "已核实",
+      "sources": [
+        {
+          "url": "https://wiki.biligame.com/ae/布里亚",
+          "title": "布里亚 - 另一个伊甸BWIKI",
+          "evidence": "★4道具名称：狮鹫枪兵之书×1；对应Griffin Lance四星职业，不是五星Areth’s Diamond职业。"
+        }
+      ],
+      "note": "已复核四星职业书，纠正误套同角色五星职业书。"
+    }
+  },
+  {
+    "类别": "职业书（Tome）",
+    "英文原文": "Magister Tome",
+    "中文译名（待填）": "",
+    "出现页数": "1",
+    "关联角色/形态": "伯特兰",
+    "掉落地点或关联材料": "Miglance Castle",
+    "难度（页面已汉化）": "非常困难",
+    "页面字段": "职业书",
+    "源文件（相对项目根目录）": "c/bertrand/index.html",
+    "备注": "",
+    "id": 73,
+    "国服关联角色": [
+      "伯特兰"
+    ],
+    "首次译文": {
+      "id": 73,
+      "english": "Magister Tome",
+      "chinese": "巨盾之书",
+      "status": "已核实",
+      "sources": [
+        {
+          "url": "https://wiki.biligame.com/ae/伯特兰",
+          "title": "伯特兰 - 另一个伊甸WIKI_BWIKI_哔哩哔哩",
+          "evidence": "伯特兰角色页进阶表列出巨盾之书×1。"
+        },
+        {
+          "url": "https://wiki.biligame.com/ae/五星职业书",
+          "title": "五星职业书 - 另一个伊甸WIKI_BWIKI_哔哩哔哩",
+          "evidence": "职业书列表：伯特兰 → 巨盾之书。"
+        }
+      ],
+      "note": ""
+    }
+  },
+  {
+    "类别": "职业书（Tome）",
+    "英文原文": "Mighty Maiden Tome",
+    "中文译名（待填）": "",
+    "出现页数": "1",
+    "关联角色/形态": "菲奈",
+    "掉落地点或关联材料": "Nadara Volcano",
+    "难度（页面已汉化）": "非常困难",
+    "页面字段": "职业书",
+    "源文件（相对项目根目录）": "c/feinne/index.html",
+    "备注": "",
+    "id": 77,
+    "国服关联角色": [
+      "菲奈"
+    ],
+    "首次译文": {
+      "id": 77,
+      "english": "Mighty Maiden Tome",
+      "chinese": "完美少女之书",
+      "status": "已核实",
+      "sources": [
+        {
+          "url": "https://wiki.biligame.com/ae/菲奈",
+          "title": "菲奈 - 另一个伊甸WIKI_BWIKI_哔哩哔哩",
+          "evidence": "菲奈角色页进阶表列出完美少女之书×1。"
+        }
+      ],
+      "note": "本项对应菲奈四星进阶道具，来源明确列完美少女之书；勿与五星尊贵的少女之诗篇混淆。"
+    }
+  },
+  {
+    "类别": "职业书（Tome）",
+    "英文原文": "Protector Tome",
+    "中文译名（待填）": "",
+    "出现页数": "1",
+    "关联角色/形态": "维娜",
+    "掉落地点或关联材料": "Man-eating Marsh",
+    "难度（页面已汉化）": "非常困难",
+    "页面字段": "职业书",
+    "源文件（相对项目根目录）": "c/veina/index.html",
+    "备注": "",
+    "id": 91,
+    "国服关联角色": [
+      "维娜"
+    ],
+    "首次译文": {
+      "id": 91,
+      "english": "Protector Tome",
+      "chinese": "以太法师之书",
+      "status": "已核实",
+      "sources": [
+        {
+          "url": "https://wiki.biligame.com/ae/%E7%BB%B4%E4%BC%8A%E5%A8%9C",
+          "title": "另一个伊甸BWIKI：维伊娜",
+          "evidence": "进阶材料：以太法师之书×1；国服人物名维伊娜对应网站Veina/维娜"
+        }
+      ],
+      "note": ""
+    }
+  },
+  {
+    "类别": "职业书（Tome）",
+    "英文原文": "Rune Knight Tome",
+    "中文译名（待填）": "",
+    "出现页数": "1",
+    "关联角色/形态": "米悠",
+    "掉落地点或关联材料": "Antiquity Zerberiya Continent: Crystal；Antiquity Zerberiya Continent: Shade；Antiquity Zerberiya Continent: Thunder；Nadara Volcano；Sapient Complex: Midnight；Snake Liver Damaku；Tower of Stars；Tower of Time；Xeno-Domain",
+    "难度（页面已汉化）": "困难；困难 / 非常困难；非常困难",
+    "页面字段": "职业书",
+    "源文件（相对项目根目录）": "c/miyu/index.html",
+    "备注": "",
+    "id": 95,
+    "国服关联角色": [
+      "米悠"
+    ],
+    "首次译文": {
+      "id": 95,
+      "english": "Rune Knight Tome",
+      "chinese": "符文骑士之书",
+      "status": "已核实",
+      "sources": [
+        {
+          "url": "https://wiki.biligame.com/ae/%E6%A2%85%E5%B0%94%E5%8C%B9%E8%8F%B2%E4%BA%9A",
+          "title": "另一个伊甸BWIKI：梅尔匹菲亚",
+          "evidence": "梅尔匹菲亚四星进阶材料明确列符文骑士之书×1；对应共享职业Rune Knight，网站米悠该行也为四星材料"
+        }
+      ],
+      "note": "同名共享职业材料，借梅尔匹菲亚四星进阶材料核对原文；需主代理交叉核对米悠四星职阶。"
+    }
+  },
+  {
+    "类别": "职业书（Tome）",
+    "英文原文": "Sword Master Tome",
+    "中文译名（待填）": "",
+    "出现页数": "1",
+    "关联角色/形态": "阿鲁多",
+    "掉落地点或关联材料": "Antiquity Zerberiya Continent: Crystal；Antiquity Zerberiya Continent: Shade；Antiquity Zerberiya Continent: Thunder；Corridor of Time Layers；Miglance Castle；Moonlight Forest；Sapient Complex: Midnight；Snake Liver Damaku；Tower of Stars",
+    "难度（页面已汉化）": "困难；困难 / 非常困难；非常困难",
+    "页面字段": "职业书",
+    "源文件（相对项目根目录）": "c/aldo/index.html",
+    "备注": "",
+    "id": 107,
+    "国服关联角色": [
+      "阿鲁多"
+    ],
+    "首次译文": {
+      "id": 107,
+      "english": "Sword Master Tome",
+      "chinese": "剑术大师之书",
+      "status": "已核实",
+      "sources": [
+        {
+          "url": "https://wiki.biligame.com/ae/剑术大师之书",
+          "title": "国服职业书/角色进阶材料表",
+          "evidence": "材料独立页名称明确为「剑术大师之书」；阿鲁多页面★4职业名为剑术大师。"
+        }
+      ],
+      "note": ""
+    }
+  },
+  {
+    "类别": "职业书（Tome）",
+    "英文原文": "Titan Tome",
+    "中文译名（待填）": "",
+    "出现页数": "1",
+    "关联角色/形态": "洛基德",
+    "掉落地点或关联材料": "Moonlight Forest",
+    "难度（页面已汉化）": "非常困难",
+    "页面字段": "职业书",
+    "源文件（相对项目根目录）": "c/lokido/index.html",
+    "备注": "",
+    "id": 109,
+    "国服关联角色": [
+      "洛基德"
+    ],
+    "首次译文": {
+      "id": 109,
+      "english": "Titan Tome",
+      "chinese": "白虎之书",
+      "status": "已核实",
+      "sources": [
+        {
+          "url": "https://wiki.biligame.com/ae/五星职业书",
+          "title": "国服职业书/角色进阶材料表",
+          "evidence": "洛基德对应条目列有「白虎之书」。"
+        }
+      ],
+      "note": ""
+    }
+  },
+  {
+    "类别": "职业书（Tome）",
+    "英文原文": "Warrior Tome",
+    "中文译名（待填）": "",
+    "出现页数": "1",
+    "关联角色/形态": "贝内迪特",
+    "掉落地点或关联材料": "Man-eating Marsh；Nadara Volcano；Snake Liver Damaku；Tower of Stars；Xeno-Domain",
+    "难度（页面已汉化）": "困难；困难 / 非常困难",
+    "页面字段": "职业书",
+    "源文件（相对项目根目录）": "c/benedict/index.html",
+    "备注": "",
+    "id": 113,
+    "国服关联角色": [
+      "贝内迪特"
+    ],
+    "首次译文": {
+      "id": 113,
+      "english": "Warrior Tome",
+      "chinese": "勇士之书",
+      "status": "已核实",
+      "sources": [
+        {
+          "url": "https://wiki.biligame.com/ae/贝尼迪特",
+          "title": "国服职业书/角色进阶材料表",
+          "evidence": "贝尼迪特角色页★3道具名称明确列「勇士之书×1」。"
+        }
+      ],
+      "note": "项目角色译名贝内迪特，对应国服资料名贝尼迪特。"
+    }
+  },
+  {
+    "类别": "职业书（Tome）",
+    "英文原文": "Wizard Tome",
+    "中文译名（待填）": "",
+    "出现页数": "2",
+    "关联角色/形态": "卡里尤；毕维特",
+    "掉落地点或关联材料": "Antiquity Zerberiya Continent: Crystal；Antiquity Zerberiya Continent: Shade；Antiquity Zerberiya Continent: Thunder；Miglance Castle；Nadara Volcano；Sapient Complex: Midnight；Snake Liver Damaku；Tower of Stars；Xeno-Domain",
+    "难度（页面已汉化）": "困难；困难 / 非常困难；非常困难",
+    "页面字段": "职业书",
+    "源文件（相对项目根目录）": "c/bivette/index.html\nc/gariyu/index.html",
+    "备注": "",
+    "id": 117,
+    "国服关联角色": [
+      "卡里尤",
+      "毕维特"
+    ],
+    "首次译文": {
+      "id": 117,
+      "english": "Wizard Tome",
+      "chinese": "巫师之书",
+      "status": "已核实",
+      "sources": [
+        {
+          "url": "https://wiki.biligame.com/ae/毕维特",
+          "title": "国服职业书/角色进阶材料表",
+          "evidence": "毕维特角色页★4道具明确列「巫师之书×1」，对应本表共用Wizard Tome。"
+        }
+      ],
+      "note": ""
+    }
+  },
+  {
+    "类别": "诗篇",
+    "英文原文": "Blacksmith Psalm",
+    "中文译名（待填）": "",
+    "出现页数": "1",
+    "关联角色/形态": "梅",
+    "掉落地点或关联材料": "",
+    "难度（页面已汉化）": "",
+    "页面字段": "职业书",
+    "源文件（相对项目根目录）": "c/may/index.html",
+    "备注": "页面未列出掉落地点",
+    "id": 261,
+    "国服关联角色": [
+      "梅"
+    ],
+    "首次译文": {
+      "id": 261,
+      "english": "Blacksmith Psalm",
+      "chinese": "铁匠的诗篇",
+      "status": "已核实",
+      "sources": [
+        {
+          "url": "https://wiki.biligame.com/ae/梅",
+          "title": "梅 - BWIKI",
+          "evidence": "★5进阶道具：铁匠的诗篇×30；群像昔日的英雄与誓约之铭文完成奖励"
+        }
+      ],
+      "note": "五星职业书汇总页错写“铁匠之书×1”；采用梅人物页实际“铁匠的诗篇×30”。"
+    }
+  },
+  {
+    "类别": "诗篇",
+    "英文原文": "Lumberjack Psalm",
+    "中文译名（待填）": "",
+    "出现页数": "1",
+    "关联角色/形态": "贝内迪特",
+    "掉落地点或关联材料": "",
+    "难度（页面已汉化）": "",
+    "页面字段": "职业书",
+    "源文件（相对项目根目录）": "c/benedict/index.html",
+    "备注": "页面未列出掉落地点",
+    "id": 267,
+    "国服关联角色": [
+      "贝内迪特"
+    ],
+    "首次译文": {
+      "id": 267,
+      "english": "Lumberjack Psalm",
+      "chinese": "伐木工人的诗篇",
+      "status": "已核实",
+      "sources": [
+        {
+          "url": "https://www.taptap.cn/moment/448450854358353186",
+          "title": "流程攻略群像将星之斧与覆铠之羊",
+          "evidence": "获得贝内迪特升阶道具“伐木工人的诗篇”×30"
+        },
+        {
+          "url": "https://wiki.biligame.com/ae/群像：将星之斧与覆铠之羊",
+          "title": "群像将星之斧与覆铠之羊 - BWIKI",
+          "evidence": "获得贝内迪特升阶道具“伐木工人的诗篇”×30"
+        }
+      ],
+      "note": "BWIKI人物页和五星汇总把材料写作“伐木工人之书×1”；国服群像流程明确奖励“伐木工人的诗篇×30”，采用实际任务奖励原文。"
+    }
+  },
+  {
+    "类别": "诗篇",
+    "英文原文": "Noble Maiden Psalm",
+    "中文译名（待填）": "",
+    "出现页数": "1",
+    "关联角色/形态": "菲奈",
+    "掉落地点或关联材料": "Underworld",
+    "难度（页面已汉化）": "困难",
+    "页面字段": "职业书",
+    "源文件（相对项目根目录）": "c/feinne/index.html",
+    "备注": "",
+    "id": 269,
+    "国服关联角色": [
+      "菲奈"
+    ],
+    "首次译文": {
+      "id": 269,
+      "english": "Noble Maiden Psalm",
+      "chinese": "尊贵的少女之诗篇",
+      "status": "已核实",
+      "sources": [
+        {
+          "url": "https://wiki.biligame.com/ae/菲奈",
+          "title": "菲奈",
+          "evidence": "「菲奈」页面进阶材料/职业书字段明确列有「尊贵的少女之诗篇」。"
+        }
+      ],
+      "note": ""
+    }
+  }
+]

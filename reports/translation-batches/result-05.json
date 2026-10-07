@@ -1,0 +1,285 @@
+[
+  {
+    "id": 82,
+    "english": "Nemesis Tome",
+    "chinese": "涅墨西斯之书",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/%E7%B1%B3%E5%A8%9C%E5%B0%94%E5%8D%A1",
+        "title": "另一个伊甸BWIKI：米娜尔卡",
+        "evidence": "进阶材料：涅墨西斯之书×1，平行迷宫次元战舰VH"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 83,
+    "english": "Ninetails Fox Tome",
+    "chinese": "九尾狐之书",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/%E7%9A%93%E6%9C%88",
+        "title": "另一个伊甸BWIKI：皓月",
+        "evidence": "进阶材料：九尾狐之书×1"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 84,
+    "english": "Nirvana Tome",
+    "chinese": "涅槃之书",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/383506309904860038",
+        "title": "国服职业书/异节大全",
+        "evidence": "国服职业书表：伊朵—NS五星职业书涅槃之书—纳达拉火山"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 85,
+    "english": "Oathmaiden Tome",
+    "chinese": "",
+    "status": "待核实",
+    "sources": [],
+    "note": "艾蕾诺亚BWIKI页面不存在，未找到誓约相关职业书的国服原文证据。"
+  },
+  {
+    "id": 86,
+    "english": "Octofighter Tome",
+    "chinese": "八爪杀手之书",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/%E5%A5%88%E5%B2%90",
+        "title": "另一个伊甸BWIKI：奈岐",
+        "evidence": "进阶材料：八爪杀手之书×1"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 87,
+    "english": "Oracle Tome",
+    "chinese": "巫女之书",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/382846966981198341",
+        "title": "国服职业书/异节大全",
+        "evidence": "国服职业大全：由奈—巫女之书；BWIKI五星职业书表亦列由奈—巫女之书"
+      },
+      {
+        "url": "https://wiki.biligame.com/ae/%E4%BA%94%E6%98%9F%E8%81%8C%E4%B8%9A%E4%B9%A6",
+        "title": "五星职业书",
+        "evidence": "BWIKI五星职业书表亦列由奈—巫女之书"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 88,
+    "english": "Oraculum Tome",
+    "chinese": "先知之书",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/%E6%A2%85%E5%B0%94%E5%8C%B9%E8%8F%B2%E4%BA%9A",
+        "title": "另一个伊甸BWIKI：梅尔匹菲亚",
+        "evidence": "进阶材料：先知之书×1，纳达拉火山VH"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 89,
+    "english": "Paladin Tome",
+    "chinese": "圣骑士之书",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/%E5%AE%89%E5%A8%9C%E8%B4%9D%E5%B0%94",
+        "title": "另一个伊甸BWIKI：安娜贝尔",
+        "evidence": "进阶材料：圣骑士之书×1"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 90,
+    "english": "Patriarch Tome",
+    "chinese": "宗主教之书",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/%E8%8E%89%E5%8D%A1",
+        "title": "另一个伊甸BWIKI：莉卡",
+        "evidence": "进阶材料：宗主教之书×1，平行迷宫H/VH；此为莉卡四星材料，非红衣游侠的诗篇"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 91,
+    "english": "Protector Tome",
+    "chinese": "以太法师之书",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/%E7%BB%B4%E4%BC%8A%E5%A8%9C",
+        "title": "另一个伊甸BWIKI：维伊娜",
+        "evidence": "进阶材料：以太法师之书×1；国服人物名维伊娜对应网站Veina/维娜"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 92,
+    "english": "Rakshasa Tome",
+    "chinese": "罗刹之书",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/%E5%A1%9E%E4%BC%8A%E6%8B%89%E6%96%AF",
+        "title": "另一个伊甸BWIKI：塞伊拉斯",
+        "evidence": "进阶材料：罗刹之书×1；茜页亦列罗刹之书×1"
+      },
+      {
+        "url": "https://wiki.biligame.com/ae/%E8%8C%9C",
+        "title": "茜",
+        "evidence": "四星进阶材料：罗刹之书×1"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 93,
+    "english": "Raven Tengu Tome",
+    "chinese": "鸦天狗之书",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/383506309904860038",
+        "title": "国服职业书/异节大全",
+        "evidence": "国服职业书表：伊津奈—NS五星职业书鸦天狗之书—月影森林"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 94,
+    "english": "Ring-Guided Tome",
+    "chinese": "",
+    "status": "待核实",
+    "sources": [],
+    "note": "联动角色帕特提欧/缇缇/赛拉斯的统一职业书未找到国服原文证据。"
+  },
+  {
+    "id": 95,
+    "english": "Rune Knight Tome",
+    "chinese": "符文骑士之书",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/%E6%A2%85%E5%B0%94%E5%8C%B9%E8%8F%B2%E4%BA%9A",
+        "title": "另一个伊甸BWIKI：梅尔匹菲亚",
+        "evidence": "梅尔匹菲亚四星进阶材料明确列符文骑士之书×1；对应共享职业Rune Knight，网站米悠该行也为四星材料"
+      }
+    ],
+    "note": "同名共享职业材料，借梅尔匹菲亚四星进阶材料核对原文；需主代理交叉核对米悠四星职阶。"
+  },
+  {
+    "id": 96,
+    "english": "Sanctus Tome",
+    "chinese": "神圣颂歌之书",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/%E4%BA%94%E6%98%9F%E8%81%8C%E4%B8%9A%E4%B9%A6",
+        "title": "另一个伊甸BWIKI：五星职业书",
+        "evidence": "五星职业书表：普莱★3~5—神圣颂歌之书×1—后传The Winged Prayer"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 97,
+    "english": "Shadow Lord Tome",
+    "chinese": "幻影领主之书",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/%E7%87%95",
+        "title": "另一个伊甸BWIKI：燕",
+        "evidence": "进阶材料：幻影领主之书×1，月影森林VH"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 98,
+    "english": "Sirenaria Tome",
+    "chinese": "人鱼乐伶之书",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/%E7%A2%A7%E7%90%AA%E5%8D%A1",
+        "title": "另一个伊甸BWIKI：碧琪卡",
+        "evidence": "进阶材料：人鱼乐伶之书×1，纳达拉火山VH/冰之海VH"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 99,
+    "english": "Skadi Tome",
+    "chinese": "寒冬巫女之书",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/%E8%8A%99%E6%9C%97%E5%A7%86%E6%8B%89%E6%AF%94%E4%B8%9D",
+        "title": "另一个伊甸BWIKI：芙朗姆拉比丝",
+        "evidence": "进阶材料：寒冬巫女之书×1，魔兽城"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 100,
+    "english": "Slayer Tome",
+    "chinese": "猎杀者之书",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/%E6%A2%85%E4%B8%BD%E8%8E%8E",
+        "title": "另一个伊甸BWIKI：梅丽莎",
+        "evidence": "进阶材料：猎杀者之书×1，工业都市废墟VH"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 101,
+    "english": "Soul Bringer Tome",
+    "chinese": "灵魂使者之书",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/382846966981198341",
+        "title": "国服职业书/异节大全",
+        "evidence": "国服职业大全：杜拿利斯—灵魂使者之书；BWIKI五星职业书表亦列杜拿利斯—灵魂使者之书"
+      },
+      {
+        "url": "https://wiki.biligame.com/ae/%E4%BA%94%E6%98%9F%E8%81%8C%E4%B8%9A%E4%B9%A6",
+        "title": "五星职业书",
+        "evidence": "BWIKI五星职业书表亦列杜拿利斯—灵魂使者之书"
+      }
+    ],
+    "note": ""
+  }
+]

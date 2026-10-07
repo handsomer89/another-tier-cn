@@ -1,0 +1,252 @@
+[
+  {
+    "id": 42,
+    "english": "Eurydice Tome",
+    "chinese": "",
+    "status": "待核实",
+    "sources": [],
+    "note": "已按网站中文角色纳入范围；尚未找到能核实国服职业书原文的公开证据。BWIKI对应角色页缺失或暂不可访问；未自行直译。"
+  },
+  {
+    "id": 43,
+    "english": "Fenrir Tome",
+    "chinese": "芬里尔之书",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/五星职业书",
+        "title": "五星职业书 - 另一个伊甸BWIKI",
+        "evidence": "赛丝塔对应职业书：芬里尔之书"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 44,
+    "english": "Flame Lord Tome",
+    "chinese": "火焰主宰者之书",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/五星职业书",
+        "title": "五星职业书 - 另一个伊甸BWIKI",
+        "evidence": "卡里尤对应职业书：火焰主宰者之书"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 45,
+    "english": "Galeforce Tome",
+    "chinese": "孤立者之书",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/五星职业书",
+        "title": "五星职业书 - 另一个伊甸BWIKI",
+        "evidence": "菲尔米娜对应职业书：孤立者之书"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 46,
+    "english": "Geomancer Tome",
+    "chinese": "地原法师之书",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/五星职业书",
+        "title": "五星职业书 - 另一个伊甸BWIKI",
+        "evidence": "多娃对应职业书：地原法师之书"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 47,
+    "english": "Goddess of Destiny Tome",
+    "chinese": "命运女神之书",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/月读",
+        "title": "月读 - 另一个伊甸BWIKI",
+        "evidence": "★5进阶条件：成长之星收集奖励获得“命运女神之书”。"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 48,
+    "english": "Golden Flower Cat Tome",
+    "chinese": "金花猫之书",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/五星职业书",
+        "title": "五星职业书 - 另一个伊甸BWIKI",
+        "evidence": "猫可可对应职业书：金花猫之书"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 49,
+    "english": "Grand General Tome",
+    "chinese": "",
+    "status": "待核实",
+    "sources": [],
+    "note": "已按网站中文角色纳入范围；尚未找到能核实国服职业书原文的公开证据。BWIKI对应角色页缺失或暂不可访问；未自行直译。"
+  },
+  {
+    "id": 50,
+    "english": "Gray Hound Tome",
+    "chinese": "灵缇之书",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/五星职业书",
+        "title": "五星职业书 - 另一个伊甸BWIKI",
+        "evidence": "哈迪对应职业书：灵缇之书"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 51,
+    "english": "Griffin Lance Tome",
+    "chinese": "狮鹫枪兵之书",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/布里亚",
+        "title": "布里亚 - 另一个伊甸BWIKI",
+        "evidence": "★4道具名称：狮鹫枪兵之书×1；对应Griffin Lance四星职业，不是五星Areth’s Diamond职业。"
+      }
+    ],
+    "note": "已复核四星职业书，纠正误套同角色五星职业书。"
+  },
+  {
+    "id": 52,
+    "english": "Grim Reaper Tome",
+    "chinese": "死神之书",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/五星职业书",
+        "title": "五星职业书 - 另一个伊甸BWIKI",
+        "evidence": "伊露露对应职业书：死神之书"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 53,
+    "english": "Grimoire Tome",
+    "chinese": "魔法目录之书",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/五星职业书",
+        "title": "五星职业书 - 另一个伊甸BWIKI",
+        "evidence": "辛西娅对应职业书：魔法目录之书"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 54,
+    "english": "Hermes Tome",
+    "chinese": "",
+    "status": "待核实",
+    "sources": [],
+    "note": "已按网站中文角色纳入范围；尚未找到能核实国服职业书原文的公开证据。BWIKI对应角色页缺失或暂不可访问；未自行直译。"
+  },
+  {
+    "id": 55,
+    "english": "Hierophant Tome",
+    "chinese": "教皇之书",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/五星职业书",
+        "title": "五星职业书 - 另一个伊甸BWIKI",
+        "evidence": "玛丽埃尔对应职业书：教皇之书"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 56,
+    "english": "Hihayahi Tome",
+    "chinese": "",
+    "status": "待核实",
+    "sources": [],
+    "note": "已按网站中文角色纳入范围；尚未找到能核实国服职业书原文的公开证据。BWIKI对应角色页缺失或暂不可访问；未自行直译。"
+  },
+  {
+    "id": 57,
+    "english": "Hoplon Delta Tome",
+    "chinese": "",
+    "status": "待核实",
+    "sources": [],
+    "note": "已按网站中文角色纳入范围；尚未找到能核实国服职业书原文的公开证据。BWIKI对应角色页缺失或暂不可访问；未自行直译。"
+  },
+  {
+    "id": 58,
+    "english": "Hrungnir Tome",
+    "chinese": "赫朗格尼尔之书",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/五星职业书",
+        "title": "五星职业书 - 另一个伊甸BWIKI",
+        "evidence": "格拉姆巴雷尔对应职业书：赫朗格尼尔之书"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 59,
+    "english": "Indra Tome",
+    "chinese": "因陀罗之书",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/五星职业书",
+        "title": "五星职业书 - 另一个伊甸BWIKI",
+        "evidence": "维克多对应职业书：因陀罗之书"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 60,
+    "english": "Inspector Tome",
+    "chinese": "检察官之书",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/五星职业书",
+        "title": "五星职业书 - 另一个伊甸BWIKI",
+        "evidence": "莲莉对应职业书：检察官之书"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 61,
+    "english": "Isaiah Tome",
+    "chinese": "以赛亚之书",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/五星职业书",
+        "title": "五星职业书 - 另一个伊甸BWIKI",
+        "evidence": "米斯特蕾娅对应职业书：以赛亚之书"
+      }
+    ],
+    "note": ""
+  }
+]

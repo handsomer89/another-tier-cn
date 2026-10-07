@@ -60,6 +60,14 @@ def main() -> int:
         terms = json.loads((ROOT / "data" / "cn-terms.json").read_text(encoding="utf-8"))
         if len(ui) != 48 or sum(len(group) for group in terms.values()) != 152:
             raise ValueError("Workbook copy mappings are incomplete; expected 48 UI strings and 152 terms")
+        from cn_verified import VerifiedHtml, verified_data
+        verified = json.loads((ROOT / "data/cn-verified.json").read_text(encoding="utf-8"))
+        if verified != verified_data(ROOT):
+            raise ValueError("Verified translations differ from audited CSV sources")
+        verified_runtime = (ROOT / "assets/cn-verified.js").read_text(encoding="utf-8")
+        serialized = json.dumps(verified, ensure_ascii=False, separators=(",", ":"))
+        if "export const cnVerified=" + serialized + ";" not in verified_runtime:
+            raise ValueError("Verified browser mappings are out of date")
         ui_runtime = (ROOT / "assets" / "cn-ui.js").read_text(encoding="utf-8")
         terms_runtime = (ROOT / "assets" / "cn-terms.js").read_text(encoding="utf-8")
         if "export const cnUi" not in ui_runtime or "export function translateUi" not in ui_runtime:
@@ -72,8 +80,8 @@ def main() -> int:
             "card display and search": "cnNames[",
             "Chinese name search": "It(cnNames[t.name]??t.name).includes(n)",
             "character detail title": "children:cnNames[r.name]??r.name",
-            "localized tier filter personalities": "label:cnTerms.personalities[e]??e",
-            "localized detail personalities": "children:cnTerms.personalities[e]??e",
+            "localized tier filter personalities": 'label:cnTerms.personalities[e]??translateVerified("personalities",e)',
+            "localized detail personalities": 'children:cnTerms.personalities[e]??translateVerified("personalities",e,character)',
             "localized detail roles": "cnTerms.roles[t]??t",
             "localized detail weapons": "cnTerms.weapons[m[r.weapon]]??m[r.weapon]",
             "localized detail tiers": "cnTerms.tiers[r.tierSA]??r.tierSA",
@@ -95,6 +103,11 @@ def main() -> int:
             page = path.read_text(encoding="utf-8")
             if path.relative_to(ROOT).parts[:1] == ("c",):
                 detail_pages += 1
+                verified_parser = VerifiedHtml(page, verified)
+                verified_parser.feed(page)
+                verified_parser.close()
+                if verified_parser.edits:
+                    raise ValueError(f"Verified translations missing in visible detail fields: {path.relative_to(ROOT)}")
                 if "定位" not in page or "个性" not in page:
                     raise ValueError(f"Character detail copy is not localized: {path.relative_to(ROOT)}")
             if '<html lang="zh-CN"' not in page:
@@ -108,6 +121,7 @@ def main() -> int:
             preview = ", ".join(f"{name} ({count})" for name, count in list(remaining.items())[:20])
             raise ValueError(f"English names remain in visible HTML text or alt attributes: {preview}")
 
+        print(f"[OK] {sum(map(len, verified.values()))} verified mappings match audit sources and visible detail fields")
         print(f"[OK] {len(names)} name mappings, {len(ui)} UI strings, {sum(len(group) for group in terms.values())} terms")
         print(f"[OK] {detail_pages} character pages and {len(pages)} rendered pages, browser display/search/copy patches verified")
         return 0

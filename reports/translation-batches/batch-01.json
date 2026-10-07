@@ -1,0 +1,322 @@
+[
+  {
+    "类别": "职业书（Tome）",
+    "英文原文": "Abyssal Devotee Tome",
+    "中文译名（待填）": "",
+    "出现页数": "1",
+    "关联角色/形态": "琪路莉露",
+    "掉落地点或关联材料": "Antiquity Zerberiya Continent: Crystal；Antiquity Zerberiya Continent: Shade；Antiquity Zerberiya Continent: Thunder；City of Lost Paradise；Nadara Volcano",
+    "难度（页面已汉化）": "非常困难",
+    "页面字段": "职业书",
+    "源文件（相对项目根目录）": "c/thillelille/index.html",
+    "备注": "",
+    "id": 1,
+    "国服关联角色": [
+      "琪路莉露"
+    ]
+  },
+  {
+    "类别": "职业书（Tome）",
+    "英文原文": "Admiral Tome",
+    "中文译名（待填）": "",
+    "出现页数": "1",
+    "关联角色/形态": "伊丝卡",
+    "掉落地点或关联材料": "Iscariot；Sapient Complex: Midnight；Xeno-Domain",
+    "难度（页面已汉化）": "非常困难",
+    "页面字段": "职业书",
+    "源文件（相对项目根目录）": "c/isuka/index.html",
+    "备注": "",
+    "id": 2,
+    "国服关联角色": [
+      "伊丝卡"
+    ]
+  },
+  {
+    "类别": "职业书（Tome）",
+    "英文原文": "Agent Tome",
+    "中文译名（待填）": "",
+    "出现页数": "1",
+    "关联角色/形态": "赛迪",
+    "掉落地点或关联材料": "Xeno-Domain",
+    "难度（页面已汉化）": "非常困难",
+    "页面字段": "职业书",
+    "源文件（相对项目根目录）": "c/cetie/index.html",
+    "备注": "",
+    "id": 3,
+    "国服关联角色": [
+      "赛迪"
+    ]
+  },
+  {
+    "类别": "职业书（Tome）",
+    "英文原文": "Aima-Arravones Tome",
+    "中文译名（待填）": "",
+    "出现页数": "1",
+    "关联角色/形态": "米露莎",
+    "掉落地点或关联材料": "Antiquity Zerberiya Continent: Crystal；Antiquity Zerberiya Continent: Shade；Antiquity Zerberiya Continent: Thunder；City of Lost Paradise；Man-eating Marsh",
+    "难度（页面已汉化）": "非常困难",
+    "页面字段": "职业书",
+    "源文件（相对项目根目录）": "c/milsha/index.html",
+    "备注": "",
+    "id": 4,
+    "国服关联角色": [
+      "米露莎"
+    ]
+  },
+  {
+    "类别": "职业书（Tome）",
+    "英文原文": "Alchemist Tome",
+    "中文译名（待填）": "",
+    "出现页数": "1",
+    "关联角色/形态": "诺诺鲁德",
+    "掉落地点或关联材料": "Beast King's Castle；Industrial Ruins；Toto Dreamland；Tower of Stars；Xeno-Domain",
+    "难度（页面已汉化）": "困难；困难 / 非常困难",
+    "页面字段": "职业书",
+    "源文件（相对项目根目录）": "c/nonold/index.html",
+    "备注": "",
+    "id": 5,
+    "国服关联角色": [
+      "诺诺鲁德"
+    ]
+  },
+  {
+    "类别": "职业书（Tome）",
+    "英文原文": "Alphecca Tome",
+    "中文译名（待填）": "",
+    "出现页数": "1",
+    "关联角色/形态": "米尔蒂",
+    "掉落地点或关联材料": "Xeno-Domain",
+    "难度（页面已汉化）": "非常困难",
+    "页面字段": "职业书",
+    "源文件（相对项目根目录）": "c/mildy/index.html",
+    "备注": "",
+    "id": 6,
+    "国服关联角色": [
+      "米尔蒂"
+    ]
+  },
+  {
+    "类别": "职业书（Tome）",
+    "英文原文": "Amaranth Tome",
+    "中文译名（待填）": "",
+    "出现页数": "1",
+    "关联角色/形态": "诺诺鲁德",
+    "掉落地点或关联材料": "",
+    "难度（页面已汉化）": "",
+    "页面字段": "职业书",
+    "源文件（相对项目根目录）": "c/nonold/index.html",
+    "备注": "页面未列出掉落地点",
+    "id": 7,
+    "国服关联角色": [
+      "诺诺鲁德"
+    ]
+  },
+  {
+    "类别": "职业书（Tome）",
+    "英文原文": "Ameretat Tome",
+    "中文译名（待填）": "",
+    "出现页数": "1",
+    "关联角色/形态": "菲罗",
+    "掉落地点或关联材料": "Toto Dreamland",
+    "难度（页面已汉化）": "非常困难",
+    "页面字段": "职业书",
+    "源文件（相对项目根目录）": "c/philo/index.html",
+    "备注": "",
+    "id": 8,
+    "国服关联角色": [
+      "菲罗"
+    ]
+  },
+  {
+    "类别": "职业书（Tome）",
+    "英文原文": "Anomaly Debris Tome",
+    "中文译名（待填）": "",
+    "出现页数": "1",
+    "关联角色/形态": "妮路亚",
+    "掉落地点或关联材料": "The Riftbreaker",
+    "难度（页面已汉化）": "非常困难",
+    "页面字段": "职业书",
+    "源文件（相对项目根目录）": "c/nilya/index.html",
+    "备注": "",
+    "id": 9,
+    "国服关联角色": [
+      "妮路亚"
+    ]
+  },
+  {
+    "类别": "职业书（Tome）",
+    "英文原文": "Aqua Ruler Tome",
+    "中文译名（待填）": "",
+    "出现页数": "1",
+    "关联角色/形态": "麦提",
+    "掉落地点或关联材料": "Industrial Ruins",
+    "难度（页面已汉化）": "非常困难",
+    "页面字段": "职业书",
+    "源文件（相对项目根目录）": "c/mighty/index.html",
+    "备注": "",
+    "id": 10,
+    "国服关联角色": [
+      "麦提"
+    ]
+  },
+  {
+    "类别": "职业书（Tome）",
+    "英文原文": "Arachne Tome",
+    "中文译名（待填）": "",
+    "出现页数": "1",
+    "关联角色/形态": "妮娜",
+    "掉落地点或关联材料": "Industrial Ruins",
+    "难度（页面已汉化）": "非常困难",
+    "页面字段": "职业书",
+    "源文件（相对项目根目录）": "c/nina/index.html",
+    "备注": "",
+    "id": 11,
+    "国服关联角色": [
+      "妮娜"
+    ]
+  },
+  {
+    "类别": "职业书（Tome）",
+    "英文原文": "Arc Knight Tome",
+    "中文译名（待填）": "",
+    "出现页数": "1",
+    "关联角色/形态": "希耶尼",
+    "掉落地点或关联材料": "The Riftbreaker",
+    "难度（页面已汉化）": "非常困难",
+    "页面字段": "职业书",
+    "源文件（相对项目根目录）": "c/shanie/index.html",
+    "备注": "",
+    "id": 12,
+    "国服关联角色": [
+      "希耶尼"
+    ]
+  },
+  {
+    "类别": "职业书（Tome）",
+    "英文原文": "Arcturus Tome",
+    "中文译名（待填）": "",
+    "出现页数": "1",
+    "关联角色/形态": "克拉格霍恩",
+    "掉落地点或关联材料": "Industrial Ruins",
+    "难度（页面已汉化）": "非常困难",
+    "页面字段": "职业书",
+    "源文件（相对项目根目录）": "c/clughorn/index.html",
+    "备注": "",
+    "id": 13,
+    "国服关联角色": [
+      "克拉格霍恩"
+    ]
+  },
+  {
+    "类别": "职业书（Tome）",
+    "英文原文": "Areth's Diamond Tome",
+    "中文译名（待填）": "",
+    "出现页数": "1",
+    "关联角色/形态": "布里亚",
+    "掉落地点或关联材料": "Burning Beast King's Castle",
+    "难度（页面已汉化）": "非常困难",
+    "页面字段": "职业书",
+    "源文件（相对项目根目录）": "c/bria/index.html",
+    "备注": "",
+    "id": 14,
+    "国服关联角色": [
+      "布里亚"
+    ]
+  },
+  {
+    "类别": "职业书（Tome）",
+    "英文原文": "Armiger Tome",
+    "中文译名（待填）": "",
+    "出现页数": "1",
+    "关联角色/形态": "克罗德",
+    "掉落地点或关联材料": "Industrial Ruins",
+    "难度（页面已汉化）": "非常困难",
+    "页面字段": "职业书",
+    "源文件（相对项目根目录）": "c/claude/index.html",
+    "备注": "",
+    "id": 15,
+    "国服关联角色": [
+      "克罗德"
+    ]
+  },
+  {
+    "类别": "职业书（Tome）",
+    "英文原文": "Assassin's Fist Tome",
+    "中文译名（待填）": "",
+    "出现页数": "1",
+    "关联角色/形态": "艾米",
+    "掉落地点或关联材料": "Beast King's Castle；Industrial Ruins；Miglance Castle；The Riftbreaker；Toto Dreamland；Tower of Stars",
+    "难度（页面已汉化）": "困难；困难 / 非常困难",
+    "页面字段": "职业书",
+    "源文件（相对项目根目录）": "c/amy/index.html",
+    "备注": "",
+    "id": 16,
+    "国服关联角色": [
+      "艾米"
+    ]
+  },
+  {
+    "类别": "职业书（Tome）",
+    "英文原文": "Atlas Tome",
+    "中文译名（待填）": "",
+    "出现页数": "1",
+    "关联角色/形态": "巴雷斯",
+    "掉落地点或关联材料": "Snake Liver Damaku",
+    "难度（页面已汉化）": "非常困难",
+    "页面字段": "职业书",
+    "源文件（相对项目根目录）": "c/vares/index.html",
+    "备注": "",
+    "id": 17,
+    "国服关联角色": [
+      "巴雷斯"
+    ]
+  },
+  {
+    "类别": "职业书（Tome）",
+    "英文原文": "Bard Tome",
+    "中文译名（待填）": "",
+    "出现页数": "1",
+    "关联角色/形态": "希尔",
+    "掉落地点或关联材料": "Antiquity Zerberiya Continent: Crystal；Antiquity Zerberiya Continent: Shade；Antiquity Zerberiya Continent: Thunder；Beast King's Castle；Industrial Ruins；Man-eating Marsh；Sapient Complex: Midnight；Toto Dreamland；Tower of Stars；Xeno-Domain",
+    "难度（页面已汉化）": "困难；困难 / 非常困难；非常困难",
+    "页面字段": "职业书",
+    "源文件（相对项目根目录）": "c/ciel/index.html",
+    "备注": "",
+    "id": 18,
+    "国服关联角色": [
+      "希尔"
+    ]
+  },
+  {
+    "类别": "职业书（Tome）",
+    "英文原文": "Bastet Tome",
+    "中文译名（待填）": "",
+    "出现页数": "1",
+    "关联角色/形态": "美丽特",
+    "掉落地点或关联材料": "",
+    "难度（页面已汉化）": "",
+    "页面字段": "职业书",
+    "源文件（相对项目根目录）": "c/meryt/index.html",
+    "备注": "页面未列出掉落地点",
+    "id": 19,
+    "国服关联角色": [
+      "美丽特"
+    ]
+  },
+  {
+    "类别": "职业书（Tome）",
+    "英文原文": "Bishop Tome",
+    "中文译名（待填）": "",
+    "出现页数": "1",
+    "关联角色/形态": "普莱",
+    "掉落地点或关联材料": "Antiquity Zerberiya Continent: Crystal；Antiquity Zerberiya Continent: Shade；Antiquity Zerberiya Continent: Thunder；Beast King's Castle；Corridor of Time Layers；Miglance Castle；Nadara Volcano；Sapient Complex: Midnight；Tower of Stars",
+    "难度（页面已汉化）": "困难；困难 / 非常困难；非常困难",
+    "页面字段": "职业书",
+    "源文件（相对项目根目录）": "c/prai/index.html",
+    "备注": "",
+    "id": 20,
+    "国服关联角色": [
+      "普莱"
+    ]
+  }
+]

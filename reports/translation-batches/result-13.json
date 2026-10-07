@@ -1,0 +1,306 @@
+[
+  {
+    "id": 248,
+    "english": "Miyabinokami Opus",
+    "chinese": "",
+    "status": "待核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/382846966981198341",
+        "title": "国服职业书整理图",
+        "evidence": "月华AC：宫比神之典录"
+      },
+      {
+        "url": "https://www.taptap.cn/moment/409676758355282086",
+        "title": "宫比神-AC月华攻略",
+        "evidence": "书籍名称：宫比神的典录"
+      }
+    ],
+    "note": "国服WS冬音表图写“宫比神之典录”，青衣AC月华攻略写“宫比神的典录”；之/的后缀冲突待核实。注意BWIKI月华千金实际为AC希斯美娜，不能套其千金小姐材料。"
+  },
+  {
+    "id": 249,
+    "english": "Muse Opus",
+    "chinese": "缪思之典录",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/383506309904860038",
+        "title": "五星职业书对应的角色以及掉落地点（Hikari_）",
+        "evidence": "2025年国服版本更新书表 希尔（AC） AC列：缪思之典录。图像https://img2-tc.tapimg.com/moment/etag/FntVJp3qbPN64ogttmNag0hT54Yv_20251116232028.jpg/_tap_ugc.jpg"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 250,
+    "english": "Omoikane Opus",
+    "chinese": "思兼神之典录",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/382846966981198341",
+        "title": "异节、改典、典录和对应角色五星职业书整理（WS冬音）",
+        "evidence": "声明全按国服翻译；表图 紫苑（AC） 对应列：思兼神之典录。图像https://img2-tc.tapimg.com/bbcode/etag/FkXLVjrDvj9aQ7m_3RhK3hFgsJVS.jpg/_tap_ugc.jpg"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 251,
+    "english": "Orpheus Opus",
+    "chinese": "奥菲斯之典录",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/383506309904860038",
+        "title": "五星职业书对应的角色以及掉落地点（Hikari_）",
+        "evidence": "2025年国服版本更新书表 杜拿利斯（AC） AC列：奥菲斯之典录。图像https://img2-tc.tapimg.com/moment/etag/FntVJp3qbPN64ogttmNag0hT54Yv_20251116232028.jpg/_tap_ugc.jpg"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 252,
+    "english": "Persephone Opus",
+    "chinese": "波瑟芬妮之典录",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/382846966981198341",
+        "title": "异节、改典、典录和对应角色五星职业书整理（WS冬音）",
+        "evidence": "声明全按国服翻译；表图 多娃（AC） 对应列：波瑟芬妮之典录。图像https://img2-tc.tapimg.com/bbcode/etag/FkXLVjrDvj9aQ7m_3RhK3hFgsJVS.jpg/_tap_ugc.jpg"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 253,
+    "english": "Red Scorpio Opus",
+    "chinese": "赤红天蝎之典录",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/382846966981198341",
+        "title": "异节、改典、典录和对应角色五星职业书整理（WS冬音）",
+        "evidence": "声明全按国服翻译；表图 杜伊（AC） 对应列：赤红天蝎之典录。图像https://img2-tc.tapimg.com/bbcode/etag/FkXLVjrDvj9aQ7m_3RhK3hFgsJVS.jpg/_tap_ugc.jpg"
+      },
+      {
+        "url": "https://www.taptap.cn/moment/400762895106837921",
+        "title": "国服玩家持有典录、异节、改典整理",
+        "evidence": "完整道具名与对应异时层角色：赤红天蝎之典录 赤套火焰使"
+      }
+    ],
+    "note": "BWIKI通用人物模板将后缀写“的典录”；国服实际掉落记录及国服书表写“之典录”，采用后者。"
+  },
+  {
+    "id": 254,
+    "english": "Resif Opus",
+    "chinese": "电矢瘟神之典录",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/382846966981198341",
+        "title": "异节、改典、典录和对应角色五星职业书整理（WS冬音）",
+        "evidence": "声明全按国服翻译；表图 普蕾米娅（AC） 对应列：电矢瘟神之典录。图像https://img2-tc.tapimg.com/bbcode/etag/FkXLVjrDvj9aQ7m_3RhK3hFgsJVS.jpg/_tap_ugc.jpg"
+      },
+      {
+        "url": "https://www.taptap.cn/moment/400762895106837921",
+        "title": "国服玩家持有典录、异节、改典整理",
+        "evidence": "完整道具名与对应异时层角色：电矢瘟神之典录 银织雷电使"
+      }
+    ],
+    "note": "BWIKI通用人物模板将后缀写“的典录”；国服实际持有清单及国服书表写“之典录”，采用后者。"
+  },
+  {
+    "id": 255,
+    "english": "Takuhatachiji Opus",
+    "chinese": "栲幡千千姬命之典录",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/383506309904860038",
+        "title": "五星职业书对应的角色以及掉落地点（Hikari_）",
+        "evidence": "2025年国服版本更新书表 茜（AC） AC列：栲幡千千姬命之典录。图像https://img2-tc.tapimg.com/moment/etag/FntVJp3qbPN64ogttmNag0hT54Yv_20251116232028.jpg/_tap_ugc.jpg"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 256,
+    "english": "Thanatos Opus",
+    "chinese": "达拿都斯之典录",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/383506309904860038",
+        "title": "五星职业书对应的角色以及掉落地点（Hikari_）",
+        "evidence": "2025年国服版本更新书表 伊露露（AC） AC列：达拿都斯之典录。图像https://img2-tc.tapimg.com/moment/etag/FntVJp3qbPN64ogttmNag0hT54Yv_20251116232028.jpg/_tap_ugc.jpg"
+      },
+      {
+        "url": "https://www.taptap.cn/moment/463333464234527714",
+        "title": "深绯收割者-AC伊露露攻略",
+        "evidence": "书籍名称：达拿都斯之典录"
+      }
+    ],
+    "note": "BWIKI通用人物模板写“的典录”；国服AC角色攻略、掉落记录和更新书表均写“之典录”，采用后者。"
+  },
+  {
+    "id": 257,
+    "english": "Ukanomitama Opus",
+    "chinese": "宇迦之御魂神之典录",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/383506309904860038",
+        "title": "五星职业书对应的角色以及掉落地点（Hikari_）",
+        "evidence": "2025年国服版本更新书表 皓月（AC） AC列：宇迦之御魂神之典录。图像https://img2-tc.tapimg.com/moment/etag/FntVJp3qbPN64ogttmNag0hT54Yv_20251116232028.jpg/_tap_ugc.jpg"
+      }
+    ],
+    "note": "BWIKI通用人物模板写“的典录”；国服更新书表与角色攻略写“之典录”，采用后者。"
+  },
+  {
+    "id": 258,
+    "english": "Voleur Opus",
+    "chinese": "神偷侠盗之典录",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/383506309904860038",
+        "title": "五星职业书对应的角色以及掉落地点（Hikari_）",
+        "evidence": "2025年国服版本更新书表 拉克雷娅（AC） AC列：神偷侠盗之典录。图像https://img2-tc.tapimg.com/moment/etag/FntVJp3qbPN64ogttmNag0hT54Yv_20251116232028.jpg/_tap_ugc.jpg"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 259,
+    "english": "Yin-Yang Cat Opus",
+    "chinese": "",
+    "status": "待核实",
+    "sources": [],
+    "note": "BWIKI猫可可页“金花猫之典录”是NS职阶套AC模板伪值；未找到Yin-Yang Cat对应完整国服道具原文。"
+  },
+  {
+    "id": 260,
+    "english": "Yuda Opus",
+    "chinese": "犹大之典录",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/382846966981198341",
+        "title": "异节、改典、典录和对应角色五星职业书整理（WS冬音）",
+        "evidence": "声明全按国服翻译；表图 伊丝卡（AC） 对应列：犹大之典录。图像https://img2-tc.tapimg.com/bbcode/etag/FkXLVjrDvj9aQ7m_3RhK3hFgsJVS.jpg/_tap_ugc.jpg"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 261,
+    "english": "Blacksmith Psalm",
+    "chinese": "铁匠的诗篇",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/梅",
+        "title": "梅 - BWIKI",
+        "evidence": "★5进阶道具：铁匠的诗篇×30；群像昔日的英雄与誓约之铭文完成奖励"
+      }
+    ],
+    "note": "五星职业书汇总页错写“铁匠之书×1”；采用梅人物页实际“铁匠的诗篇×30”。"
+  },
+  {
+    "id": 262,
+    "english": "Brave Storm Psalm",
+    "chinese": "无畏风暴的诗篇",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/382846966981198341",
+        "title": "异节、改典、典录和对应角色五星职业书整理（WS冬音）",
+        "evidence": "声明全按国服翻译；表图 塞伊拉斯 对应列：无畏风暴的诗篇。图像https://img2-tc.tapimg.com/bbcode/etag/FkXLVjrDvj9aQ7m_3RhK3hFgsJVS.jpg/_tap_ugc.jpg"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 263,
+    "english": "Brawler Psalm",
+    "chinese": "天神之拳的诗篇",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/382846966981198341",
+        "title": "异节、改典、典录和对应角色五星职业书整理（WS冬音）",
+        "evidence": "声明全按国服翻译；表图 艾米 对应列：天神之拳的诗篇。图像https://img2-tc.tapimg.com/bbcode/etag/FkXLVjrDvj9aQ7m_3RhK3hFgsJVS.jpg/_tap_ugc.jpg"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 264,
+    "english": "Dragon Bearer Psalms",
+    "chinese": "龙之使者的诗篇",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/382846966981198341",
+        "title": "异节、改典、典录和对应角色五星职业书整理（WS冬音）",
+        "evidence": "声明全按国服翻译；表图 阿鲁多 对应列：龙之使者的诗篇。图像https://img2-tc.tapimg.com/bbcode/etag/FkXLVjrDvj9aQ7m_3RhK3hFgsJVS.jpg/_tap_ugc.jpg"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 265,
+    "english": "Flare Witch Psalms",
+    "chinese": "",
+    "status": "待核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/毕维特",
+        "title": "毕维特 - BWIKI",
+        "evidence": "★5进阶道具：火炎女巫的诗篇×10"
+      },
+      {
+        "url": "https://www.taptap.cn/moment/191516101861967332",
+        "title": "人物攻略毕维特五星",
+        "evidence": "进阶为★5火焰女巫后开启"
+      }
+    ],
+    "note": "BWIKI毕维特人物页材料“火炎女巫的诗篇”，但国服人物攻略与剧情页职阶为“火焰女巫”，炎/焰冲突待游戏截图核定。"
+  },
+  {
+    "id": 266,
+    "english": "Gratinel Psalm",
+    "chinese": "红衣游侠的诗篇",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/382846966981198341",
+        "title": "异节、改典、典录和对应角色五星职业书整理（WS冬音）",
+        "evidence": "声明全按国服翻译；表图 莉卡 对应列：红衣游侠的诗篇。图像https://img2-tc.tapimg.com/bbcode/etag/FkXLVjrDvj9aQ7m_3RhK3hFgsJVS.jpg/_tap_ugc.jpg"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 267,
+    "english": "Lumberjack Psalm",
+    "chinese": "伐木工人的诗篇",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/448450854358353186",
+        "title": "流程攻略群像将星之斧与覆铠之羊",
+        "evidence": "获得贝内迪特升阶道具“伐木工人的诗篇”×30"
+      },
+      {
+        "url": "https://wiki.biligame.com/ae/群像：将星之斧与覆铠之羊",
+        "title": "群像将星之斧与覆铠之羊 - BWIKI",
+        "evidence": "获得贝内迪特升阶道具“伐木工人的诗篇”×30"
+      }
+    ],
+    "note": "BWIKI人物页和五星汇总把材料写作“伐木工人之书×1”；国服群像流程明确奖励“伐木工人的诗篇×30”，采用实际任务奖励原文。"
+  }
+]

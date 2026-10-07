@@ -1,0 +1,292 @@
+[
+  {
+    "id": 268,
+    "english": "Melodist Psalm",
+    "chinese": "天使的诗篇",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/希尔",
+        "title": "希尔",
+        "evidence": "「希尔」页面进阶材料/职业书字段明确列有「天使的诗篇」。"
+      },
+      {
+        "url": "https://www.taptap.cn/moment/490982939618709041",
+        "title": "国服全角色书籍掉落出处/规则",
+        "evidence": "宫中庭园：天使的诗篇（希尔）。"
+      }
+    ],
+    "note": "五星职业书旧总表写天琴座的诗篇；按国服希尔角色页和青衣国服全书表均为天使的诗篇。"
+  },
+  {
+    "id": 269,
+    "english": "Noble Maiden Psalm",
+    "chinese": "尊贵的少女之诗篇",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/菲奈",
+        "title": "菲奈",
+        "evidence": "「菲奈」页面进阶材料/职业书字段明确列有「尊贵的少女之诗篇」。"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 270,
+    "english": "Princess Psalm",
+    "chinese": "公主的诗篇",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/米悠",
+        "title": "米悠",
+        "evidence": "「米悠」页面进阶材料/职业书字段明确列有「公主的诗篇」。"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 271,
+    "english": "Sovereign Psalm",
+    "chinese": "魔王的诗篇",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/吉尔德纳",
+        "title": "吉尔德纳",
+        "evidence": "「吉尔德纳」页面进阶材料/职业书字段明确列有「魔王的诗篇」。"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 272,
+    "english": "Xeno-Legion Psalm",
+    "chinese": "异元晶军团的诗篇",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/赫蕾娜",
+        "title": "赫蕾娜",
+        "evidence": "「赫蕾娜」页面进阶材料/职业书字段明确列有「异元晶军团的诗篇」。"
+      },
+      {
+        "url": "https://www.taptap.cn/moment/382846966981198341",
+        "title": "国服职业书图表",
+        "evidence": "赫蕾娜行NS材料列为异元晶军团的诗篇。"
+      }
+    ],
+    "note": "保留国服角色页及国服2023职业表「异元晶军团」原文；未采用其他资料「异次元军团」或旧译杰诺军团。"
+  },
+  {
+    "id": 273,
+    "english": "Angelic Record",
+    "chinese": "天使少女的史籍",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/柯蕾特",
+        "title": "柯蕾特",
+        "evidence": "柯蕾特角色页「获取进阶书」明确列「天使少女的史籍」。"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 274,
+    "english": "Blazing Sword Record",
+    "chinese": "火焰之剑的史籍",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/奥尔芬",
+        "title": "奥尔芬",
+        "evidence": "奥尔芬角色页「获取进阶书」明确列「火焰之剑的史籍」。"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 275,
+    "english": "Empress Crowe Record",
+    "chinese": "女皇之爪的史籍",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/薇尔贝特",
+        "title": "薇尔贝特",
+        "evidence": "薇尔贝特角色页「获取进阶书」明确列「女皇之爪的史籍」。"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 276,
+    "english": "Eternal Swordsman Record",
+    "chinese": "时空剑士的史籍",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/克雷斯",
+        "title": "克雷斯",
+        "evidence": "克雷斯角色页「获取进阶书」明确列「时空剑士的史籍」。"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 277,
+    "english": "Holy Sword Record",
+    "chinese": "武藏的史籍",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/罗伊德",
+        "title": "罗伊德",
+        "evidence": "罗伊德角色页「获取进阶书」明确列「武藏的史籍」。"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 278,
+    "english": "Legendary Swordsman Record",
+    "chinese": "剑神的史籍",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/尤利",
+        "title": "尤利",
+        "evidence": "尤利角色页「获取进阶书」明确列「剑神的史籍」。"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 279,
+    "english": "Lord of Spirits Record",
+    "chinese": "精灵之主的史籍",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/米拉",
+        "title": "米拉",
+        "evidence": "米拉角色页「获取进阶书」明确列「精灵之主的史籍」。"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 280,
+    "english": "Thorny Woman Record",
+    "chinese": "<荆棘>之女的史籍",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/希侬",
+        "title": "希侬",
+        "evidence": "希侬角色页「获取进阶书」明确列「<荆棘>之女的史籍」。"
+      }
+    ],
+    "note": "尖括号按来源原文保留。"
+  },
+  {
+    "id": 282,
+    "english": "Special Ops Tome",
+    "chinese": "特战员之书",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/848890057719809722",
+        "title": "国服2026年9月16日维护更新公告",
+        "evidence": "国服官方2026年9月16日维护公告：通关VERY HARD可得解锁洛贝拉5★职业所需「特战员之书」。"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 283,
+    "english": "Antiquity Zerberiya Continent: Crystal",
+    "chinese": "古代席尔贝利亚大陆 晶",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/平行迷宫：古代席尔贝利亚大陆_晶",
+        "title": "平行迷宫：古代席尔贝利亚大陆_晶",
+        "evidence": "国服BWIKI副本独立页标题为「平行迷宫：古代席尔贝利亚大陆 晶」，分别对应晶/阴/雷维度。"
+      }
+    ],
+    "note": "保留属性维度，不能合并为无属性的古代席尔贝利亚大陆。"
+  },
+  {
+    "id": 284,
+    "english": "Antiquity Zerberiya Continent: Shade",
+    "chinese": "古代席尔贝利亚大陆 阴",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/平行迷宫：古代席尔贝利亚大陆_阴",
+        "title": "平行迷宫：古代席尔贝利亚大陆_阴",
+        "evidence": "国服BWIKI副本独立页标题为「平行迷宫：古代席尔贝利亚大陆 阴」，分别对应晶/阴/雷维度。"
+      }
+    ],
+    "note": "保留属性维度，不能合并为无属性的古代席尔贝利亚大陆。"
+  },
+  {
+    "id": 285,
+    "english": "Antiquity Zerberiya Continent: Thunder",
+    "chinese": "古代席尔贝利亚大陆 雷",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/平行迷宫：古代席尔贝利亚大陆_雷",
+        "title": "平行迷宫：古代席尔贝利亚大陆_雷",
+        "evidence": "国服BWIKI副本独立页标题为「平行迷宫：古代席尔贝利亚大陆 雷」，分别对应晶/阴/雷维度。"
+      }
+    ],
+    "note": "保留属性维度，不能合并为无属性的古代席尔贝利亚大陆。"
+  },
+  {
+    "id": 286,
+    "english": "Beast King's Castle",
+    "chinese": "魔兽城",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/平行迷宫：魔兽城",
+        "title": "平行迷宫：魔兽城",
+        "evidence": "国服BWIKI独立副本页面标题「平行迷宫：魔兽城」。"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 287,
+    "english": "Burning Beast King's Castle",
+    "chinese": "燃烧的魔兽城",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/199635994431981166",
+        "title": "https://www.taptap.cn/moment/199635994431981166",
+        "evidence": "国服攻略明确：布里亚蕾丝之钻之书于「平行迷宫：燃烧的魔兽城」通关结算概率掉落。"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 288,
+    "english": "City of Lost Paradise",
+    "chinese": "失乐之都",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/平行迷宫：失乐之都",
+        "title": "平行迷宫：失乐之都",
+        "evidence": "国服BWIKI独立副本页面标题「平行迷宫：失乐之都」。"
+      }
+    ],
+    "note": ""
+  }
+]

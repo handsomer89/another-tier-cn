@@ -1,0 +1,296 @@
+[
+  {
+    "id": 186,
+    "english": "Prthivi Treatise",
+    "chinese": "普利提维的异节",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/383506309904860038",
+        "title": "五星职业书对应的角色以及掉落地点（Hikari_，2025-12-04）",
+        "evidence": "图表表头明确“角色名（国服）”；雏菊（AS）对应列完整材料名：普利提维的异节"
+      }
+    ],
+    "note": "新图明列国服AS雏菊材料；正文2024年6月19日更新AS雏菊。"
+  },
+  {
+    "id": 190,
+    "english": "Reviver Treatise",
+    "chinese": "复兴者的异节",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/383506309904860038",
+        "title": "五星职业书对应的角色以及掉落地点（Hikari_，2025-12-04）",
+        "evidence": "图表表头明确“角色名（国服）”；库勒沃（AS）对应列完整材料名：复兴者的异节"
+      }
+    ],
+    "note": "新图补充区明列库勒沃AS材料；正文2025年5月14日更新AS库勒沃。"
+  },
+  {
+    "id": 193,
+    "english": "Sakuya-bime Treatise",
+    "chinese": "开耶姬的异节",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/383506309904860038",
+        "title": "五星职业书对应的角色以及掉落地点（Hikari_，2025-12-04）",
+        "evidence": "图表表头明确“角色名（国服）”；小町（AS）对应列完整材料名：开耶姬的异节"
+      }
+    ],
+    "note": "新图补充区明列小町AS材料；正文2025年7月2日更新AS小町。"
+  },
+  {
+    "id": 197,
+    "english": "Shashthi Treatise",
+    "chinese": "",
+    "status": "待核实",
+    "sources": [],
+    "note": "未找到Shashthi对应AC AS明芳的完整国服材料原文；不拼接后缀。"
+  },
+  {
+    "id": 206,
+    "english": "Sweet Lady Treatise",
+    "chinese": "甜心淑女的异节",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/383506309904860038",
+        "title": "五星职业书对应的角色以及掉落地点（Hikari_，2025-12-04）",
+        "evidence": "图表表头明确“角色名（国服）”；修杰特（AC AS）对应列完整材料名：甜心淑女的异节"
+      }
+    ],
+    "note": "新图修杰特（碧光镰刀手）行的AS异节列明确是甜心淑女的异节，不是本体蝶火女异节。"
+  },
+  {
+    "id": 212,
+    "english": "Vanagandr Treatise",
+    "chinese": "瓦纳甘德的异节",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/383506309904860038",
+        "title": "五星职业书对应的角色以及掉落地点（Hikari_，2025-12-04）",
+        "evidence": "图表表头明确“角色名（国服）”；赛丝塔（AS）对应列完整材料名：瓦纳甘德的异节"
+      }
+    ],
+    "note": "新图塞斯塔行明确材料；正文2024年12月25日更新AS赛斯塔，并非预译2026形态。"
+  },
+  {
+    "id": 215,
+    "english": "Wolfskin Treatise",
+    "chinese": "狂狼战士的异节",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/383506309904860038",
+        "title": "五星职业书对应的角色以及掉落地点（Hikari_，2025-12-04）",
+        "evidence": "图表表头明确“角色名（国服）”；兹尔巴（AS）对应列完整材料名：狂狼战士的异节"
+      }
+    ],
+    "note": "新图补充区明确兹尔巴AS材料。"
+  },
+  {
+    "id": 217,
+    "english": "Ymir Treatise",
+    "chinese": "尤米尔的异节",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/383506309904860038",
+        "title": "五星职业书对应的角色以及掉落地点（Hikari_，2025-12-04）",
+        "evidence": "图表表头明确“角色名（国服）”；格拉姆巴雷尔（AS）对应列完整材料名：尤米尔的异节"
+      },
+      {
+        "url": "https://www.taptap.cn/moment/422398191934115127",
+        "title": "指。。。指引你太美？-格拉姆巴雷尔AS攻略",
+        "evidence": "书籍名称：尤米尔的异节"
+      },
+      {
+        "url": "https://www.taptap.cn/moment/336549115695464694",
+        "title": "我的猫游日记本",
+        "evidence": "2023年11月07日实掉落：尤米尔的异节"
+      }
+    ],
+    "note": "国服实装攻略及玩家实际掉落日志同指尤米尔的异节，排除首轮BWIKI尤弥尔的异节及旧海外攻略尤弥尔之异节。"
+  },
+  {
+    "id": 218,
+    "english": "Étoile Treatise",
+    "chinese": "",
+    "status": "待核实",
+    "sources": [],
+    "note": "未找到Étoile对应AC AS伊丝卡的完整国服材料原文；不拼接后缀。"
+  },
+  {
+    "id": 222,
+    "english": "Claidheamh Soluis Codex",
+    "chinese": "",
+    "status": "待核实",
+    "sources": [],
+    "note": "未找到Claidheamh Soluis对应ES芙朗姆拉比丝的完整国服材料原文；不采用海外职阶推译。"
+  },
+  {
+    "id": 224,
+    "english": "Ereshkigal Codex",
+    "chinese": "冥世女主宰之改典",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/383506309904860038",
+        "title": "五星职业书对应的角色以及掉落地点（Hikari_，2025-12-04）",
+        "evidence": "图表表头明确“角色名（国服）”；多娃（ES）对应列完整材料名：冥世女主宰之改典"
+      },
+      {
+        "url": "https://www.taptap.cn/moment/455783552970131427",
+        "title": "君临冥界的死灵女王-多娃ES攻略",
+        "evidence": "书籍名称：冥世女主宰之改典（国服特译）"
+      }
+    ],
+    "note": "明确国服特译原文和新国服图一致；独立BWIKI ES页把同一根名套进AC典录/ES改典/AS异节/NS书的通用形态模板，不取其的后缀。"
+  },
+  {
+    "id": 225,
+    "english": "Erinys Codex",
+    "chinese": "复仇女神之改典",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/383506309904860038",
+        "title": "五星职业书对应的角色以及掉落地点（Hikari_，2025-12-04）",
+        "evidence": "图表表头明确“角色名（国服）”；菲尔米娜（ES）对应列完整材料名：复仇女神之改典"
+      },
+      {
+        "url": "https://www.taptap.cn/moment/474359274546399364",
+        "title": "地图掉落留档-平行迷宫·魔兽城",
+        "evidence": "作者声明仅记确实掉落过的物品；非常困难最终奖励列复仇女神之改典"
+      }
+    ],
+    "note": "国服玩家确实掉落记录解决根名及后缀：复仇女神之改典；不取BWIKI的后缀，也不取两份攻略的厄里倪厄斯译名。"
+  },
+  {
+    "id": 226,
+    "english": "Fragarach Codex",
+    "chinese": "",
+    "status": "待核实",
+    "sources": [],
+    "note": "未找到Fragarach对应ES希斯美娜的完整国服材料原文。"
+  },
+  {
+    "id": 236,
+    "english": "Unut Codex",
+    "chinese": "",
+    "status": "待核实",
+    "sources": [],
+    "note": "未找到Unut对应ES缪露丝的完整国服材料原文；不采用BWIKI空形态模板。"
+  },
+  {
+    "id": 240,
+    "english": "Chernobog Opus",
+    "chinese": "黑色死神之典录",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/383506309904860038",
+        "title": "五星职业书对应的角色以及掉落地点（Hikari_，2025-12-04）",
+        "evidence": "图表表头明确“角色名（国服）”；修杰特（AC）对应列完整材料名：黑色死神之典录"
+      },
+      {
+        "url": "https://www.taptap.cn/moment/336549115695464694",
+        "title": "我的猫游日记本",
+        "evidence": "2023年11月13日实掉落：黑色死神之典录"
+      }
+    ],
+    "note": "国服实际掉落日志解决之/的冲突；BWIKI异时层页存在通用形态材料模板，不取黑色死神的典录。"
+  },
+  {
+    "id": 242,
+    "english": "Dicé Opus",
+    "chinese": "狄刻之典录",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/383506309904860038",
+        "title": "五星职业书对应的角色以及掉落地点（Hikari_，2025-12-04）",
+        "evidence": "图表表头明确“角色名（国服）”；霞诺（AC）对应列完整材料名：狄刻之典录"
+      },
+      {
+        "url": "https://www.taptap.cn/moment/433637961511210378",
+        "title": "残影佳人-AC霞诺攻略",
+        "evidence": "书籍名称：狄刻之典录；正文依据国服公告，作者声明自行测试整理"
+      }
+    ],
+    "note": "国服实装并自行测试的原始攻略直接写完整书籍名，和国服图一致；BWIKI的典录后缀不取。"
+  },
+  {
+    "id": 246,
+    "english": "Fraulein Opus",
+    "chinese": "千金小姐之典录",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/383506309904860038",
+        "title": "五星职业书对应的角色以及掉落地点（Hikari_，2025-12-04）",
+        "evidence": "图表表头明确“角色名（国服）”；希斯美娜（AC）对应列完整材料名：千金小姐之典录"
+      },
+      {
+        "url": "https://www.taptap.cn/moment/353873425111977434",
+        "title": "月华的千金/AC希斯美娜/AC水枪2.14.30",
+        "evidence": "水，冥，剑—月华的千金（AC希斯美娜）；典录：千金小姐之典录"
+      }
+    ],
+    "note": "原始完整材料名与国服对照图一致；BWIKI月华千金属AC希斯美娜，通用模板的典录后缀不取。"
+  },
+  {
+    "id": 247,
+    "english": "Jinni Opus",
+    "chinese": "精灵之典录",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/383506309904860038",
+        "title": "五星职业书对应的角色以及掉落地点（Hikari_，2025-12-04）",
+        "evidence": "图表表头明确“角色名（国服）”；明芳（AC）对应列完整材料名：精灵之典录"
+      },
+      {
+        "url": "https://www.taptap.cn/moment/717731499444538351",
+        "title": "有典录没本体有必要抽么",
+        "evidence": "玩家明确说有4本精灵之典录、没有明芳本体"
+      },
+      {
+        "url": "https://www.taptap.cn/moment/448443212143527794",
+        "title": "白磁的魔人/AC明芳/AC茶壶3.3.0",
+        "evidence": "对应AC明芳；典录：精灵之典录"
+      }
+    ],
+    "note": "玩家实有4本的明确材料全名与国服图一致，解决之/的冲突，不取BWIKI精灵的典录。"
+  },
+  {
+    "id": 248,
+    "english": "Miyabinokami Opus",
+    "chinese": "",
+    "status": "待核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/382846966981198341",
+        "title": "国服职业书整理图",
+        "evidence": "月华AC：宫比神之典录"
+      },
+      {
+        "url": "https://www.taptap.cn/moment/409676758355282086",
+        "title": "宫比神-AC月华攻略",
+        "evidence": "书籍名称：宫比神的典录"
+      }
+    ],
+    "note": "复核仍有国服原始攻略宫比神的典录与国服对照图宫比神之典录冲突。攻略配图11为繁体国际服AC伊丝卡详情图，不能作宫比神国服材料截图。没有新国服道具实物证据，继续留空。"
+  },
+  {
+    "id": 259,
+    "english": "Yin-Yang Cat Opus",
+    "chinese": "",
+    "status": "待核实",
+    "sources": [],
+    "note": "未找到Yin-Yang Cat对应AC猫可可的完整国服材料原文；不采用NS金花猫根名套AC模板。"
+  }
+]

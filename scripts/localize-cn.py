@@ -301,6 +301,10 @@ def main() -> int:
         from cn_localization import apply_copy_localization
 
         apply_copy_localization(ROOT)
+        from cn_verified import apply_verified, pending_markdown
+
+        apply_verified(ROOT)
+        pending_markdown(ROOT)
         return 0
     except Exception as error:
         print(f"[ERROR] {error}", file=sys.stderr)

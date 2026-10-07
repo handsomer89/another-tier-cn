@@ -1,0 +1,341 @@
+[
+  {
+    "id": 62,
+    "english": "Judgment Tome",
+    "chinese": "审判者之书",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/五星职业书",
+        "title": "五星职业书 - 另一个伊甸WIKI_BWIKI_哔哩哔哩",
+        "evidence": "职业书列表：萝洁塔 → 审判者之书。"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 63,
+    "english": "Juggernaut Tome",
+    "chinese": "巨刃之书",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/艾尔加",
+        "title": "艾尔加 - 另一个伊甸WIKI_BWIKI_哔哩哔哩",
+        "evidence": "艾尔加角色页进阶表列出巨刃之书×1。"
+      },
+      {
+        "url": "https://wiki.biligame.com/ae/五星职业书",
+        "title": "五星职业书 - 另一个伊甸WIKI_BWIKI_哔哩哔哩",
+        "evidence": "职业书列表：艾尔加 → 巨刃之书。"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 64,
+    "english": "Kagutsuchi Tome",
+    "chinese": "迦具土之书",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/五星职业书",
+        "title": "五星职业书 - 另一个伊甸WIKI_BWIKI_哔哩哔哩",
+        "evidence": "职业书列表：紫苑 → 迦具土之书。"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 65,
+    "english": "Kingpin Tome",
+    "chinese": "白银之枪之书",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/杰德",
+        "title": "杰德 - 另一个伊甸WIKI_BWIKI_哔哩哔哩",
+        "evidence": "杰德角色页进阶表列出白银之枪之书×1。"
+      },
+      {
+        "url": "https://wiki.biligame.com/ae/五星职业书",
+        "title": "五星职业书 - 另一个伊甸WIKI_BWIKI_哔哩哔哩",
+        "evidence": "职业书列表：杰德 → 白银之枪之书。"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 66,
+    "english": "Kommandeur Tome",
+    "chinese": "指挥官之书",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/维娅卡",
+        "title": "维娅卡 - 另一个伊甸WIKI_BWIKI_哔哩哔哩",
+        "evidence": "维娅卡角色页进阶表列出指挥官之书×1。"
+      },
+      {
+        "url": "https://wiki.biligame.com/ae/五星职业书",
+        "title": "五星职业书 - 另一个伊甸WIKI_BWIKI_哔哩哔哩",
+        "evidence": "职业书列表：维娅卡 → 指挥官之书。"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 67,
+    "english": "Lapin Tome",
+    "chinese": "巨兔之书",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/缪露丝",
+        "title": "缪露丝 - 另一个伊甸WIKI_BWIKI_哔哩哔哩",
+        "evidence": "缪露丝角色页进阶表列出巨兔之书×1。"
+      },
+      {
+        "url": "https://wiki.biligame.com/ae/五星职业书",
+        "title": "五星职业书 - 另一个伊甸WIKI_BWIKI_哔哩哔哩",
+        "evidence": "职业书列表：缪露丝 → 巨兔之书。"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 68,
+    "english": "Lazuli Medea Tome",
+    "chinese": "苍恋魔女之书",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/伊薇拉",
+        "title": "伊薇拉 - 另一个伊甸WIKI_BWIKI_哔哩哔哩",
+        "evidence": "伊薇拉角色页进阶表列出苍恋魔女之书×1。"
+      },
+      {
+        "url": "https://wiki.biligame.com/ae/五星职业书",
+        "title": "五星职业书 - 另一个伊甸WIKI_BWIKI_哔哩哔哩",
+        "evidence": "职业书列表：伊薇拉 → 苍恋魔女之书。"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 69,
+    "english": "Libero Tome",
+    "chinese": "逍遥风使之书",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/赛文",
+        "title": "赛文 - 另一个伊甸WIKI_BWIKI_哔哩哔哩",
+        "evidence": "赛文角色页进阶表列出逍遥风使之书×1。"
+      },
+      {
+        "url": "https://wiki.biligame.com/ae/五星职业书",
+        "title": "五星职业书 - 另一个伊甸WIKI_BWIKI_哔哩哔哩",
+        "evidence": "职业书列表：赛文 → 逍遥风使之书。"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 70,
+    "english": "Libette Tome",
+    "chinese": "破茧之蝶之书",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/美露迪",
+        "title": "美露迪 - 另一个伊甸WIKI_BWIKI_哔哩哔哩",
+        "evidence": "美露迪角色页进阶表列出破茧之蝶之书×1。"
+      },
+      {
+        "url": "https://wiki.biligame.com/ae/五星职业书",
+        "title": "五星职业书 - 另一个伊甸WIKI_BWIKI_哔哩哔哩",
+        "evidence": "职业书列表：美露迪 → 破茧之蝶之书。"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 71,
+    "english": "Lila Blitz Tome",
+    "chinese": "幻彩闪电之书",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/桔梗",
+        "title": "桔梗 - 另一个伊甸WIKI_BWIKI_哔哩哔哩",
+        "evidence": "桔梗角色页进阶表列出幻彩闪电之书×1。"
+      },
+      {
+        "url": "https://wiki.biligame.com/ae/五星职业书",
+        "title": "五星职业书 - 另一个伊甸WIKI_BWIKI_哔哩哔哩",
+        "evidence": "职业书列表：桔梗 → 幻彩闪电之书。"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 72,
+    "english": "Lovely Chef Tome",
+    "chinese": "可爱主厨之书",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/拉布莉",
+        "title": "拉布莉 - 另一个伊甸WIKI_BWIKI_哔哩哔哩",
+        "evidence": "拉布莉角色页进阶表列出可爱主厨之书×1。"
+      },
+      {
+        "url": "https://wiki.biligame.com/ae/五星职业书",
+        "title": "五星职业书 - 另一个伊甸WIKI_BWIKI_哔哩哔哩",
+        "evidence": "职业书列表：拉布莉 → 可爱主厨之书。"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 73,
+    "english": "Magister Tome",
+    "chinese": "巨盾之书",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/伯特兰",
+        "title": "伯特兰 - 另一个伊甸WIKI_BWIKI_哔哩哔哩",
+        "evidence": "伯特兰角色页进阶表列出巨盾之书×1。"
+      },
+      {
+        "url": "https://wiki.biligame.com/ae/五星职业书",
+        "title": "五星职业书 - 另一个伊甸WIKI_BWIKI_哔哩哔哩",
+        "evidence": "职业书列表：伯特兰 → 巨盾之书。"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 74,
+    "english": "Mailed Sheep Tome",
+    "chinese": "神差羊使之书",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/五星职业书",
+        "title": "五星职业书 - 另一个伊甸WIKI_BWIKI_哔哩哔哩",
+        "evidence": "职业书列表：艾尔席儿 → 神差羊使之书。"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 75,
+    "english": "Mal’akh Tome",
+    "chinese": "天界使者之书",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/五星职业书",
+        "title": "五星职业书 - 另一个伊甸WIKI_BWIKI_哔哩哔哩",
+        "evidence": "职业书列表：梅丽娜 → 天界使者之书。"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 76,
+    "english": "Mercenary Tome",
+    "chinese": "",
+    "status": "待核实",
+    "sources": [],
+    "note": "Mercenary Tome 是梅的四星职业书；五星列表仅列铁匠之书，无法据此替代。梅角色页各接口均访问失败，未获取国服四星道具原文，留空待核实。"
+  },
+  {
+    "id": 77,
+    "english": "Mighty Maiden Tome",
+    "chinese": "完美少女之书",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/菲奈",
+        "title": "菲奈 - 另一个伊甸WIKI_BWIKI_哔哩哔哩",
+        "evidence": "菲奈角色页进阶表列出完美少女之书×1。"
+      }
+    ],
+    "note": "本项对应菲奈四星进阶道具，来源明确列完美少女之书；勿与五星尊贵的少女之诗篇混淆。"
+  },
+  {
+    "id": 78,
+    "english": "Minstrel Tome",
+    "chinese": "宫廷艺人之书",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/拉克雷娅",
+        "title": "拉克雷娅 - 另一个伊甸WIKI_BWIKI_哔哩哔哩",
+        "evidence": "拉克雷娅角色页进阶表列出宫廷艺人之书×1。"
+      },
+      {
+        "url": "https://wiki.biligame.com/ae/五星职业书",
+        "title": "五星职业书 - 另一个伊甸WIKI_BWIKI_哔哩哔哩",
+        "evidence": "职业书列表：拉克雷娅 → 宫廷艺人之书。"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 79,
+    "english": "Murasame Tome",
+    "chinese": "村雨之书",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/月华",
+        "title": "月华 - 另一个伊甸WIKI_BWIKI_哔哩哔哩",
+        "evidence": "月华角色页进阶表列出村雨之书×1。"
+      },
+      {
+        "url": "https://wiki.biligame.com/ae/五星职业书",
+        "title": "五星职业书 - 另一个伊甸WIKI_BWIKI_哔哩哔哩",
+        "evidence": "职业书列表：月华 → 村雨之书。"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 80,
+    "english": "Narukami Tome",
+    "chinese": "鸣神之书",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/五星职业书",
+        "title": "五星职业书 - 另一个伊甸WIKI_BWIKI_哔哩哔哩",
+        "evidence": "职业书列表：奥珀胧 → 鸣神之书。"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 81,
+    "english": "Negotiator Tome",
+    "chinese": "经纪人之书",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/尤恩",
+        "title": "尤恩 - 另一个伊甸WIKI_BWIKI_哔哩哔哩",
+        "evidence": "尤恩角色页进阶表列出经纪人之书×1。"
+      },
+      {
+        "url": "https://wiki.biligame.com/ae/五星职业书",
+        "title": "五星职业书 - 另一个伊甸WIKI_BWIKI_哔哩哔哩",
+        "evidence": "职业书列表：尤恩 → 经纪人之书。"
+      }
+    ],
+    "note": ""
+  }
+]

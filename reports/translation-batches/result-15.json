@@ -1,0 +1,342 @@
+[
+  {
+    "id": 289,
+    "english": "Corridor of Time Layers",
+    "chinese": "时层回廊",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/剑术大师之书",
+        "title": "BWIKI：剑术大师之书",
+        "evidence": "阿鲁多五星前的四星职业书来源明确为平行迷宫：时层回廊。"
+      },
+      {
+        "url": "https://www.taptap.cn/moment/109378023031048340",
+        "title": "国服社区：平行副本地图与速刷路径",
+        "evidence": "列有独立副本标题「时层回廊」。"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 290,
+    "english": "Forest of Forgetfulness",
+    "chinese": "奇幻森林",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/96358001262199176",
+        "title": "让人微笑的光景：米悠断章攻略",
+        "evidence": "米悠断章通关后开放副本VH奇幻森林，为公主诗篇副本。"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 291,
+    "english": "Hanging Garden",
+    "chinese": "空中庭园",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/104181093229397248",
+        "title": "国服官方菲奈：2月版本更新路线图",
+        "evidence": "2021/01/29公告2月24日平行迷宫开放：断章-空中庭园。"
+      },
+      {
+        "url": "https://www.taptap.cn/moment/98520771390868063",
+        "title": "让人微笑的光景：希尔断章攻略",
+        "evidence": "希尔断章副本名称为空中庭园。"
+      }
+    ],
+    "note": "BWIKI部分副本页面作「空中庭院」，国服官方公告明确「空中庭园」，据官方填写。"
+  },
+  {
+    "id": 292,
+    "english": "Industrial Ruins",
+    "chinese": "工业都市废墟",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/105737352449624212",
+        "title": "国服官方菲奈：物品掉落增加公告（2月3日更新）",
+        "evidence": "2021/02/02官方公告明确逐一列出月影森林、工业都市废墟、纳达拉火山、酸性沼泽、米格兰斯城、异元晶控制所、次元战舰、蛇肝达马克；并明确希耶尼的神圣骑士之书产于次元战舰、克罗德的魔琴手之书产于工业都市废墟。"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 293,
+    "english": "Iscariot",
+    "chinese": "伊丝卡莉欧忒",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/362304974190808552",
+        "title": "国服官方菲奈：攻略&更新情报",
+        "evidence": "2023/01/11更新情报官方活动明确名为「未来外典终章，伊丝卡莉欧忒视频攻略征集活动」。"
+      },
+      {
+        "url": "https://www.taptap.cn/moment/233164945267623289",
+        "title": "让人微笑的光景：未来外典1~7话",
+        "evidence": "明确副本第7话为伊丝卡莉欧忒。"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 294,
+    "english": "Man-eating Marsh",
+    "chinese": "酸性沼泽",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/105737352449624212",
+        "title": "国服官方菲奈：物品掉落增加公告（2月3日更新）",
+        "evidence": "2021/02/02官方公告明确逐一列出月影森林、工业都市废墟、纳达拉火山、酸性沼泽、米格兰斯城、异元晶控制所、次元战舰、蛇肝达马克；并明确希耶尼的神圣骑士之书产于次元战舰、克罗德的魔琴手之书产于工业都市废墟。"
+      }
+    ],
+    "note": "使用国服官方「酸性沼泽」，不使用台服「食人沼泽」。"
+  },
+  {
+    "id": 295,
+    "english": "Miglance Castle",
+    "chinese": "米格兰斯城",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/105737352449624212",
+        "title": "国服官方菲奈：物品掉落增加公告（2月3日更新）",
+        "evidence": "2021/02/02官方公告明确逐一列出月影森林、工业都市废墟、纳达拉火山、酸性沼泽、米格兰斯城、异元晶控制所、次元战舰、蛇肝达马克；并明确希耶尼的神圣骑士之书产于次元战舰、克罗德的魔琴手之书产于工业都市废墟。"
+      }
+    ],
+    "note": "使用国服官方「米格兰斯城」，不使用台服「米格兰王城」。"
+  },
+  {
+    "id": 296,
+    "english": "Moonlight Forest",
+    "chinese": "月影森林",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/105737352449624212",
+        "title": "国服官方菲奈：物品掉落增加公告（2月3日更新）",
+        "evidence": "2021/02/02官方公告明确逐一列出月影森林、工业都市废墟、纳达拉火山、酸性沼泽、米格兰斯城、异元晶控制所、次元战舰、蛇肝达马克；并明确希耶尼的神圣骑士之书产于次元战舰、克罗德的魔琴手之书产于工业都市废墟。"
+      }
+    ],
+    "note": "使用国服官方「月影森林」，不使用「月影之森」。"
+  },
+  {
+    "id": 297,
+    "english": "Nadara Volcano",
+    "chinese": "纳达拉火山",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/105737352449624212",
+        "title": "国服官方菲奈：物品掉落增加公告（2月3日更新）",
+        "evidence": "2021/02/02官方公告明确逐一列出月影森林、工业都市废墟、纳达拉火山、酸性沼泽、米格兰斯城、异元晶控制所、次元战舰、蛇肝达马克；并明确希耶尼的神圣骑士之书产于次元战舰、克罗德的魔琴手之书产于工业都市废墟。"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 298,
+    "english": "Sapient Complex: Midnight",
+    "chinese": "常夜的灵长机关",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/233164945267623289",
+        "title": "让人微笑的光景：未来外典1~7话",
+        "evidence": "副本：常夜的灵长机关（4话）；职业书：失落实验室个性（伊丝卡、修杰特、杜伊、普蕾米娅、多娃），与所查英文掉落人物对应。"
+      },
+      {
+        "url": "https://wiki.biligame.com/ae/平行迷宫：常夜的灵长机关",
+        "title": "BWIKI：平行迷宫常夜的灵长机关",
+        "evidence": "完整页面标题为平行迷宫：常夜的灵长机关。"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 299,
+    "english": "Sea of Ice",
+    "chinese": "冰之海",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/233597463452190907",
+        "title": "让人微笑的光景：龙宫2外传",
+        "evidence": "第4话END后副本VH冰之海开放，结算列碧琪卡职业书；与Sirenaria Tome对应。"
+      },
+      {
+        "url": "https://www.taptap.cn/moment/369850784415746350",
+        "title": "流程攻略：三千界宝盒与海神深渊后篇",
+        "evidence": "完成第四话后「开放平行迷宫：冰之海」。"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 300,
+    "english": "Snake Liver Damaku",
+    "chinese": "蛇肝达马克",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/105737352449624212",
+        "title": "国服官方菲奈：物品掉落增加公告（2月3日更新）",
+        "evidence": "2021/02/02官方公告明确逐一列出月影森林、工业都市废墟、纳达拉火山、酸性沼泽、米格兰斯城、异元晶控制所、次元战舰、蛇肝达马克；并明确希耶尼的神圣骑士之书产于次元战舰、克罗德的魔琴手之书产于工业都市废墟。"
+      }
+    ],
+    "note": "使用国服官方「蛇肝达马克」，保留「马克」字形。"
+  },
+  {
+    "id": 301,
+    "english": "The Riftbreaker",
+    "chinese": "次元战舰",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/105737352449624212",
+        "title": "国服官方菲奈：物品掉落增加公告（2月3日更新）",
+        "evidence": "2021/02/02官方公告明确逐一列出月影森林、工业都市废墟、纳达拉火山、酸性沼泽、米格兰斯城、异元晶控制所、次元战舰、蛇肝达马克；并明确希耶尼的神圣骑士之书产于次元战舰、克罗德的魔琴手之书产于工业都市废墟。"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 302,
+    "english": "Toto Dreamland",
+    "chinese": "托托的梦幻乐园",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/187221326149192879",
+        "title": "国服官方菲奈：物品掉落增加公告（9月15日更新）",
+        "evidence": "2021/09/15公告明确：幻彩闪电之书（桔梗），产出地：非常困难难度的托托的梦幻乐园。"
+      },
+      {
+        "url": "https://wiki.biligame.com/ae/平行迷宫：托托的梦幻乐园",
+        "title": "BWIKI：平行迷宫托托的梦幻乐园",
+        "evidence": "副本页面完整标题含「的」，与官方公告一致。"
+      }
+    ],
+    "note": "完整保留国服官方公告的「的」；不使用社区常见简称「托托梦幻乐园」「托托乐园」。"
+  },
+  {
+    "id": 303,
+    "english": "Tower of Stars",
+    "chinese": "星之塔",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/平行迷宫：星之塔",
+        "title": "BWIKI：平行迷宫星之塔",
+        "evidence": "副本完整页面标题为星之塔，困难难度。"
+      },
+      {
+        "url": "https://www.taptap.cn/moment/124981761389103707",
+        "title": "国服社区：细语之书及配布四星书",
+        "evidence": "四星书掉落列出星之塔H，与批次所查困难掉落一致。"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 304,
+    "english": "Tower of Time",
+    "chinese": "时之塔",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/世纪毁灭者之书",
+        "title": "BWIKI：世纪毁灭者之书",
+        "evidence": "赫蕾娜四星书掉落副本列出时之塔。"
+      },
+      {
+        "url": "https://wiki.biligame.com/ae/宗主教之书",
+        "title": "BWIKI：宗主教之书",
+        "evidence": "莉卡四星书掉落副本列出时之塔，与所查Patriarch Tome对应。"
+      },
+      {
+        "url": "https://www.taptap.cn/moment/124981761389103707",
+        "title": "国服社区：细语之书及配布四星书",
+        "evidence": "四星书掉落列出时之塔H。"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 305,
+    "english": "Underworld",
+    "chinese": "冥峡界",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/292683258976534826",
+        "title": "国服官方菲奈：东方后篇结主线攻略征集",
+        "evidence": "官方活动要求发布主线剧情或「平行迷宫-冥峡界」内容。"
+      },
+      {
+        "url": "https://www.taptap.cn/moment/223868019531582907",
+        "title": "让人微笑的光景：冥峡界副本",
+        "evidence": "结算奖励明确阿鲁多/菲奈诗篇，与本批掉落材料对应。"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 306,
+    "english": "Xeno-Domain",
+    "chinese": "异元晶控制所",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/105737352449624212",
+        "title": "国服官方菲奈：物品掉落增加公告（2月3日更新）",
+        "evidence": "2021/02/02官方公告明确逐一列出月影森林、工业都市废墟、纳达拉火山、酸性沼泽、米格兰斯城、异元晶控制所、次元战舰、蛇肝达马克；并明确希耶尼的神圣骑士之书产于次元战舰、克罗德的魔琴手之书产于工业都市废墟。"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 308,
+    "english": "Concerto Artes",
+    "chinese": "协奏联技",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/441670961624780079",
+        "title": "国服官方菲奈：柯蕾特角色介绍",
+        "evidence": "2023/08/20官方原文：个性「杖、喜欢小狗、时空幻境、协奏联技」。"
+      },
+      {
+        "url": "https://www.taptap.cn/moment/441566798639270185",
+        "title": "国服官方菲奈：希侬角色介绍",
+        "evidence": "2023/08/18官方原文：个性「弓、诅咒、大胃王、手枪、时空幻境、协奏联技」。"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 309,
+    "english": "FFIX",
+    "chinese": "最终幻想Ⅸ",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/766262714048708660",
+        "title": "国服官方菲奈：斯坦纳角色PV",
+        "evidence": "官方斯坦纳角色PV原文：⭐个性：剑，装备，最终幻想Ⅸ。"
+      },
+      {
+        "url": "https://www.taptap.cn/game-event/10388",
+        "title": "国服官方FFIX联动专题",
+        "evidence": "官方公告区嵌入同一斯坦纳PV并列个性「剑，装备，最终幻想Ⅸ」。"
+      }
+    ],
+    "note": "国服官方个性确为「最终幻想Ⅸ」，不保留攻略或国际服使用的FFIX缩写；末字为Unicode罗马数字Ⅸ。"
+  }
+]

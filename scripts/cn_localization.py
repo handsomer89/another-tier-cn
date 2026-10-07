@@ -84,6 +84,12 @@ def locate_asset(paths: list[Path], root: Path, label: str, anchors: tuple[str, 
 
 def patch_bundle(path: Path, label: str, replacements: list[tuple[str, str, int]], imports: tuple[str, ...]) -> None:
     source = path.read_text(encoding="utf-8")
+    # Verified patches extend existing term expressions; consider their base patch applied.
+    verification_extensions = {
+        'function V(e){': 'function V(e,character){',
+        'children:cnTerms.personalities[e]??e': 'children:cnTerms.personalities[e]??translateVerified("personalities",e,character)',
+        'label:cnTerms.personalities[e]??e': 'label:cnTerms.personalities[e]??translateVerified("personalities",e)',
+    }
     legacy_empty = 'children:`cnUi["No characters match your filters"]??`No characters match your filters``'
     fixed_empty = 'children:cnUi["No characters match your filters"]??`No characters match your filters`'
     legacy_count = source.count(legacy_empty)
@@ -92,6 +98,11 @@ def patch_bundle(path: Path, label: str, replacements: list[tuple[str, str, int]
     if legacy_count:
         source = source.replace(legacy_empty, fixed_empty, 1)
     for old, new, expected in replacements:
+        extended = new
+        for base, verified in verification_extensions.items():
+            extended = extended.replace(base, verified)
+        if extended != new and source.count(extended) == expected:
+            continue
         source = replace_count(source, old, new, expected, label)
     for statement in imports:
         source = insert_import(source, statement, label)
@@ -253,7 +264,7 @@ def generate_browser_maps(root: Path, ui: dict[str, str], terms: dict[str, dict[
 
 def localize_copy(root: Path) -> int:
     ui, terms = load_copy_data(root)
-    assets = sorted((root / "assets").glob("*.js"))
+    assets = sorted(path for path in (root / "assets").glob("*.js") if not path.name.startswith("cn-"))
     if not assets:
         raise ValueError("No assets/*.js bundles found")
     generate_browser_maps(root, ui, terms)
@@ -262,7 +273,7 @@ def localize_copy(root: Path) -> int:
     detail = locate_asset(assets, root, "character detail copy", ("r.commentary", "function R(e)", "r.otherVersions"))
     search = locate_asset(assets, root, "search controls", ("Filter by name or tome", "Clear All", "function T(e)"))
     site = locate_asset(assets, root, "site navigation and footer", ("u/Natural_Pleasant’s Tier List", "Made by", "Tier list and roles credit to"))
-    paid_toggle = locate_asset(assets, root, "paid/free navigation", ("label:`Paid SA`", "label:`Paid No SA`", "label:`Free`"))
+    paid_toggle = locate_asset(assets, root, "paid/free navigation", ("`Paid SA`", "`Paid No SA`", "`Free`"))
     teams = locate_asset(assets, root, "teams page", ("No teams match these filters. Try another character or clear your filters.", "selectionGroups", "placeholder:`Filter by character`"))
     team_helper = locate_asset(assets, root, "team labels and validation", ("Add at least one selection group.", "This variation fills ${r} of 4 frontline slots.", "Choose ${e.pickCount}"))
     seo = locate_asset(assets, root, "default SEO copy", ("Another Tier - Tier List for Another Eden", "Rating characters in their viability against endgame Hidden Bosses, and Challenge Mode difficulties."))

@@ -1,0 +1,271 @@
+[
+  {
+    "id": 207,
+    "english": "Takeminakata Treatise",
+    "chinese": "",
+    "status": "待核实",
+    "sources": [],
+    "note": "未找到能证明国服材料完整名称的来源；没有采用NS/AS通用假ES模板或海外译文。"
+  },
+  {
+    "id": 208,
+    "english": "Tea Maiden Treatise",
+    "chinese": "玉茶娘娘的异节",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/382846966981198341",
+        "title": "国服全角色职业书掉落表（图片）",
+        "evidence": "明芳（AS）对应材料：玉茶娘娘的异节"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 209,
+    "english": "Tentamare Treatise",
+    "chinese": "噩梦触手的异节",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/382846966981198341",
+        "title": "国服全角色职业书掉落表（图片）",
+        "evidence": "奈岐（AS）对应材料：噩梦触手的异节"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 210,
+    "english": "Titania Treatise",
+    "chinese": "妖精女王的异节",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/382846966981198341",
+        "title": "国服全角色职业书掉落表（图片）",
+        "evidence": "维娜（AS）对应材料：妖精女王的异节"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 211,
+    "english": "Transporter Treatise",
+    "chinese": "疾风快递的异节",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/382846966981198341",
+        "title": "国服全角色职业书掉落表（图片）",
+        "evidence": "桔梗（AS）对应材料：疾风快递的异节"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 212,
+    "english": "Vanagandr Treatise",
+    "chinese": "",
+    "status": "待核实",
+    "sources": [],
+    "note": "未找到能证明国服材料完整名称的来源；没有采用NS/AS通用假ES模板或海外译文。 国服攻略职阶可见瓦纳甘德，但未确认完整异节名，未推补后缀。"
+  },
+  {
+    "id": 213,
+    "english": "Venus Treatise",
+    "chinese": "维纳斯的异节",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/458591590215061314",
+        "title": "AS帕姆攻略",
+        "evidence": "火，天，杖—AS帕姆：异节：维纳斯的异节"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 214,
+    "english": "Völva Treatise",
+    "chinese": "渥尔娃的异节",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/芙朗姆拉比丝（AS）",
+        "title": "芙朗姆拉比丝（AS）BWIKI",
+        "evidence": "AS进阶道具：渥尔娃的异节×5"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 215,
+    "english": "Wolfskin Treatise",
+    "chinese": "",
+    "status": "待核实",
+    "sources": [],
+    "note": "未找到能证明国服材料完整名称的来源；没有采用NS/AS通用假ES模板或海外译文。"
+  },
+  {
+    "id": 216,
+    "english": "Yasomagatsuhi Treatise",
+    "chinese": "八十祸津日的异节",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/382846966981198341",
+        "title": "国服全角色职业书掉落表（图片）",
+        "evidence": "妮可（AS）对应材料：八十祸津日的异节"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 217,
+    "english": "Ymir Treatise",
+    "chinese": "",
+    "status": "来源冲突待核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/格拉姆巴雷尔（AS）",
+        "title": "BWIKI AS角色页",
+        "evidence": "尤弥尔的异节×5"
+      },
+      {
+        "url": "https://www.taptap.cn/moment/344445978276792553",
+        "title": "AS格拉姆巴雷尔攻略",
+        "evidence": "异节：尤弥尔之异节"
+      }
+    ],
+    "note": "候选原文见证据；来源存在词名或“的/之”后缀差异，需核对国服游戏内截图。"
+  },
+  {
+    "id": 218,
+    "english": "Étoile Treatise",
+    "chinese": "",
+    "status": "待核实",
+    "sources": [],
+    "note": "未找到能证明国服材料完整名称的来源；没有采用NS/AS通用假ES模板或海外译文。"
+  },
+  {
+    "id": 219,
+    "english": "Ame-no-Murakumo Codex",
+    "chinese": "天丛云之改典",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/682660396414273668",
+        "title": "集齐天丛云之改典",
+        "evidence": "标题集齐5本天丛云之改典，正文今天终于有ES时雨了。"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 220,
+    "english": "Arcana Codex",
+    "chinese": "真理化身之改典",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/420572281564041096",
+        "title": "玛丽埃尔ES攻略",
+        "evidence": "书籍名称：真理化身之改典"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 221,
+    "english": "Athena Codex",
+    "chinese": "雅典娜之改典",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/382846966981198341",
+        "title": "国服全角色职业书掉落表（图片）",
+        "evidence": "米悠（ES）对应材料：雅典娜之改典"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 222,
+    "english": "Claidheamh Soluis Codex",
+    "chinese": "",
+    "status": "待核实",
+    "sources": [],
+    "note": "未找到能证明国服材料完整名称的来源；没有采用NS/AS通用假ES模板或海外译文。"
+  },
+  {
+    "id": 223,
+    "english": "Cthulhu Codex",
+    "chinese": "克苏鲁之改典",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/382846966981198341",
+        "title": "国服全角色职业书掉落表（图片）",
+        "evidence": "奈岐（ES）对应材料：克苏鲁之改典"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 224,
+    "english": "Ereshkigal Codex",
+    "chinese": "",
+    "status": "来源冲突待核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/多娃（ES）",
+        "title": "BWIKI ES角色页",
+        "evidence": "冥世女主宰的改典×5"
+      },
+      {
+        "url": "https://wiki.biligame.com/ae/多娃",
+        "title": "BWIKI多娃页实际ES形态",
+        "evidence": "冥世女主宰之改典×5"
+      },
+      {
+        "url": "https://www.9game.cn/lygydcyskdm/9085387.html",
+        "title": "多娃ES国服材料原文",
+        "evidence": "书籍名称：冥世女主宰之改典(国服特译)"
+      }
+    ],
+    "note": "候选原文见证据；来源存在词名或“的/之”后缀差异，需核对国服游戏内截图。"
+  },
+  {
+    "id": 225,
+    "english": "Erinys Codex",
+    "chinese": "",
+    "status": "来源冲突待核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/菲尔米娜（ES）",
+        "title": "BWIKI ES角色页",
+        "evidence": "复仇女神的改典×5"
+      },
+      {
+        "url": "https://www.taptap.cn/moment/468761735973569085",
+        "title": "菲尔米娜ES国服攻略",
+        "evidence": "书籍名称：厄里倪厄斯的改典"
+      },
+      {
+        "url": "https://www.taptap.cn/moment/420543438434340372",
+        "title": "ES菲尔米娜攻略",
+        "evidence": "改典：厄里倪厄斯之改典"
+      }
+    ],
+    "note": "候选原文见证据；来源存在词名或“的/之”后缀差异，需核对国服游戏内截图。"
+  },
+  {
+    "id": 226,
+    "english": "Fragarach Codex",
+    "chinese": "",
+    "status": "待核实",
+    "sources": [],
+    "note": "未找到能证明国服材料完整名称的来源；没有采用NS/AS通用假ES模板或海外译文。"
+  }
+]

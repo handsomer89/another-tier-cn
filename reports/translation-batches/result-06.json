@@ -1,0 +1,287 @@
+[
+  {
+    "id": 102,
+    "english": "Stormbreaker Tome",
+    "chinese": "暴风使者之书",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/五星职业书",
+        "title": "国服职业书/角色进阶材料表",
+        "evidence": "杜伊对应条目列有「暴风使者之书」。"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 103,
+    "english": "String Puller Tome",
+    "chinese": "绯红机关之书",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/五星职业书",
+        "title": "国服职业书/角色进阶材料表",
+        "evidence": "绯奈对应条目列有「绯红机关之书」。"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 104,
+    "english": "Sukunahikona Tome",
+    "chinese": "少名毘古那之书",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/490982939618709041",
+        "title": "国服职业书/角色进阶材料表",
+        "evidence": "莎萨卡对应条目列有「少名毘古那之书」。"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 106,
+    "english": "Sun Goddess Tome",
+    "chinese": "天照大神之书",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/五星职业书",
+        "title": "国服职业书/角色进阶材料表",
+        "evidence": "蓟对应条目列有「天照大神之书」。"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 107,
+    "english": "Sword Master Tome",
+    "chinese": "剑术大师之书",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/剑术大师之书",
+        "title": "国服职业书/角色进阶材料表",
+        "evidence": "材料独立页名称明确为「剑术大师之书」；阿鲁多页面★4职业名为剑术大师。"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 108,
+    "english": "Taiyi Zhenren Tome",
+    "chinese": "太乙真人之书",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/383506309904860038",
+        "title": "国服职业书/角色进阶材料表",
+        "evidence": "仙华对应条目列有「太乙真人之书」。"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 109,
+    "english": "Titan Tome",
+    "chinese": "白虎之书",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/五星职业书",
+        "title": "国服职业书/角色进阶材料表",
+        "evidence": "洛基德对应条目列有「白虎之书」。"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 110,
+    "english": "Ullr Tome",
+    "chinese": "欧雷尔斯之书",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/五星职业书",
+        "title": "国服职业书/角色进阶材料表",
+        "evidence": "塞利艾斯对应条目列有「欧雷尔斯之书」。"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 111,
+    "english": "Utsutahime Tome",
+    "chinese": "宇津田姬之书",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/五星职业书",
+        "title": "国服职业书/角色进阶材料表",
+        "evidence": "雪乃对应条目列有「宇津田姬之书」。"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 112,
+    "english": "Walkure Tome",
+    "chinese": "瓦尔基丽之书",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/五星职业书",
+        "title": "国服职业书/角色进阶材料表",
+        "evidence": "奥尔蕾雅对应条目列有「瓦尔基丽之书」。"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 113,
+    "english": "Warrior Tome",
+    "chinese": "勇士之书",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/贝尼迪特",
+        "title": "国服职业书/角色进阶材料表",
+        "evidence": "贝尼迪特角色页★3道具名称明确列「勇士之书×1」。"
+      }
+    ],
+    "note": "项目角色译名贝内迪特，对应国服资料名贝尼迪特。"
+  },
+  {
+    "id": 114,
+    "english": "Watatsumi Tome",
+    "chinese": "海神之书",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/五星职业书",
+        "title": "国服职业书/角色进阶材料表",
+        "evidence": "时雨对应条目列有「海神之书」。"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 115,
+    "english": "Wenefica Tome",
+    "chinese": "薇涅妃卡之书",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/五星职业书",
+        "title": "国服职业书/角色进阶材料表",
+        "evidence": "薇涅妃卡对应条目列有「薇涅妃卡之书」。"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 116,
+    "english": "White Knight Tome",
+    "chinese": "纯白骑士之书",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/五星职业书",
+        "title": "国服职业书/角色进阶材料表",
+        "evidence": "霞诺对应条目列有「纯白骑士之书」。"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 117,
+    "english": "Wizard Tome",
+    "chinese": "巫师之书",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://wiki.biligame.com/ae/毕维特",
+        "title": "国服职业书/角色进阶材料表",
+        "evidence": "毕维特角色页★4道具明确列「巫师之书×1」，对应本表共用Wizard Tome。"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 118,
+    "english": "Yaobikuni Tome",
+    "chinese": "八百比丘尼之书",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/383506309904860038",
+        "title": "国服职业书/角色进阶材料表",
+        "evidence": "神乐魅对应条目列有「八百比丘尼之书」。"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 119,
+    "english": "Abyss Liberator Treatise",
+    "chinese": "深渊解放者的异节",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/382846966981198341",
+        "title": "国服职业书/角色进阶材料表",
+        "evidence": "琪路莉露（AS）对应条目列有「深渊解放者的异节」。"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 120,
+    "english": "Aether Treatise",
+    "chinese": "",
+    "status": "待核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/839831596310727680",
+        "title": "〖人物攻略〗AS枯岐那沃",
+        "evidence": "2026-08-21国服攻略写职阶「埃忒尔（Aether）」；未找到异节完整名称原文。"
+      },
+      {
+        "url": "https://www.taptap.cn/moment/839190153216917688",
+        "title": "国服官方AS枯岐那沃角色介绍",
+        "evidence": "官方国服卡池活动2026年8月19日开放AS枯岐那沃。"
+      }
+    ],
+    "note": "候选职阶埃忒尔；仅有职阶原文，缺少材料完整名称截图，严格要求下译名留空。"
+  },
+  {
+    "id": 121,
+    "english": "Aqua Goddess Treatise",
+    "chinese": "罔象女神的异节",
+    "status": "已核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/382846966981198341",
+        "title": "国服职业书/角色进阶材料表",
+        "evidence": "由奈（AS）对应条目列有「罔象女神的异节」。"
+      }
+    ],
+    "note": ""
+  },
+  {
+    "id": 122,
+    "english": "Archaeologist Treatise",
+    "chinese": "",
+    "status": "待核实",
+    "sources": [
+      {
+        "url": "https://www.taptap.cn/moment/702193521657908948",
+        "title": "国服官方AS薇列特角色介绍",
+        "evidence": "官方2025-08-06介绍AS薇列特；无职业书材料原文。"
+      }
+    ],
+    "note": "BWIKI薇列特页AS字段错误继承NS「梦想挖掘者的异节」，不可套用。未找到Archaeologist Treatise国服完整材料原文。"
+  }
+]
