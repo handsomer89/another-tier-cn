@@ -58,8 +58,8 @@ def main() -> int:
 
         ui = json.loads((ROOT / "data" / "cn-ui.json").read_text(encoding="utf-8"))
         terms = json.loads((ROOT / "data" / "cn-terms.json").read_text(encoding="utf-8"))
-        if len(ui) != 48 or sum(len(group) for group in terms.values()) != 152:
-            raise ValueError("Workbook copy mappings are incomplete; expected 48 UI strings and 152 terms")
+        if len(ui) != 50 or sum(len(group) for group in terms.values()) != 152:
+            raise ValueError("Workbook copy mappings or site-specific UI overrides are incomplete; expected 50 UI strings and 152 terms")
         ui_runtime = (ROOT / "assets" / "cn-ui.js").read_text(encoding="utf-8")
         terms_runtime = (ROOT / "assets" / "cn-terms.js").read_text(encoding="utf-8")
         if "export const cnUi" not in ui_runtime or "export function translateUi" not in ui_runtime:

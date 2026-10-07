@@ -21,5 +21,5 @@ python3 scripts/localize-cn.py
 python3 scripts/check-cn.py
 ```
 
-The importers read the workbook's exact source/translation columns and skip blank translations. The localizer updates visible HTML copy and matching browser bundles, with category-aware term translations so labels such as personalities agree on the filter and character detail pages. Embedded source data and route slugs are left intact. The tome-name worksheet has no completed Chinese values, so tome names retain their current display until translations are supplied.
+The importers read the workbook's exact source/translation columns and skip blank translations. The UI importer also preserves site-specific translations for character page payment labels and known style-change tomes. The localizer updates visible HTML copy and matching browser bundles, with category-aware term translations so labels such as personalities agree on the filter and character detail pages. Embedded source data and route slugs are left intact.
 

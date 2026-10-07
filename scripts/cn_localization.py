@@ -295,6 +295,7 @@ def localize_copy(root: Path) -> int:
         ("name:`Paid/Free`", "name:cnUi[\"Paid/Free\"]??`Paid/Free`", 1),
         ("name:`Personalities`", "name:cnUi[\"Personalities\"]??`Personalities`", 1),
         ("name:`Style Change Tome`", "name:cnUi[\"Style Change Tome\"]??`Style Change Tome`", 1),
+        ("description:r.styleChangeTome", "description:translateUi(r.styleChangeTome)", 1),
         ("name:`Class Tome`", "name:cnUi[\"Class Tome\"]??`Class Tome`", 1),
         ("function V(e){return e?[(0,A.jsx)(`li`,{children:e},e)]:[]}", "function V(e){return e?[(0,A.jsx)(`li`,{children:cnTerms.personalities[e]??e},e)]:[]}", 1),
         ("function H(e){return(0,A.jsx)(`li`,{children:e},e)}", "function H(e){let t=typeof e===`string`?e:e.name??e;return(0,A.jsx)(`li`,{children:cnTerms.roles[t]??t},e)}", 1),
