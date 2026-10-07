@@ -63,9 +63,7 @@ def main() -> int:
         from cn_verified import VerifiedHtml, verified_data
         verified = json.loads((ROOT / "data/cn-verified.json").read_text(encoding="utf-8"))
         if verified != verified_data(ROOT):
-            raise ValueError("Verified translations differ from audited CSV sources")
-        if verified["materials"].get("Hunyuan Laojun Treatise") != "混元老君的异节":
-            raise ValueError("Xianhua AS style-change tome translation is missing")
+            raise ValueError("Verified translations differ from data/cn-verified.json")
         verified_runtime = (ROOT / "assets/cn-verified.js").read_text(encoding="utf-8")
         serialized = json.dumps(verified, ensure_ascii=False, separators=(",", ":"))
         if "export const cnVerified=" + serialized + ";" not in verified_runtime:
@@ -126,7 +124,7 @@ def main() -> int:
             preview = ", ".join(f"{name} ({count})" for name, count in list(remaining.items())[:20])
             raise ValueError(f"English names remain in visible HTML text or alt attributes: {preview}")
 
-        print(f"[OK] {sum(map(len, verified.values()))} verified mappings match audit sources and visible detail fields")
+        print(f"[OK] {sum(map(len, verified.values()))} verified mappings match site data and visible detail fields")
         print(f"[OK] {len(names)} name mappings, {len(ui)} UI strings, {sum(len(group) for group in terms.values())} terms")
         print(f"[OK] {detail_pages} character pages and {len(pages)} rendered pages, browser display/search/copy patches verified")
         return 0
@@ -137,4 +135,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

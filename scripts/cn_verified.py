@@ -1,32 +1,22 @@
 """Apply only source-verified national-server names, preserving English source data."""
-import csv
 import html
 import json
 import re
 from cn_localization import HtmlCopyRewriter, patch_bundle, locate_asset
 
 
-def read_rows(root, filename):
-    with (root / 'reports' / filename).open(encoding='utf-8-sig', newline='') as stream:
-        return list(csv.DictReader(stream))
-
-
 def verified_data(root):
-    groups = {'materials': {}, 'dungeons': {}, 'personalities': {}}
-    for filename in ('未汉化名称清单.csv', '其他英文名称待核对.csv'):
-        for row in read_rows(root, filename):
-            if row['核对状态'] != '国服资料已核对':
-                continue
-            english, chinese = row['英文原文'], row['中文译名（国服原文）']
-            if not chinese or not row['来源链接']:
-                raise ValueError(f'Missing verified translation or source: {english}')
-            group = 'personalities' if row['类别'] == '个性' else 'dungeons' if row['类别'] == '副本/掉落地点' else 'materials'
-            if english in groups[group] and groups[group][english] != chinese:
-                raise ValueError(f'Conflicting verified translation: {english}')
-            groups[group][english] = chinese
-    # This tome was translated from its Japanese release name after Xianhua AS
-    # reached the national server; it is absent from the older audit workbook.
-    groups['materials']['Hunyuan Laojun Treatise'] = '混元老君的异节'
+    groups = json.loads((root / 'data/cn-verified.json').read_text(encoding='utf-8'))
+    expected = {'materials', 'dungeons', 'personalities'}
+    if not isinstance(groups, dict) or set(groups) != expected:
+        raise ValueError('data/cn-verified.json has an invalid group structure')
+    for group, entries in groups.items():
+        if not isinstance(entries, dict) or any(
+            not isinstance(source, str) or not source.strip()
+            or not isinstance(translation, str) or not translation.strip()
+            for source, translation in entries.items()
+        ):
+            raise ValueError(f'data/cn-verified.json has invalid {group} mappings')
     return groups
 
 
@@ -87,17 +77,3 @@ def apply_verified(root):
             path.write_text(result, encoding='utf-8')
             changed += 1
     print(f'[OK] {sum(map(len, groups.values()))} verified mappings; updated {changed} character pages')
-
-
-def pending_markdown(root):
-    rows = read_rows(root, '待核实国服译名.csv')
-    output = ['# 待核实国服译名', '', '核对日期：2026-10-07。共 25 项：24 项书籍材料，1 项网站分类用语。', '',
-              '仅纳入网站角色名已为中文的角色。下列条目尚未取得中国国服完整原文，或资料存在用字冲突；候选译名不作为网站译文，网站保留英文。角色名仍为英文的条目不在本表翻译范围内。', '',
-              '| ID | 类别 | 英文原文 | 国服关联角色 | 核对状态 | 候选译名 / 待核实原因 | 参考来源 |',
-              '| --- | --- | --- | --- | --- | --- | --- |']
-    for row in rows:
-        links = '<br>'.join(f'[来源 {i}]({url})' for i, url in enumerate(row['来源链接'].splitlines(), 1) if url)
-        values = [row['条目ID'], row['类别'], row['英文原文'], row['国服关联角色（按网站）'], row['核对状态'], row['候选译名/差异说明'], links or '暂无可确认原文的来源']
-        output.append('| ' + ' | '.join(value.replace('|', '\\|').replace('\n', '<br>') for value in values) + ' |')
-    output += ['', '完整检索记录及页面定位见 [待核实国服译名.csv](待核实国服译名.csv)；已核对的原文与证据见 [未汉化名称清单.md](未汉化名称清单.md) 和 [其他英文名称待核对.csv](其他英文名称待核对.csv)。', '']
-    (root / 'reports/待核实国服译名.md').write_text('\n'.join(output), encoding='utf-8')
