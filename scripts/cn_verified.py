@@ -24,6 +24,9 @@ def verified_data(root):
             if english in groups[group] and groups[group][english] != chinese:
                 raise ValueError(f'Conflicting verified translation: {english}')
             groups[group][english] = chinese
+    # This tome was translated from its Japanese release name after Xianhua AS
+    # reached the national server; it is absent from the older audit workbook.
+    groups['materials']['Hunyuan Laojun Treatise'] = '混元老君的异节'
     return groups
 
 

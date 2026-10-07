@@ -58,16 +58,21 @@ def main() -> int:
 
         ui = json.loads((ROOT / "data" / "cn-ui.json").read_text(encoding="utf-8"))
         terms = json.loads((ROOT / "data" / "cn-terms.json").read_text(encoding="utf-8"))
-        if len(ui) != 48 or sum(len(group) for group in terms.values()) != 152:
-            raise ValueError("Workbook copy mappings are incomplete; expected 48 UI strings and 152 terms")
+        if len(ui) != 49 or sum(len(group) for group in terms.values()) != 152:
+            raise ValueError("Workbook copy mappings or site-specific UI overrides are incomplete; expected 49 UI strings and 152 terms")
         from cn_verified import VerifiedHtml, verified_data
         verified = json.loads((ROOT / "data/cn-verified.json").read_text(encoding="utf-8"))
         if verified != verified_data(ROOT):
             raise ValueError("Verified translations differ from audited CSV sources")
+        if verified["materials"].get("Hunyuan Laojun Treatise") != "混元老君的异节":
+            raise ValueError("Xianhua AS style-change tome translation is missing")
         verified_runtime = (ROOT / "assets/cn-verified.js").read_text(encoding="utf-8")
         serialized = json.dumps(verified, ensure_ascii=False, separators=(",", ":"))
         if "export const cnVerified=" + serialized + ";" not in verified_runtime:
             raise ValueError("Verified browser mappings are out of date")
+        if ui.get("Paid") != "梦见":
+            raise ValueError("Site-specific Paid translation is missing")
+
         ui_runtime = (ROOT / "assets" / "cn-ui.js").read_text(encoding="utf-8")
         terms_runtime = (ROOT / "assets" / "cn-terms.js").read_text(encoding="utf-8")
         if "export const cnUi" not in ui_runtime or "export function translateUi" not in ui_runtime:

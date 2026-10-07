@@ -29,6 +29,12 @@ TERM_GROUPS = {
     "Teams 队伍分类/标签": "teams",
 }
 
+# Site-specific additions that are not in the source workbook. Keep these when
+# regenerating the workbook-backed UI map so live character pages stay localized.
+SITE_UI_OVERRIDES = {
+    "Paid": "梦见",
+}
+
 
 def workbook_rows(path: Path, wanted_sheet: str) -> list[dict[str, str]]:
     with zipfile.ZipFile(path) as archive:
@@ -108,6 +114,7 @@ def main() -> int:
                 skipped_ui += 1
                 continue
             add_mapping(ui, english, chinese, "页面文案")
+        ui.update(SITE_UI_OVERRIDES)
 
         term_header = find_header(term_rows, "英文显示值", "精确中文译文")
         terms = {name: {} for name in TERM_GROUPS.values()}

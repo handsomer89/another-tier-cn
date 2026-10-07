@@ -394,4 +394,3 @@ def localize_copy(root: Path) -> int:
 
 def apply_copy_localization(root: Path) -> int:
     return localize_copy(root)
-
