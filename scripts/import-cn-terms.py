@@ -33,6 +33,12 @@ TERM_GROUPS = {
 # regenerating the workbook-backed UI map so live character pages stay localized.
 SITE_UI_OVERRIDES = {
     "Paid": "梦见",
+    "Paid SA": "梦见·星导",
+    "Paid No SA": "梦见·无星导",
+    "Match all?": "匹配全部？",
+    "AND": "且（全部满足）",
+    "OR": "或（满足任一）",
+    "Filter by name or tome": "按角色名、别名或书籍名筛选",
 }
 
 

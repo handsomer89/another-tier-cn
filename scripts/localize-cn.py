@@ -304,6 +304,9 @@ def main() -> int:
         from cn_verified import apply_verified
 
         apply_verified(ROOT)
+        from cn_aliases import apply_aliases
+
+        apply_aliases(ROOT)
         return 0
     except Exception as error:
         print(f"[ERROR] {error}", file=sys.stderr)

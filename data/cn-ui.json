@@ -2,12 +2,12 @@
   "Another Tier - Tier List for Another Eden": "Another Tier - Another Eden 角色强度榜",
   "Rating characters in their viability against endgame Hidden Bosses, and Challenge Mode difficulties.": "根据角色在后期隐王与 CHALLENGE（挑战难度）内容中的实用性进行评级。",
   "Tier List": "角色强度榜",
-  "Paid SA": "梦见·星导觉醒",
-  "Paid No SA": "梦见·非星导觉醒",
+  "Paid SA": "梦见·星导",
+  "Paid No SA": "梦见·无星导",
   "Free": "配布",
   "Teams": "队伍",
   "Home": "首页",
-  "Filter by name or tome": "按角色名或书籍名筛选",
+  "Filter by name or tome": "按角色名、别名或书籍名筛选",
   "Filter by character": "按角色筛选",
   "Clear All": "清除全部",
   "CHOOSE": "选择",
@@ -47,5 +47,8 @@
   "Back to home": "返回首页",
   "Made by": "制作：",
   "Tier list and roles credit to": "强度榜及角色定位资料来源：",
-  "and Roles for Another Eden": "及 Another Eden 的角色定位"
+  "and Roles for Another Eden": "及 Another Eden 的角色定位",
+  "Match all?": "匹配全部？",
+  "AND": "且（全部满足）",
+  "OR": "或（满足任一）"
 }

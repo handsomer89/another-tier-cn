@@ -58,8 +58,19 @@ def main() -> int:
 
         ui = json.loads((ROOT / "data" / "cn-ui.json").read_text(encoding="utf-8"))
         terms = json.loads((ROOT / "data" / "cn-terms.json").read_text(encoding="utf-8"))
-        if len(ui) != 49 or sum(len(group) for group in terms.values()) != 152:
-            raise ValueError("Workbook copy mappings or site-specific UI overrides are incomplete; expected 49 UI strings and 152 terms")
+        if len(ui) != 52 or sum(len(group) for group in terms.values()) != 152:
+            raise ValueError("Workbook copy mappings or site-specific UI overrides are incomplete; expected 52 UI strings and 152 terms")
+        from cn_aliases import AliasHtml
+        aliases = json.loads((ROOT / "data/cn-aliases.json").read_text(encoding="utf-8"))
+        alias_runtime = (ROOT / "assets/cn-aliases.js").read_text(encoding="utf-8")
+        if "export const cnAliases=Object.freeze(" + json.dumps(aliases, ensure_ascii=False, separators=(",", ":")) + ");" not in alias_runtime:
+            raise ValueError("AC alias browser mappings are out of date")
+        expected_ui = {
+            "Paid SA": "梦见·星导", "Paid No SA": "梦见·无星导",
+            "Match all?": "匹配全部？", "AND": "且（全部满足）", "OR": "或（满足任一）",
+        }
+        if any(ui.get(key) != value for key, value in expected_ui.items()):
+            raise ValueError("Navigation or match-mode translations are missing")
         from cn_verified import VerifiedHtml, verified_data
         verified = json.loads((ROOT / "data/cn-verified.json").read_text(encoding="utf-8"))
         if verified != verified_data(ROOT):
@@ -82,6 +93,10 @@ def main() -> int:
         required_patterns = {
             "card display and search": "cnNames[",
             "Chinese name search": "It(cnNames[t.name]??t.name).includes(n)",
+            "Chinese alias search": "It(translateAlias(t.alterName)).includes(n)",
+            "Chinese detail alias": "children:translateAlias(r.alterName)",
+            "localized match-mode toggle": "label:translateUi(`Match all?`)",
+            "localized match-mode description": "?translateUi(`AND`):translateUi(`OR`)",
             "character detail title": "children:cnNames[r.name]??r.name",
             "localized tier filter personalities": 'label:cnTerms.personalities[e]??translateVerified("personalities",e)',
             "localized detail personalities": 'children:cnTerms.personalities[e]??translateVerified("personalities",e,character)',
@@ -106,6 +121,12 @@ def main() -> int:
             page = path.read_text(encoding="utf-8")
             if path.relative_to(ROOT).parts[:1] == ("c",):
                 detail_pages += 1
+                if "-ac" in path.parent.name:
+                    alias_parser = AliasHtml(page, aliases)
+                    alias_parser.feed(page)
+                    alias_parser.close()
+                    if alias_parser.edits:
+                        raise ValueError(f"AC alias is not localized: {path.relative_to(ROOT)}")
                 verified_parser = VerifiedHtml(page, verified)
                 verified_parser.feed(page)
                 verified_parser.close()
@@ -115,6 +136,8 @@ def main() -> int:
                     raise ValueError(f"Character detail copy is not localized: {path.relative_to(ROOT)}")
             if '<html lang="zh-CN"' not in page:
                 raise ValueError(f"HTML language is not set to zh-CN: {path.relative_to(ROOT)}")
+            if "梦见·星导觉醒" in page or "梦见·非星导觉醒" in page:
+                raise ValueError(f"Outdated navigation copy: {path.relative_to(ROOT)}")
             parser = VisibleNameCheck(names)
             parser.feed(page)
             parser.close()

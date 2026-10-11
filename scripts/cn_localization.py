@@ -238,7 +238,15 @@ class HtmlCopyRewriter(HTMLParser):
 
 def localize_html(path: Path, root: Path, ui: dict[str, str], terms: dict[str, dict[str, str]]) -> bool:
     source = path.read_text(encoding="utf-8")
-    parser = HtmlCopyRewriter(source, ui, terms)
+    # Also migrate copy in already-localized snapshots; leave script data intact.
+    copy = dict(ui)
+    for previous, key in {
+        "梦见·星导觉醒": "Paid SA",
+        "梦见·非星导觉醒": "Paid No SA",
+        "按角色名或书籍名筛选": "Filter by name or tome",
+    }.items():
+        copy[previous] = ui[key]
+    parser = HtmlCopyRewriter(source, copy, terms)
     parser.feed(source)
     parser.close()
     result = parser.finish()
@@ -286,6 +294,8 @@ def localize_copy(root: Path) -> int:
         ("name:`Role`", "name:cnUi[\"Role\"]??`Role`", 1),
         ("name:`Personality`", "name:cnUi[\"Personality\"]??`Personality`", 1),
         ("name:`Element`", "name:cnUi[\"Element\"]??`Element`", 1),
+        ('label:`Match all?`', 'label:translateUi(`Match all?`)', 2),
+        ('?`AND`:`OR`', '?translateUi(`AND`):translateUi(`OR`)', 2),
         ("function kt(e){return{value:e,label:e}}", "function kt(e){return{value:e,label:cnTerms.personalities[e]??e}}", 1),
         ("function At(e){let[t,n]=e;return{value:t,label:n}}", "function At(e){let[t,n]=e;return{value:t,label:cnTerms.roles[n]??n}}", 1),
         ("alt:u[e]", "alt:cnTerms.weapons[u[e]]??u[e]", 1),
