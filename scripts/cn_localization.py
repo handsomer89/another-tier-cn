@@ -348,6 +348,10 @@ def localize_copy(root: Path) -> int:
     ], (UI_IMPORT,))
 
     patch_bundle(site, "navigation and footer copy", [
+        # Static directory hosting redirects /free and /no-sa to trailing-slash
+        # URLs on reload; match the same tier routes after that redirect.
+        ('(t.pathname===`/`||t.pathname===`/free`||t.pathname===`/no-sa`)',
+         r'([`/`,`/free`,`/no-sa`].includes(t.pathname.replace(/\/+$/,``)||`/`))', 1),
         ("children:`Tier List`", "children:cnUi[\"Tier List\"]??`Tier List`", 1),
         ("children:`Teams`", "children:cnUi[\"Teams\"]??`Teams`", 1),
         ("children:[`Made by`,` `,", "children:[cnUi[\"Made by\"]??`Made by`,` `,", 1),

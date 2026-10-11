@@ -97,6 +97,7 @@ def main() -> int:
             "Chinese detail alias": "children:translateAlias(r.alterName)",
             "localized match-mode toggle": "label:translateUi(`Match all?`)",
             "localized match-mode description": "?translateUi(`AND`):translateUi(`OR`)",
+            "tier navigation after static directory redirect": r'[`/`,`/free`,`/no-sa`].includes(t.pathname.replace(/\/+$/,``)||`/`)',
             "character detail title": "children:cnNames[r.name]??r.name",
             "localized tier filter personalities": 'label:cnTerms.personalities[e]??translateVerified("personalities",e)',
             "localized detail personalities": 'children:cnTerms.personalities[e]??translateVerified("personalities",e,character)',
