@@ -250,6 +250,7 @@ def localize_html(path: Path, root: Path, ui: dict[str, str], terms: dict[str, d
         copy[previous] = ui[key]
     migrated_terms = {group: dict(values) for group, values in terms.items()}
     migrated_terms["personalities"]["猫咪爱好者"] = terms["personalities"]["Cat lover"]
+    migrated_terms["personalities"]["喜欢猫咪"] = terms["personalities"]["Cat lover"]
     parser = HtmlCopyRewriter(source, copy, migrated_terms)
     parser.feed(source)
     parser.close()
