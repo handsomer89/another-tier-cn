@@ -2,6 +2,14 @@
 
 This repository contains a static snapshot of [anothertier.com](https://anothertier.com/), captured on 2026-09-24. The source dataset, rankings, layouts, public routes, scripts, styles, fonts, and image references are preserved. Chinese display names and workbook-backed UI/classification translations are applied while retaining English source values in routes and API-facing data.
 
+The rendered tier lists and embedded character query data for `/`, `/free`, and `/no-sa` were refreshed on 2026-10-14. Client-side queries still use the original public API. Refresh these three snapshots together (Python 3 and Node.js required) with:
+
+```sh
+python3 scripts/refresh-rankings.py
+```
+
+The refresher checks that upstream rendered cards match their embedded tier maps, preserves the current localized page chrome and browser bundles, reapplies Chinese translations, and runs the existing localization checks. This is a manual refresh; later upstream ranking changes require running it again.
+
 - 326 rendered page routes, including character pages, `/free`, `/no-sa`, and the beta `/teams?beta=true` page.
 - The original scripts, stylesheets, fonts, and site assets are included.
 - The original public API and Cloudinary image CDN remain connected for client-side data and images, matching the source site's behavior.
