@@ -10,7 +10,7 @@ GitHub Pages serves this repository at `/another-tier-cn/`; the mirrored styles,
 
 ## Chinese localization
 
-Character names use the corrected mappings in `data/cn-names.json`. The 52 fixed UI strings and 152 translated terms in `data/cn-ui.json` and `data/cn-terms.json` cover page copy, tier filters, and character details, including personalities shared between filters and detail pages. English source values remain in site data, URLs, and API-facing fields. Character search accepts English and Chinese names and verified AC aliases, including partial alias matches. The role and personality match toggles use Chinese labels while retaining their original all/any filtering behavior.
+Character names use the corrected mappings in `data/cn-names.json`. The 52 fixed UI strings and 153 translated terms in `data/cn-ui.json` and `data/cn-terms.json` cover page copy, tier filters, and character details, including personalities shared between filters and detail pages. English source values remain in site data, URLs, and API-facing fields. Character search accepts English and Chinese names and verified AC aliases, including partial alias matches. The role and personality match toggles use Chinese labels while retaining their original all/any filtering behavior.
 
 After updating the source snapshot or translation workbooks, refresh the mappings and localized page output with:
 

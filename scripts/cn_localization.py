@@ -116,6 +116,8 @@ class HtmlCopyRewriter(HTMLParser):
         self.source = source
         self.ui = ui
         self.terms = terms
+        self.detail_term_groups = dict(DETAIL_TERM_GROUPS)
+        self.detail_term_groups.update({ui[key]: group for key, group in DETAIL_TERM_GROUPS.items() if key in ui})
         self.stack: list[str] = []
         self.pending_detail_label = ""
         self.detail_fields: list[str] = []
@@ -166,7 +168,7 @@ class HtmlCopyRewriter(HTMLParser):
 
         term_replacements = dict(self.ui)
         if self.detail_fields:
-            group = DETAIL_TERM_GROUPS.get(self.detail_fields[-1], "")
+            group = self.detail_term_groups.get(self.detail_fields[-1], "")
             for english, chinese in self.terms.get(group, {}).items():
                 term_replacements[english] = chinese
                 term_replacements.setdefault(english.lower(), chinese)
@@ -199,7 +201,7 @@ class HtmlCopyRewriter(HTMLParser):
     def translate_text(self, value: str) -> str:
         replacement = self.ui.get(value)
         field = self.detail_fields[-1] if self.detail_fields else ""
-        group = DETAIL_TERM_GROUPS.get(field)
+        group = self.detail_term_groups.get(field)
         if group:
             replacement = self.terms.get(group, {}).get(value, replacement)
         elif any(tag in {"h2", "h3"} for tag in self.stack):
@@ -246,7 +248,9 @@ def localize_html(path: Path, root: Path, ui: dict[str, str], terms: dict[str, d
         "按角色名或书籍名筛选": "Filter by name or tome",
     }.items():
         copy[previous] = ui[key]
-    parser = HtmlCopyRewriter(source, copy, terms)
+    migrated_terms = {group: dict(values) for group, values in terms.items()}
+    migrated_terms["personalities"]["猫咪爱好者"] = terms["personalities"]["Cat lover"]
+    parser = HtmlCopyRewriter(source, copy, migrated_terms)
     parser.feed(source)
     parser.close()
     result = parser.finish()

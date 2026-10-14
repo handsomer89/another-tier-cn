@@ -58,8 +58,8 @@ def main() -> int:
 
         ui = json.loads((ROOT / "data" / "cn-ui.json").read_text(encoding="utf-8"))
         terms = json.loads((ROOT / "data" / "cn-terms.json").read_text(encoding="utf-8"))
-        if len(ui) != 52 or sum(len(group) for group in terms.values()) != 152:
-            raise ValueError("Workbook copy mappings or site-specific UI overrides are incomplete; expected 52 UI strings and 152 terms")
+        if len(ui) != 52 or sum(len(group) for group in terms.values()) != 153:
+            raise ValueError("Workbook copy mappings or site-specific UI overrides are incomplete; expected 52 UI strings and 153 terms")
         from cn_aliases import AliasHtml
         aliases = json.loads((ROOT / "data/cn-aliases.json").read_text(encoding="utf-8"))
         alias_runtime = (ROOT / "assets/cn-aliases.js").read_text(encoding="utf-8")
