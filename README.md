@@ -90,7 +90,7 @@ python3 scripts/refresh-rankings.py --source-dir /path/to/upstream
 
 | 文件 | 内容 |
 | --- | --- |
-| `data/cn-names.json` | 306 条角色名称映射 |
+| `data/cn-names.json` | 308 条角色名称映射 |
 | `data/cn-ui.json` | 52 条界面文案 |
 | `data/cn-terms.json` | 153 条筛选、分类及详情术语 |
 | `data/cn-verified.json` | 295 条已核实国服译名：256 条书籍/材料、24 条副本、15 条个性 |
