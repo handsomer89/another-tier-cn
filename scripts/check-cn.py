@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import json
 import re
+import runpy
 import sys
 from html.parser import HTMLParser
 from pathlib import Path
@@ -51,6 +52,24 @@ class VisibleNameCheck(HTMLParser):
 
 def main() -> int:
     try:
+        character_changes = runpy.run_path(str(ROOT / "scripts/refresh-rankings.py"))["character_changes"]
+        snapshot_dir = ROOT / "data/characters"
+        for group in ("paid", "free"):
+            cards = json.loads((snapshot_dir / f"{group}.json").read_text(encoding="utf-8"))
+            for card in cards:
+                detail = json.loads((snapshot_dir / f"{card['slug']}.json").read_text(encoding="utf-8"))
+                differences = character_changes(card, detail)
+                if differences:
+                    raise ValueError(f"Ranking/detail mismatch for {card['slug']}: {', '.join(differences)}")
+        manifest = json.loads((ROOT / "site.webmanifest").read_text(encoding="utf-8"))
+        for icon in manifest["icons"]:
+            if not (ROOT / icon["src"].removeprefix("/another-tier-cn/")).is_file():
+                raise ValueError(f"Missing manifest icon: {icon['src']}")
+        images = runpy.run_path(str(ROOT / "scripts/download-images.py"))
+        for url in images["image_urls"]():
+            if not images["image_path"](url).is_file():
+                raise ValueError(f"Missing image backup: {url}")
+
         names = json.loads((ROOT / "data" / "cn-names.json").read_text(encoding="utf-8"))
         generated = (ROOT / "assets" / "cn-names.js").read_text(encoding="utf-8")
         if "export const cnNames" not in generated:
@@ -115,7 +134,7 @@ def main() -> int:
             if pattern not in combined:
                 raise ValueError(f"Missing required patch: {label}")
 
-        pages = sorted(ROOT.rglob("*.html"))
+        pages = sorted(path for path in ROOT.rglob("*.html") if not path.is_relative_to(ROOT / "dist"))
         remaining: dict[str, int] = {}
         detail_pages = 0
         for path in pages:
@@ -137,6 +156,11 @@ def main() -> int:
                     raise ValueError(f"Character detail copy is not localized: {path.relative_to(ROOT)}")
             if '<html lang="zh-CN"' not in page:
                 raise ValueError(f"HTML language is not set to zh-CN: {path.relative_to(ROOT)}")
+            if "Another 评级" in page or "maximum-scale=1" in page:
+                raise ValueError(f"Outdated title or viewport: {path.relative_to(ROOT)}")
+            for label, translated in terms["tiers"].items():
+                if label != translated and re.search(r"<h[23]\b[^>]*>\s*" + re.escape(label) + r"\s*</h[23]>", page):
+                    raise ValueError(f"Untranslated tier heading {label}: {path.relative_to(ROOT)}")
             if "梦见·星导觉醒" in page or "梦见·非星导觉醒" in page:
                 raise ValueError(f"Outdated navigation copy: {path.relative_to(ROOT)}")
             parser = VisibleNameCheck(names)
@@ -148,6 +172,7 @@ def main() -> int:
             preview = ", ".join(f"{name} ({count})" for name, count in list(remaining.items())[:20])
             raise ValueError(f"English names remain in visible HTML text or alt attributes: {preview}")
 
+        print("[OK] Ranking/detail snapshots agree; manifest icons and image backups exist")
         print(f"[OK] {sum(map(len, verified.values()))} verified mappings match site data and visible detail fields")
         print(f"[OK] {len(names)} name mappings, {len(ui)} UI strings, {sum(len(group) for group in terms.values())} terms")
         print(f"[OK] {detail_pages} character pages and {len(pages)} rendered pages, browser display/search/copy patches verified")

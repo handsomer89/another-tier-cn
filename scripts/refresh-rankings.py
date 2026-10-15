@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Refresh rendered tier lists and their matching hydration data from upstream.
+"""Refresh rankings and changed character details, including hydration data.
 
 Requires Python 3 and Node.js. Existing localized bundles and page chrome stay intact.
 """
@@ -15,6 +15,8 @@ from urllib.request import Request, urlopen
 ROOT = Path(__file__).resolve().parents[1]
 ROUTES = {"index.html": "/", "free/index.html": "/free", "no-sa/index.html": "/no-sa"}
 DATA = re.compile(r"(state:\$R\[\d+\]=\{data:)(.*?)(,dataUpdateCount:1,dataUpdatedAt:)(\d+)", re.S)
+LOADER = re.compile(r"(l:\$R\[\d+\]=)(\{.*?\})(,ssr:)", re.S)
+BASE = "/another-tier-cn"
 
 
 class TierSection(HTMLParser):
@@ -58,7 +60,11 @@ def extract_data(source):
     if len(matches) != 1:
         raise ValueError("Expected exactly one hydrated character query")
     match = matches[0]
-    # Evaluate only the captured data expression, in an isolated context with a timeout.
+    return match, evaluate(match[2])
+
+
+def evaluate(expression):
+    # Evaluate only a captured data expression, in an isolated context with a timeout.
     program = r"""
 const fs = require('node:fs'), vm = require('node:vm');
 const data = vm.runInNewContext('(' + fs.readFileSync(0, 'utf8') + ')', {$R: []}, {timeout: 5000});
@@ -68,8 +74,8 @@ console.log(JSON.stringify(data, (_, value) => {
   return value;
 }));
 """
-    result = subprocess.run(["node", "-e", program], input=match[2], text=True, capture_output=True, check=True)
-    return match, json.loads(result.stdout)
+    result = subprocess.run(["node", "-e", program], input=expression, text=True, capture_output=True, check=True)
+    return json.loads(result.stdout)
 
 
 def js_value(value):
@@ -105,28 +111,127 @@ def refresh(original, upstream):
     return result, old_data, new_data, new_match[4]
 
 
-def main():
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--source-dir", type=Path, help="Use previously fetched index.html, free.html and no-sa.html")
-    args = parser.parse_args()
+def character_changes(card, detail):
+    """Compare ranking fields, ignoring representation and ordering differences."""
+    def normalize(key, value):
+        if key in ("roles", "classTomes") and isinstance(value, list):
+            value = [item["name"] if isinstance(item, dict) else item for item in value]
+        return sorted(value) if isinstance(value, list) else value
+
+    return [key for key, value in card.items()
+            if normalize(key, value) != normalize(key, detail.get(key))]
+
+
+def main_span(source):
+    matches = list(re.finditer(r"<main\b[^>]*>.*?</main>", source, re.S))
+    if len(matches) != 1:
+        raise ValueError("Expected exactly one character main element")
+    return matches[0]
+
+
+def refresh_character(original, upstream, card):
+    """Keep the local app shell and asset manifest while updating character content."""
+    old_match, old_data = extract_data(original)
+    new_match, new_data = extract_data(upstream)
+    if new_data.get("slug") != card["slug"] or character_changes(card, new_data):
+        raise ValueError(f"Character detail disagrees with rankings: {card['slug']}")
+    old_loader, new_loader = LOADER.search(original), LOADER.search(upstream)
+    if not old_loader or not new_loader:
+        raise ValueError("Expected character loader metadata")
+    loader = evaluate(new_loader[2])
+    result = original[:old_loader.start(2)] + js_value(loader) + original[old_loader.end(2):]
+    # Recalculate the data span after replacing loader metadata.
+    old_match, _ = extract_data(result)
+    replacement = old_match[1] + js_value(new_data) + old_match[3] + new_match[4]
+    result = result[:old_match.start()] + replacement + result[old_match.end():]
+    start, end = main_span(result).span()
+    body = main_span(upstream)[0]
+    body = re.sub(r'(href|src)="(/(?!/))', rf'\1="{BASE}\2', body)
+    result = result[:start] + body + result[end:]
+    result = re.sub(r'\bu:\d+(?=,s:"success")', 'u:' + new_match[4], result)
+    result = re.sub(r'\bdehydratedAt:\d+', 'dehydratedAt:' + new_match[4], result)
+
+    # A new character uses an existing detail page as its compatible local shell.
+    old_slug, slug = old_data["slug"], new_data["slug"]
+    result = result.replace('\\u0000' + old_slug + '\\u0000', '\\u0000' + slug + '\\u0000')
+    result = re.sub(r'(queryKey:\$R\[\d+\]=)\["character","[^"]+"\]',
+                    lambda match: match[1] + js_value(["character", slug]), result)
+    old_hash = json.dumps(json.dumps(["character", old_slug], separators=(",", ":")))
+    new_hash = json.dumps(json.dumps(["character", slug], separators=(",", ":")))
+    result = result.replace('queryHash:' + old_hash, 'queryHash:' + new_hash)
+
+    # Copy only character-specific head tags; keep local bundles, CSS and entrypoints.
+    result = re.sub(r'<title>.*?</title>', lambda _: re.search(r'<title>.*?</title>', upstream)[0], result, count=1)
+    for name in ("og:title", "twitter:title", "description", "og:description", "twitter:description",
+                 "og:url", "twitter:url", "og:image", "twitter:image"):
+        pattern = rf'<meta name="{re.escape(name)}"[^>]*>'
+        tag = re.search(pattern, upstream)
+        if tag:
+            result = re.sub(pattern, lambda _: tag[0], result, count=1)
+    pattern = r'<link rel="canonical"[^>]*>'
+    canonical = re.search(pattern, upstream)
+    if canonical:
+        result = re.sub(pattern, lambda _: canonical[0], result, count=1)
+    image_preload = r'<link\b(?=[^>]*\bas="image")[^>]*>'
+    result = re.sub(image_preload, '', result)
+    images = ''.join(re.findall(image_preload, upstream))
+    result = result.replace('</head>', images + '</head>', 1)
+    return result
+
+
+def fetch_source(route, source_dir):
+    if source_dir:
+        filename = "index.html" if route == "/" else route[1:] + ".html"
+        if route.startswith("/c/"):
+            filename = route[1:] + "/index.html"
+        return (source_dir / filename).read_text(encoding="utf-8")
+    request = Request("https://anothertier.com" + route, headers={"User-Agent": "Another-Tier-CN snapshot refresh"})
+    with urlopen(request, timeout=45) as response:
+        return response.read().decode("utf-8")
+
+
+def prepare_outputs(source_dir=None):
     outputs = []
+    characters = {}
     for path, route in ROUTES.items():
-        if args.source_dir:
-            filename = "index.html" if route == "/" else route[1:] + ".html"
-            upstream = (args.source_dir / filename).read_text()
-        else:
-            request = Request("https://anothertier.com" + route, headers={"User-Agent": "Another-Tier-CN snapshot refresh"})
-            with urlopen(request, timeout=45) as response:
-                upstream = response.read().decode("utf-8")
-        original = (ROOT / path).read_text()
+        upstream = fetch_source(route, source_dir)
+        original = (ROOT / path).read_text(encoding="utf-8")
         result, old, new, timestamp = refresh(original, upstream)
         outputs.append((path, result))
+        for slug, card in new["characterMap"]["map"]:
+            if slug in characters and characters[slug] != card:
+                raise ValueError(f"Rankings disagree on character data: {slug}")
+            characters[slug] = card
         print(f"[OK] {path}: {len(new['characterMap']['map'])} characters; dataUpdatedAt={timestamp}")
+    template = next((ROOT / "c").glob("*/index.html")).read_text(encoding="utf-8")
+    refreshed = 0
+    for slug, card in characters.items():
+        path = f"c/{slug}/index.html"
+        existing = ROOT / path
+        original = existing.read_text(encoding="utf-8") if existing.exists() else template
+        changes = character_changes(card, extract_data(original)[1]) if existing.exists() else ["new"]
+        if not changes:
+            continue
+        upstream = fetch_source("/c/" + slug, source_dir)
+        outputs.append((path, refresh_character(original, upstream, card)))
+        refreshed += 1
+        print(f"[OK] {path}: refreshed ({', '.join(changes)})")
+    print(f"[OK] character details: refreshed {refreshed}; unchanged {len(characters) - refreshed}")
+    return outputs
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--source-dir", type=Path, help="Use cached index.html, free.html, no-sa.html and c/<slug>/index.html")
+    args = parser.parse_args()
+    outputs = prepare_outputs(args.source_dir)
     # Validate every source before writing any output.
     for path, result in outputs:
-        (ROOT / path).write_text(result)
-    subprocess.run(["python3", str(ROOT / "scripts/localize-cn.py")], check=True)
-    subprocess.run(["python3", str(ROOT / "scripts/check-cn.py")], check=True)
+        target = ROOT / path
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_text(result, encoding="utf-8")
+    for script in ("localize-cn.py", "optimize-mirror.py", "generate-character-snapshots.py", "download-images.py", "check-cn.py"):
+        subprocess.run(["python3", str(ROOT / "scripts" / script)], check=True)
 
 
 if __name__ == "__main__":

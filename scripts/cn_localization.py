@@ -14,7 +14,7 @@ UI_IMPORT = 'import{cnUi,translateUi}from"./cn-ui.js";'
 TERMS_IMPORT = 'import{cnTerms}from"./cn-terms.js";'
 VOID_TAGS = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "param", "source", "track", "wbr"}
 RAW_TAGS = {"script", "style", "noscript"}
-VISIBLE_TAGS = {"a", "button", "dd", "dt", "h1", "h2", "h3", "h4", "li", "p", "span", "title"}
+VISIBLE_TAGS = {"a", "button", "dd", "div", "dt", "h1", "h2", "h3", "h4", "li", "p", "span", "title"}
 DETAIL_TERM_GROUPS = {
     "Tier": "tiers",
     "Weapon": "weapons",
@@ -97,6 +97,7 @@ def patch_bundle(path: Path, label: str, replacements: list[tuple[str, str, int]
         raise ValueError(f"{label}: found multiple malformed no-character empty-state expressions")
     if legacy_count:
         source = source.replace(legacy_empty, fixed_empty, 1)
+    source = source.replace('children:[cnUi["Wiki"]??`Wiki `,M]', 'children:[`${cnUi["Wiki"]??"Wiki"} `,M]')
     for old, new, expected in replacements:
         extended = new
         for base, verified in verification_extensions.items():
@@ -172,6 +173,8 @@ class HtmlCopyRewriter(HTMLParser):
             for english, chinese in self.terms.get(group, {}).items():
                 term_replacements[english] = chinese
                 term_replacements.setdefault(english.lower(), chinese)
+                if group == "elements":
+                    term_replacements[english.lower() + " element"] = chinese
 
         if tag == "html" and attr_map.get("lang", "").lower().startswith("en"):
             changed = self.rewrite_attrs(changed, "lang", {attr_map["lang"]: "zh-CN"})
@@ -200,12 +203,15 @@ class HtmlCopyRewriter(HTMLParser):
 
     def translate_text(self, value: str) -> str:
         replacement = self.ui.get(value)
+        variation = re.fullmatch(r"Variation (.+)", value)
+        if replacement is None and variation and "Variation {n}" in self.ui:
+            replacement = self.ui["Variation {n}"].replace("{n}", variation[1])
         field = self.detail_fields[-1] if self.detail_fields else ""
         group = self.detail_term_groups.get(field)
         if group:
             replacement = self.terms.get(group, {}).get(value, replacement)
         elif any(tag in {"h2", "h3"} for tag in self.stack):
-            replacement = self.terms.get("teams", {}).get(value, replacement)
+            replacement = self.terms.get("teams", {}).get(value, self.terms.get("tiers", {}).get(value, replacement))
         return replacement if replacement is not None else value
 
     def handle_data(self, data: str) -> None:
@@ -222,9 +228,11 @@ class HtmlCopyRewriter(HTMLParser):
         if not value:
             return
         replacement = self.translate_text(value)
-        if "title" in self.stack and replacement == value:
-            for english, chinese in sorted(self.ui.items(), key=lambda item: len(item[0]), reverse=True):
-                replacement = re.sub(rf"(?<![A-Za-z0-9]){re.escape(english)}(?![A-Za-z0-9])", chinese, replacement)
+        if "title" in self.stack:
+            # Repair the former generic Tier replacement without translating the brand.
+            replacement = self.ui.get(value.replace("Another 评级", "Another Tier"), replacement.replace("Another 评级", "Another Tier"))
+            if replacement == "Teams · Another Tier":
+                replacement = self.ui.get("Teams", "Teams") + " · Another Tier"
         if replacement != value:
             start = self.source_offset(self.getpos())
             left = len(data) - len(data.lstrip())
@@ -251,8 +259,10 @@ def localize_html(path: Path, root: Path, ui: dict[str, str], terms: dict[str, d
     migrated_terms = {group: dict(values) for group, values in terms.items()}
     migrated_terms["personalities"]["猫咪爱好者"] = terms["personalities"]["Cat lover"]
     migrated_terms["personalities"]["喜欢猫咪"] = terms["personalities"]["Cat lover"]
-    parser = HtmlCopyRewriter(source, copy, migrated_terms)
-    parser.feed(source)
+    choice_span = '<span class="text-[10.5px] leading-[1.15] font-light tracking-[0.16em] text-gray-500 md:block dark:text-gray-400">{}</span>'
+    localized = source.replace("".join(choice_span.format(char) for char in "CHOOSE"), "".join(choice_span.format(char) for char in ui["CHOOSE"]))
+    parser = HtmlCopyRewriter(localized, copy, migrated_terms)
+    parser.feed(localized)
     parser.close()
     result = parser.finish()
     if result == source:
@@ -342,7 +352,7 @@ def localize_copy(root: Path) -> int:
         ("children:`Home`", "children:cnUi[\"Home\"]??`Home`", 1),
         ("children:`Character not found`", "children:cnUi[\"Character not found\"]??`Character not found`", 1),
         ("children:`Other Versions`", "children:cnUi[\"Other Versions\"]??`Other Versions`", 1),
-        ("children:[`Wiki `,M]", "children:[cnUi[\"Wiki\"]??`Wiki `,M]", 1),
+        ("children:[`Wiki `,M]", 'children:[`${cnUi["Wiki"]??"Wiki"} `,M]', 1),
         ("children:`(a.k.a.)`", "children:cnUi[\"(a.k.a.)\"]??`(a.k.a.)`", 1),
         ("`N/A`", "cnUi[\"N/A\"]??`N/A`", 5),
     ], (UI_IMPORT, TERMS_IMPORT))
@@ -374,6 +384,7 @@ def localize_copy(root: Path) -> int:
         ("children:`Teams`", "children:cnUi[\"Teams\"]??`Teams`", 1),
         ("var h=`CHOOSE`.split(``)", "var h=Array.from(translateUi(`CHOOSE`))", 1),
         ("children:e.name}),e.teams.map", "children:cnTerms.teams[e.name]??e.name}),e.teams.map", 1),
+        ("children:[e.name,e.variations.length", "children:[cnTerms.teams[e.name]??e.name,e.variations.length", 1),
         ("t.name||`Variation ${n+1}`", "translateUi(t.name||`Variation ${n+1}`)", 1),
         ("`No teams match these filters. Try another character or clear your filters.`", "translateUi(`No teams match these filters. Try another character or clear your filters.`)", 1),
         ("`No teams have been added yet.`", "translateUi(`No teams have been added yet.`)", 1),
@@ -402,7 +413,7 @@ def localize_copy(root: Path) -> int:
         ("children:`Home`", "children:cnUi[\"Home\"]??`Home`", 1),
     ], (UI_IMPORT,))
 
-    pages = sorted(root.rglob("*.html"))
+    pages = sorted(path for path in root.rglob("*.html") if not path.is_relative_to(root / "dist"))
     if not pages:
         raise ValueError("No HTML pages found")
     changed = sum(localize_html(path, root, ui, terms) for path in pages)

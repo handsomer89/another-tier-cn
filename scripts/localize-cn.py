@@ -16,6 +16,31 @@ IMPORT = 'import{cnNames}from"./cn-names.js";'
 VOID_TAGS = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "param", "source", "track", "wbr"}
 VISIBLE_TAGS = {"a", "h1", "h3", "h4", "span", "title"}
 RAW_TAGS = {"script", "style", "noscript"}
+METADATA_DESCRIPTION = "Another Eden {tier} 级角色。快速查看{name}的属性、书籍、个性等游戏参考资料。"
+
+
+def character_metadata(name: str, tier: str, names: dict[str, str]) -> dict[str, str]:
+    display = names.get(name, name)
+    return {"title": f"{display} - Another Tier", "description": METADATA_DESCRIPTION.format(tier=tier, name=display)}
+
+
+def localize_loader_metadata(source: str, names: dict[str, str]) -> tuple[str, dict[str, str] | None]:
+    """Translate only the route's display metadata; query data keeps its source values."""
+    metadata = None
+    string = r'"(?:\\.|[^"\\])*"'
+    pattern = re.compile(r'(l:\$R\[\d+\]=\{"?title"?:)(' + string + r')(,"?description"?:)(' + string + r')(?=,"?slug"?:)')
+
+    def update(match: re.Match[str]) -> str:
+        nonlocal metadata
+        title, description = json.loads(match[2]), json.loads(match[4])
+        tier = re.match(r"Another Eden (.+?) (?:tier character\.|级角色。)", description)
+        if not tier:
+            return match[0]
+        name = re.sub(r" - Another (?:Tier|评级)$", "", title)
+        metadata = character_metadata(name, tier[1], names)
+        return match[1] + json.dumps(metadata["title"], ensure_ascii=False) + match[3] + json.dumps(metadata["description"], ensure_ascii=False)
+
+    return pattern.sub(update, source), metadata
 
 
 def load_names() -> dict[str, str]:
@@ -107,12 +132,13 @@ class NameCollector(HTMLParser):
 
 
 class HtmlNameRewriter(HTMLParser):
-    def __init__(self, source: str, names: dict[str, str], page_names: set[str], is_character_page: bool):
+    def __init__(self, source: str, names: dict[str, str], page_names: set[str], is_character_page: bool, metadata: dict[str, str] | None = None):
         super().__init__(convert_charrefs=False)
         self.source = source
         self.names = names
         self.page_names = page_names
         self.is_character_page = is_character_page
+        self.metadata = metadata
         self.stack: list[str] = []
         self.line_offsets = [0]
         for match in re.finditer("\n", source):
@@ -158,6 +184,9 @@ class HtmlNameRewriter(HTMLParser):
 
         def update(match: re.Match[str]) -> str:
             value = html.unescape(match.group(3))
+            if self.metadata:
+                field = "title" if re.search(r'(?:og|twitter):title', tag_text) else "description"
+                return match.group(1) + match.group(2) + html.escape(self.metadata[field], quote=True) + match.group(2)
             for english in sorted(self.page_names, key=len, reverse=True):
                 value = re.sub(
                     rf"(?<![A-Za-z0-9]){re.escape(english)}(?![A-Za-z0-9])",
@@ -189,13 +218,9 @@ class HtmlNameRewriter(HTMLParser):
             self.stack.append(tag)
 
     def handle_startendtag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
-        tag_text = self.get_starttag_text() or ""
-        tag_start = self.source_offset(self.getpos())
-        tag_end = tag_start + self.find_tag_end(tag_text)
-        if tag == "img":
-            changed = self.rewrite_attr(tag_text, "alt", self.names)
-            if changed != tag_text:
-                self.add_edit(tag_start, tag_end, changed)
+        self.handle_starttag(tag, attrs)
+        if tag not in VOID_TAGS and self.stack and self.stack[-1] == tag:
+            self.stack.pop()
 
     def handle_endtag(self, tag: str) -> None:
         for index in range(len(self.stack) - 1, -1, -1):
@@ -213,6 +238,8 @@ class HtmlNameRewriter(HTMLParser):
         if not value:
             return
         replacement = self.names.get(value)
+        if "title" in self.stack and self.metadata:
+            replacement = self.metadata["title"]
         if replacement is None and "title" in self.stack:
             for english in sorted(self.page_names, key=len, reverse=True):
                 if value == english or value.startswith(english + " - "):
@@ -238,12 +265,13 @@ class HtmlNameRewriter(HTMLParser):
 
 def localize_html(path: Path, names: dict[str, str]) -> bool:
     source = path.read_text(encoding="utf-8")
-    collector = NameCollector(names)
-    collector.feed(source)
-    collector.close()
     is_character_page = path.relative_to(ROOT).parts[:1] == ("c",)
-    parser = HtmlNameRewriter(source, names, collector.found, is_character_page)
-    parser.feed(source)
+    localized, metadata = localize_loader_metadata(source, names) if is_character_page else (source, None)
+    collector = NameCollector(names)
+    collector.feed(localized)
+    collector.close()
+    parser = HtmlNameRewriter(localized, names, collector.found, is_character_page, metadata)
+    parser.feed(localized)
     parser.close()
     result = parser.finish()
     if result != source:
@@ -262,12 +290,14 @@ def main() -> int:
         card = locate_asset(assets, "character card", ("function S(e)", "lcpImage:s", "width:80,height:80"))
         tier = locate_asset(assets, "tier list search", ("filterKeyword:o", "classTomes.some", "filterPersonalitiesMatch:f"))
         detail = locate_asset(assets, "character detail", ("Character not found", "Other Versions", "r.commentary"))
-        detail_route = locate_asset(assets, "character SEO route", ("Another Eden ${n} tier character.", "catch(t){throw console.error(t),e()}"))
+        detail_route = locate_asset(assets, "character SEO route", ("t.context.queryClient.ensureQueryData(a.getQO(t.params.slug))", "path:`/c/${e.slug}`"))
         team_search = locate_asset(assets, "team character search", ("function g(e,t)", "e.name.toLocaleLowerCase().includes(n)", "selectionGroups"))
 
         generated = "// Generated from data/cn-names.json by scripts/localize-cn.py.\n"
         generated += "export const cnNames = Object.freeze(" + json.dumps(names, ensure_ascii=False, separators=(",", ":")) + ");\n"
         generated += "export const displayCharacterName = (name) => cnNames[name] ?? name;\n"
+        description = METADATA_DESCRIPTION.replace("{tier}", "${tier}").replace("{name}", "${cnNames[name]??name}")
+        generated += 'export const characterMetadata=(name,tier)=>({title:`${cnNames[name]??name} - Another Tier`,description:`' + description + '`});\n'
         (ROOT / "assets" / "cn-names.js").write_text(generated, encoding="utf-8")
 
         patch_bundle(card, "character card", [
@@ -284,15 +314,22 @@ def main() -> int:
             ("alt:r,className", "alt:cnNames[r]??r,className", 1),
             ("className:`mt-2 text-center text-lg/tight font-medium`,children:r", "className:`mt-2 text-center text-lg/tight font-medium`,children:cnNames[r]??r", 1),
         ])
-        patch_bundle(detail_route, "character SEO route", [
-            ("${e.name} - Another Tier", "${cnNames[e.name]??e.name} - Another Tier", 1),
-            ("View ${e.name}'s key stats", "View ${cnNames[e.name]??e.name}'s key stats", 1),
-        ])
+        route_source = detail_route.read_text(encoding="utf-8")
+        route_source = route_source.replace("${cnNames[e.name]??e.name}", "${e.name}")
+        route_source = replace_once(route_source,
+            "title:`${e.name} - Another Tier`,description:`Another Eden ${n} tier character. View ${e.name}'s key stats at a glance: element, tome, personalities, and more for quick in-game reference.`",
+            "...characterMetadata(e.name,n)", "character SEO route")
+        route_source = route_source.replace(IMPORT, "")
+        metadata_import = 'import{characterMetadata}from"./cn-names.js";'
+        if metadata_import not in route_source:
+            route_source = metadata_import + route_source
+        detail_route.write_text(route_source, encoding="utf-8")
+        print(f"[OK] character SEO route: {detail_route.relative_to(ROOT)}")
         patch_bundle(team_search, "team character search", [
             ("e.name.toLocaleLowerCase().includes(n)", "(e.name.toLocaleLowerCase().includes(n)||cnNames[e.name]?.toLocaleLowerCase().includes(n))", 1),
         ])
 
-        pages = sorted(ROOT.rglob("*.html"))
+        pages = sorted(path for path in ROOT.rglob("*.html") if not path.is_relative_to(ROOT / "dist"))
         if not pages:
             raise ValueError("No HTML pages found")
         changed = sum(localize_html(path, names) for path in pages)
