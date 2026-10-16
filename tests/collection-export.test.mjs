@@ -55,12 +55,14 @@ test("invalid export scopes fail explicitly", async () => {
   await assert.rejects(exportCollectionImage({ characters, statusFilter: "awakened" }), RangeError);
 });
 
-for (const scenario of ["loaded page image", "CDN failure", "unsafe page image", "unloaded page image"]) {
-  test(`export resource reuse and CDN priority: ${scenario}`, async () => {
+for (const scenario of ["loaded page image", "mirror failure", "unsafe page image", "unloaded page image"]) {
+  test(`export resource reuse and snapshot priority: ${scenario}`, async () => {
     const originalImage = globalThis.Image, originalDocument = globalThis.document;
     const requests = [], probed = [];
-    const [cdn, mirror] = imageSources("aldo");
-    const displayed = {src: cdn, complete: scenario !== "unloaded page image", naturalWidth: 80, naturalHeight: 80};
+    const [mirror, cdn] = imageSources("aldo");
+    assert.ok(mirror.includes('/mirror-images/') && /\?v=[0-9a-f]{12}$/.test(mirror));
+    assert.ok(cdn.startsWith('https://res.cloudinary.com/'));
+    const displayed = {src: mirror, complete: scenario !== "unloaded page image", naturalWidth: 80, naturalHeight: 80};
     const stop = new Error("resources ready; do not render in this unit test");
     globalThis.document = {createElement: () => ({getContext: () => {
       let current;
@@ -80,14 +82,14 @@ for (const scenario of ["loaded page image", "CDN failure", "unsafe page image",
         assert.equal(this.crossOrigin, "anonymous");
         requests.push(value);
         queueMicrotask(() => {
-          if (scenario === "CDN failure" && value === cdn) this.onerror?.();
+          if (scenario === "mirror failure" && value === mirror) this.onerror?.();
           else this.onload?.();
         });
       }
     };
     clearExportImageCache();
     try {
-      if (scenario !== "CDN failure") rememberCollectionImage("aldo", displayed);
+      if (scenario !== "mirror failure") rememberCollectionImage("aldo", displayed);
       const prepare = () => exportCollectionImage({
         characters: [characters[0]],
         onProgress(progress) {if (progress.phase === "loading" && progress.completed === progress.total) throw stop;},
@@ -97,12 +99,12 @@ for (const scenario of ["loaded page image", "CDN failure", "unsafe page image",
         assert.deepEqual(requests, []);
         assert.deepEqual(probed, [displayed]);
       } else {
-        assert.deepEqual(requests, scenario === "CDN failure" ? [cdn, mirror] : [cdn]);
+        assert.deepEqual(requests, scenario === "mirror failure" ? [mirror, cdn] : [mirror]);
       }
       const previousRequests = [...requests];
       await assert.rejects(prepare(), error => error === stop);
       assert.deepEqual(requests, previousRequests, "a second export must reuse the resolved resource");
-      assert.equal(displayed.src, cdn, "export must not change a page image's source");
+      assert.equal(displayed.src, mirror, "export must not change a page image's source");
     } finally {
       clearExportImageCache();
       if (originalImage === undefined) delete globalThis.Image;else globalThis.Image = originalImage;

@@ -1,4 +1,5 @@
 import { getCharacterStatus } from "./collection-data.js?v=4314887c04fa";
+import { imageSourcesForURL } from './image-fallback.js?v=5c58a213a051';
 
 // Render catalog snapshots; page images are optional resources, never the character list.
 const CDN = "https://res.cloudinary.com/ryanditjia/image/upload/";
@@ -85,8 +86,7 @@ export function imageFilename(date = new Date()) {
 
 export function imageSources(slug) {
   const path = slug === "__stellar__" ? STAR_PATH : `${PORTRAIT_PATH}${encodeURIComponent(slug)}/portrait`;
-  const localPath = path.replace(/[^a-zA-Z0-9/._-]/g, "_") + ".webp";
-  return [CDN + path, new URL(`../mirror-images/${localPath}`, import.meta.url).href];
+  return imageSourcesForURL(CDN + path);
 }
 
 /** Remember loaded images even after filtering removes their cards from the DOM. */
@@ -161,7 +161,7 @@ async function loadImage(slug) {
       catch { pageImages.delete(slug); /* Reload with CORS if the page image cannot be exported. */ }
     }
     for (const src of imageSources(slug)) {
-      try { return await loadSource(src); } catch { /* Try the mirror after the original CDN. */ }
+      try { return await loadSource(src); } catch { /* Try the CDN if the saved snapshot is unavailable. */ }
     }
     throw new Error(`无法加载 ${slug}`);
   })();

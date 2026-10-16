@@ -80,6 +80,7 @@ def main() -> int:
         if not collection_page.is_file():
             raise ValueError("Missing independent collection page: collection/index.html")
         runpy.run_path(str(ROOT / "scripts/patch-collection-navigation.py"))["apply_navigation"](ROOT, check=True)
+        runpy.run_path(str(ROOT / 'scripts/optimize-images.py'))['apply_images'](ROOT, check=True)
         runpy.run_path(str(ROOT / "scripts/version-collection-assets.py"))["apply_versions"](ROOT, check=True)
 
         names = json.loads((ROOT / "data" / "cn-names.json").read_text(encoding="utf-8"))

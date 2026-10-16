@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
-"""Download missing CDN image variants for the mirror's on-error fallback."""
+"""Download CDN snapshots and regenerate snapshot-first content versions."""
 
 import argparse
 import concurrent.futures
 import json
 import re
+import subprocess
+import sys
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.request import Request, urlopen
@@ -24,7 +26,8 @@ class Images(HTMLParser):
         self.urls = set()
 
     def handle_starttag(self, tag, attrs):
-        src = dict(attrs).get("src", "")
+        attributes = dict(attrs)
+        src = attributes.get("data-original-src") or attributes.get("src", "")
         if tag == "img" and src.startswith(CDN):
             self.urls.add(src)
 
@@ -102,6 +105,8 @@ def main():
         raise SystemExit(f"{len(errors)} downloads failed; rerun to fetch missing images")
     total = sum(image_path(url).stat().st_size for url in urls)
     print(f"[OK] {len(urls)} image backups, {downloaded} downloaded, {total / 1024 / 1024:.1f} MiB")
+    subprocess.run([sys.executable, str(ROOT / 'scripts/optimize-images.py')], check=True)
+    subprocess.run([sys.executable, str(ROOT / 'scripts/version-collection-assets.py')], check=True)
 
 
 if __name__ == "__main__":

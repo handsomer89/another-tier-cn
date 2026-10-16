@@ -1,8 +1,8 @@
 import {createCollectionStore, COLLECTION_STORAGE_KEY, MAX_IMPORT_BYTES} from './collection-data.js?v=4314887c04fa';
 import {displayName, filterOptions, emptyFilters, matchesCharacter, readPublicFilters, publicFilterSearch} from './collection-filter.js?v=02ee76bdf270';
-import {exportCollectionImage, imageSources, rememberCollectionImage} from './collection-export.js?v=0ec3f20e393c';
+import {exportCollectionImage, imageSources, rememberCollectionImage} from './collection-export.js?v=ba0751dfda40';
 import {loadCollectionCatalog} from './collection-catalog.js?v=b51f7f5dd12e';
-import {installImageFallback} from './image-fallback.js?v=28160b2b55e8';
+import {installImageFallback, setImageSource} from './image-fallback.js?v=5c58a213a051';
 
 const $ = id => document.getElementById(id);
 const labels = {unowned:'未拥有',owned:'拥有（未星导）',awakened:'已星导'};
@@ -124,7 +124,7 @@ function portrait(character,status) {
   image.loading = 'lazy';
   image.crossOrigin = 'anonymous';
   image.addEventListener('load',() => rememberCollectionImage(character.slug,image));
-  image.src = imageSources(character.slug)[0];
+  setImageSource(image, imageSources(character.slug).at(-1));
   wrap.append(image);
   if (character.canSA === true) {
     const star = document.createElement('img');
@@ -133,7 +133,7 @@ function portrait(character,status) {
     star.alt = status === 'awakened' ? '已星导' : '未星导';
     star.crossOrigin = 'anonymous';
     star.addEventListener('load',() => rememberCollectionImage('__stellar__',star));
-    star.src = imageSources('__stellar__')[0];
+    setImageSource(star, imageSources('__stellar__').at(-1));
     wrap.append(star);
   }
   return wrap;
@@ -144,7 +144,7 @@ function characterIcons(character) {
   const addIcon = (group, value, size, alt, className = '') => {
     if (!value) return;
     const image = document.createElement('img');
-    image.src = `https://res.cloudinary.com/ryanditjia/image/upload/dpr_2.0/c_lfill,h_${size},w_${size}/q_auto:low/f_auto/v1/another-eden/${group}/${encodeURIComponent(value)}`;
+    setImageSource(image, `https://res.cloudinary.com/ryanditjia/image/upload/dpr_2.0/c_lfill,h_${size},w_${size}/q_auto:low/f_auto/v1/another-eden/${group}/${encodeURIComponent(value)}`);
     image.width = image.height = size;
     image.loading = 'lazy';
     image.alt = alt;
@@ -253,7 +253,7 @@ function buildFilters() {
       checkWrap.insertAdjacentHTML('beforeend','<svg fill="none" viewBox="0 0 14 14" class="pointer-events-none col-start-1 row-start-1 size-3.5 self-center justify-self-center stroke-white dark:stroke-gray-900" aria-hidden="true"><path d="M3 8L6 11L11 3.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-has-checked:opacity-100"></path></svg>');
       const text = document.createElement('span');text.className = 'w-full pr-6 pl-3 font-light whitespace-nowrap text-gray-900 select-none md:text-sm dark:text-gray-100';
       if (key === 'elements' || key === 'weapons') {
-        const icon = document.createElement('img');icon.width=icon.height=18;icon.alt='';icon.src=`https://res.cloudinary.com/ryanditjia/image/upload/dpr_2.0/c_lfill,h_18,w_18/q_auto:low/f_auto/v1/another-eden/${key}/${encodeURIComponent(option.value)}`;
+        const icon = document.createElement('img');icon.width=icon.height=18;icon.alt='';setImageSource(icon, `https://res.cloudinary.com/ryanditjia/image/upload/dpr_2.0/c_lfill,h_18,w_18/q_auto:low/f_auto/v1/another-eden/${key}/${encodeURIComponent(option.value)}`);
         text.classList.add('flex','items-center','gap-1');text.append(icon);
       }
       text.append(option.label);label.append(checkWrap,text);
