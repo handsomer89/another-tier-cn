@@ -1,8 +1,8 @@
-import {createCollectionStore, COLLECTION_STORAGE_KEY, MAX_IMPORT_BYTES} from './collection-data.js';
-import {displayName, filterOptions, emptyFilters, matchesCharacter, readPublicFilters, publicFilterSearch} from './collection-filter.js';
-import {exportCollectionImage, imageSources} from './collection-export.js';
-import {loadCollectionCatalog} from './collection-catalog.js';
-import {installImageFallback} from './image-fallback.js';
+import {createCollectionStore, COLLECTION_STORAGE_KEY, MAX_IMPORT_BYTES} from './collection-data.js?v=4314887c04fa';
+import {displayName, filterOptions, emptyFilters, matchesCharacter, readPublicFilters, publicFilterSearch} from './collection-filter.js?v=02ee76bdf270';
+import {exportCollectionImage, imageSources} from './collection-export.js?v=c9ade8320e3e';
+import {loadCollectionCatalog} from './collection-catalog.js?v=b51f7f5dd12e';
+import {installImageFallback} from './image-fallback.js?v=28160b2b55e8';
 
 const $ = id => document.getElementById(id);
 const labels = {unowned:'未拥有',owned:'拥有（未星导）',awakened:'已星导'};

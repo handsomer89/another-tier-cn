@@ -249,7 +249,8 @@ def main():
     image_command = ("download-images.py", "--refresh") if args.refresh_images else ("download-images.py",)
     for command in (("localize-cn.py",), ("optimize-mirror.py",),
                     ("generate-character-snapshots.py",), image_command,
-                    ("generate-collection.py", "--check", "--check-images"), ("check-cn.py",)):
+                    ("generate-collection.py", "--check", "--check-images"),
+                    ("version-collection-assets.py",), ("check-cn.py",)):
         subprocess.run(["python3", str(ROOT / "scripts" / command[0]), *command[1:]], check=True)
 
 

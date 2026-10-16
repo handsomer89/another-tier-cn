@@ -1,4 +1,4 @@
-import { getCharacterStatus } from "./collection-data.js";
+import { getCharacterStatus } from "./collection-data.js?v=4314887c04fa";
 
 // Standalone image export: never read the filtered DOM or mutable personal records.
 const CDN = "https://res.cloudinary.com/ryanditjia/image/upload/";

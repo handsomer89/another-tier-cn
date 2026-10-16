@@ -127,6 +127,7 @@ python3 scripts/import-cn-names.py /path/to/Another_Tier_Character_Forms_CN_corr
 python3 scripts/import-cn-terms.py /path/to/Another_Tier_待精译术语_筛选与分类已翻译.xlsx
 python3 scripts/localize-cn.py
 python3 scripts/optimize-mirror.py
+python3 scripts/version-collection-assets.py
 python3 scripts/check-cn.py
 ```
 
@@ -177,6 +178,12 @@ python3 scripts/check-cn.py
 
 检查内容包括翻译映射、榜单与详情 JSON 一致性、页面语言和标题、移动端缩放设置、图标文件，以及图鉴目录、导航和图片备份覆盖情况。
 
+图鉴入口、模块依赖和样式使用内容版本号，避免浏览器将新版页面与旧版导出脚本混用。修改图鉴脚本、依赖或样式后，提交前运行以下命令；榜单刷新流程会自动执行，`check-cn.py` 也会检查版本是否匹配：
+
+```sh
+python3 scripts/version-collection-assets.py
+```
+
 修改图鉴逻辑后可运行以下无额外依赖的功能检查：
 
 ```sh
@@ -184,6 +191,7 @@ python3 scripts/check-collection.py
 node scripts/test-collection-data.mjs
 node tests/collection-filter.test.mjs
 node tests/collection-export.test.mjs
+python3 tests/test-collection-assets.py
 python3 tests/test-refresh-sync.py
 node tests/collection-catalog.test.mjs
 ```

@@ -1,7 +1,7 @@
-import {cnNames} from './cn-names.js';
-import {translateAlias} from './cn-aliases.js';
-import {translateVerified} from './cn-verified.js';
-import {cnTerms} from './cn-terms.js';
+import {cnNames} from './cn-names.js?v=aadc6b4789a0';
+import {translateAlias} from './cn-aliases.js?v=419f47e10abd';
+import {translateVerified} from './cn-verified.js?v=1da74c9ef4dd';
+import {cnTerms} from './cn-terms.js?v=5c106893cf4a';
 
 export const normalize = value => String(value ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
 export const displayName = character => cnNames[character.name] ?? character.name;

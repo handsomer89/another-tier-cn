@@ -80,6 +80,7 @@ def main() -> int:
         if not collection_page.is_file():
             raise ValueError("Missing independent collection page: collection/index.html")
         runpy.run_path(str(ROOT / "scripts/patch-collection-navigation.py"))["apply_navigation"](ROOT, check=True)
+        runpy.run_path(str(ROOT / "scripts/version-collection-assets.py"))["apply_versions"](ROOT, check=True)
 
         names = json.loads((ROOT / "data" / "cn-names.json").read_text(encoding="utf-8"))
         generated = (ROOT / "assets" / "cn-names.js").read_text(encoding="utf-8")
@@ -159,7 +160,7 @@ def main() -> int:
                 for asset in ("collection.js", "collection.css"):
                     if f'/another-tier-cn/assets/{asset}' not in page:
                         raise ValueError(f"Missing base-prefixed collection asset: {asset}")
-                if not re.search(r'<script\b(?=[^>]*\btype=[\"\']module[\"\'])(?=[^>]*\bsrc=[\"\']/another-tier-cn/assets/collection\.js[\"\'])', page):
+                if not re.search(r'<script\b(?=[^>]*\btype=[\"\']module[\"\'])(?=[^>]*\bsrc=[\"\']/another-tier-cn/assets/collection\.js\?v=[0-9a-f]{12}[\"\'])', page):
                     raise ValueError("Collection page must load its independent ES module")
                 if ('window.$_TSR' in page or 'state:$R[' in page
                         or any('/assets/index-' in script for script in re.findall(r'<script\b.*?</script>', page, re.S))):
