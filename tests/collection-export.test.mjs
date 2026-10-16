@@ -6,10 +6,59 @@ const { calculateLayout, getCellPosition, imageFilename, exportCollectionImage, 
   new URL("../assets/collection-export.js", import.meta.url)
 );
 
-test("current catalog uses the preferred 9:16 canvas and the largest possible portraits", () => {
+const characters = Object.freeze([
+  Object.freeze({ slug: "aldo", name: "Aldo", canSA: false }),
+  Object.freeze({ slug: "alma-as", name: "Alma AS", canSA: true }),
+  Object.freeze({ slug: "ewan", name: "Ewan", canSA: true }),
+  Object.freeze({ slug: "amy", name: "Amy", canSA: false }),
+]);
+const statuses = Object.freeze({ aldo: "owned", "alma-as": "awakened", ewan: "unowned" });
+
+for (const [statusFilter, expected] of [
+  [undefined, ["aldo", "alma-as", "ewan", "amy", "__stellar__"]],
+  ["all", ["aldo", "alma-as", "ewan", "amy", "__stellar__"]],
+  ["owned", ["aldo", "alma-as", "__stellar__"]],
+  ["unowned", ["ewan", "amy", "__stellar__"]],
+]) {
+  test(`${statusFilter ?? "default"} export loads only that tab's portraits in catalog order`, async () => {
+    const OriginalImage = globalThis.Image;
+    // Fail every source so error.missing exposes the actual resources requested,
+    // without a browser canvas or depending on network access.
+    globalThis.Image = class {
+      set src(value) { if (value) queueMicrotask(() => this.onerror?.()); }
+    };
+    clearExportImageCache();
+    const before = JSON.stringify({ characters, statuses });
+    try {
+      await assert.rejects(exportCollectionImage({ characters, statuses, statusFilter }), error => {
+        assert.equal(error.name, "ExportImageError");
+        assert.deepEqual(error.missing.map(item => item.slug), expected);
+        return true;
+      });
+      assert.equal(JSON.stringify({ characters, statuses }), before);
+    } finally {
+      clearExportImageCache();
+      if (OriginalImage === undefined) delete globalThis.Image;
+      else globalThis.Image = OriginalImage;
+    }
+  });
+}
+
+test("empty ownership ranges fail before requesting images", async () => {
+  await assert.rejects(exportCollectionImage({ characters, statusFilter: "owned" }), /没有已拥有的角色/);
+  await assert.rejects(exportCollectionImage({
+    characters, statuses: Object.fromEntries(characters.map(character => [character.slug, "owned"])), statusFilter: "unowned",
+  }), /没有未拥有的角色/);
+});
+
+test("invalid export scopes fail explicitly", async () => {
+  await assert.rejects(exportCollectionImage({ characters, statusFilter: "awakened" }), RangeError);
+});
+
+test("current catalog uses the preferred 9:21 canvas and the largest possible portraits", () => {
   const layout = calculateLayout(322);
   assert.equal(layout.width, 1800);
-  assert.equal(layout.height, 3200);
+  assert.equal(layout.height, 4200);
   assert.ok(layout.avatarSize >= 96);
   for (let columns = 1; columns <= 322; columns += 1) {
     const rows = Math.ceil(322 / columns);
@@ -39,14 +88,14 @@ for (const count of [1, 14, 321, 322, 323, 500, 1000]) {
     const right = getCellPosition(count - 1, count, layout).x + layout.avatarSize;
     assert.ok(Math.abs(left - (layout.width - right)) <= 1);
     assert.ok(layout.avatarSize >= 96);
-    assert.ok(Math.abs(layout.width / layout.height - 9 / 16) < 0.001);
+    assert.ok(Math.abs(layout.width / layout.height - 9 / 21) < 0.001);
   });
 }
 
 test("growing catalogs raise resolution rather than shrinking portraits", () => {
   const layout = calculateLayout(1000);
   assert.ok(layout.width > 1800);
-  assert.ok(layout.height > 3200);
+  assert.ok(layout.height > 4200);
   assert.ok(layout.avatarSize >= 96);
 });
 

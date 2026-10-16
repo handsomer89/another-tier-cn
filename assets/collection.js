@@ -373,19 +373,25 @@ function releaseImage() {
 }
 async function runImageExport() {
   if(imageBusy) return;
+  const statusFilter=filters.status;
+  const scope={all:'完整图鉴',owned:'已拥有角色图鉴',unowned:'未拥有角色图鉴'}[statusFilter];
+  const range={all:'全部角色',owned:'全部已拥有角色（含已星导）',unowned:'全部未拥有角色'}[statusFilter];
+  $('image-title').textContent=`导出${scope}`;
+  $('image-description').textContent=`包含${range}，不受搜索、属性等筛选影响。图片比例为 9:21。`;
+  $('image-preview').alt=`${scope}预览`;
   imageBusy=true;$('export-image').disabled=true;$('retry-image').hidden=true;$('image-result').hidden=true;releaseImage();
   notice($('image-error'),'');$('image-progress-bar').hidden=false;$('image-progress-bar').value=0;
-  $('image-progress').textContent='正在准备全部角色…';imageController=new AbortController();
+  $('image-progress').textContent=`正在准备${range}…`;imageController=new AbortController();
   const controller=imageController;
   const statuses=Object.fromEntries(catalog.characters.map(character => [character.slug,store.getStatus(character.slug)]));
   try{
-    const result=await exportCollectionImage({characters:catalog.characters,statuses,signal:controller.signal,onProgress:progress=>{
+    const result=await exportCollectionImage({characters:catalog.characters,statuses,statusFilter,signal:controller.signal,onProgress:progress=>{
       if(controller.signal.aborted) return;
       $('image-progress').textContent=progress.message;$('image-progress-bar').value=progress.percent;
     }});
     if(controller.signal.aborted||!$('image-dialog').open) return;
     imageURL=URL.createObjectURL(result.blob);$('image-preview').src=imageURL;$('image-download').href=imageURL;$('image-download').download=result.filename;
-    $('image-result').hidden=false;$('image-progress').textContent=`完整图鉴已生成 · ${catalog.characters.length} 个形态 · ${result.width} × ${result.height}`;$('image-progress-bar').hidden=true;
+    $('image-result').hidden=false;$('image-progress').textContent=`${scope}已生成 · ${result.count} 个形态 · ${result.width} × ${result.height}`;$('image-progress-bar').hidden=true;
     $('image-download').click();
   }catch(error){
     if(controller.signal.aborted) return;

@@ -46,7 +46,7 @@ function measureLayout(count, width, height, scale) {
 }
 
 /** Maximize square portraits on a portrait canvas, growing resolution when needed. */
-export function calculateLayout(count, { width = 1800, height = 3200, minAvatarSize = 96 } = {}) {
+export function calculateLayout(count, { width = 1800, height = 4200, minAvatarSize = 96 } = {}) {
   if (!Number.isSafeInteger(count) || count < 1) throw new RangeError("角色数量必须为正整数");
   if (![width, height, minAvatarSize].every(value => Number.isFinite(value) && value > 0)) {
     throw new RangeError("画布尺寸必须为正数");
@@ -214,7 +214,7 @@ function grayscale(context, width, height) {
   context.putImageData(pixels, 0, 0);
 }
 
-function drawHeader(context, snapshot, layout, generatedAt) {
+function drawHeader(context, snapshot, layout, generatedAt, statusFilter) {
   const { scale, padding, width, footerTop } = layout;
   const owned = snapshot.filter(character => character.status !== "unowned").length;
   const awakened = snapshot.filter(character => character.status === "awakened").length;
@@ -225,7 +225,8 @@ function drawHeader(context, snapshot, layout, generatedAt) {
   context.textBaseline = "top";
   context.fillStyle = "#f9fafb";
   context.font = `600 ${Math.round(57 * scale)}px ${FONT}`;
-  context.fillText("个人角色图鉴", width / 2, padding + 12 * scale);
+  const title = { all: "个人角色图鉴", owned: "已拥有角色图鉴", unowned: "未拥有角色图鉴" }[statusFilter];
+  context.fillText(title, width / 2, padding + 12 * scale);
   context.fillStyle = "#d1d5db";
   context.font = `${Math.round(29 * scale)}px ${FONT}`;
   context.fillText(`已拥有 ${owned} / ${snapshot.length}    ·    已星导 ${awakened} / ${available}`, width / 2, padding + 99 * scale);
@@ -257,11 +258,15 @@ function toPng(canvas) {
 
 /**
  * Call with the full sorted catalog and effective slug -> state dictionary.
+ * Only the ownership tab limits the export; search and attribute filters do not.
  * The caller owns download/preview object URLs and must revoke them on close.
  * Loading failures include every missing resource in error.missing; retry by calling again.
  */
-export async function exportCollectionImage({ characters, statuses = {}, onProgress = () => {}, signal } = {}) {
-  const snapshot = freezeSnapshot(characters, statuses);
+export async function exportCollectionImage({ characters, statuses = {}, statusFilter = "all", onProgress = () => {}, signal } = {}) {
+  if (!["all", "owned", "unowned"].includes(statusFilter)) throw new RangeError("无效的图鉴导出范围");
+  const snapshot = freezeSnapshot(characters, statuses).filter(character => statusFilter === "all"
+    || (statusFilter === "owned" ? character.status !== "unowned" : character.status === "unowned"));
+  if (!snapshot.length) throw new Error(`没有${statusFilter === "owned" ? "已拥有" : "未拥有"}的角色，无法生成图片。`);
   const generatedAt = new Date();
   const layout = calculateLayout(snapshot.length);
   const progress = (phase, completed, total, percent, message) => onProgress({ phase, completed, total, percent, message });
@@ -272,7 +277,7 @@ export async function exportCollectionImage({ characters, statuses = {}, onProgr
   const missing = [];
   let next = 0;
   let loaded = 0;
-  progress("loading", 0, resources.length, 0, `加载完整图鉴素材：0 / ${resources.length}`);
+  progress("loading", 0, resources.length, 0, `加载图鉴素材：0 / ${resources.length}`);
   await Promise.all(Array.from({ length: Math.min(6, resources.length) }, async () => {
     while (next < resources.length) {
       checkCancelled(signal);
@@ -283,7 +288,7 @@ export async function exportCollectionImage({ characters, statuses = {}, onProgr
         missing.push(resource);
       }
       loaded += 1;
-      progress("loading", loaded, resources.length, Math.round(loaded / resources.length * 75), `加载完整图鉴素材：${loaded} / ${resources.length}`);
+      progress("loading", loaded, resources.length, Math.round(loaded / resources.length * 75), `加载图鉴素材：${loaded} / ${resources.length}`);
     }
   }));
   checkCancelled(signal);
@@ -302,7 +307,7 @@ export async function exportCollectionImage({ characters, statuses = {}, onProgr
     const context = output.context;
     context.imageSmoothingEnabled = true;
     context.imageSmoothingQuality = "high";
-    drawHeader(context, snapshot, layout, generatedAt);
+    drawHeader(context, snapshot, layout, generatedAt, statusFilter);
     const starHeight = Math.round(layout.avatarSize * 0.36);
     const starWidth = Math.round(starHeight * 21 / 24);
     if (images.has("__stellar__")) {
@@ -339,7 +344,7 @@ export async function exportCollectionImage({ characters, statuses = {}, onProgr
     const blob = await toPng(output.canvas);
     checkCancelled(signal);
     progress("encoding", 1, 1, 100, "图片生成完成");
-    return { blob, filename: imageFilename(generatedAt), width: layout.width, height: layout.height };
+    return { blob, filename: imageFilename(generatedAt), width: layout.width, height: layout.height, count: snapshot.length };
   } finally {
     // Reset backing stores even when decoding, drawing or PNG encoding fails.
     for (const layer of [output, portrait, star, grayStar]) {
