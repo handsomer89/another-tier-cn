@@ -1,6 +1,6 @@
 import {createCollectionStore, COLLECTION_STORAGE_KEY, MAX_IMPORT_BYTES} from './collection-data.js?v=4314887c04fa';
 import {displayName, filterOptions, emptyFilters, matchesCharacter, readPublicFilters, publicFilterSearch} from './collection-filter.js?v=02ee76bdf270';
-import {exportCollectionImage, imageSources} from './collection-export.js?v=c9ade8320e3e';
+import {exportCollectionImage, imageSources, rememberCollectionImage} from './collection-export.js?v=0ec3f20e393c';
 import {loadCollectionCatalog} from './collection-catalog.js?v=b51f7f5dd12e';
 import {installImageFallback} from './image-fallback.js?v=28160b2b55e8';
 
@@ -122,14 +122,18 @@ function portrait(character,status) {
   image.alt = '';
   image.width = image.height = 80;
   image.loading = 'lazy';
-  image.src = imageSources(character.slug)[1];
+  image.crossOrigin = 'anonymous';
+  image.addEventListener('load',() => rememberCollectionImage(character.slug,image));
+  image.src = imageSources(character.slug)[0];
   wrap.append(image);
   if (character.canSA === true) {
     const star = document.createElement('img');
     star.className = 'sa-mark';
     star.width = star.height = 24;
     star.alt = status === 'awakened' ? '已星导' : '未星导';
-    star.src = imageSources('__stellar__')[1];
+    star.crossOrigin = 'anonymous';
+    star.addEventListener('load',() => rememberCollectionImage('__stellar__',star));
+    star.src = imageSources('__stellar__')[0];
     wrap.append(star);
   }
   return wrap;

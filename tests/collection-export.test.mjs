@@ -2,7 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 
 // The site is plain ES modules without a package.json or build step.
-const { calculateLayout, getCellPosition, imageFilename, exportCollectionImage, clearExportImageCache } = await import(
+const { calculateLayout, getCellPosition, imageFilename, imageSources, rememberCollectionImage, exportCollectionImage, clearExportImageCache } = await import(
   new URL("../assets/collection-export.js", import.meta.url)
 );
 
@@ -54,6 +54,62 @@ test("empty ownership ranges fail before requesting images", async () => {
 test("invalid export scopes fail explicitly", async () => {
   await assert.rejects(exportCollectionImage({ characters, statusFilter: "awakened" }), RangeError);
 });
+
+for (const scenario of ["loaded page image", "CDN failure", "unsafe page image", "unloaded page image"]) {
+  test(`export resource reuse and CDN priority: ${scenario}`, async () => {
+    const originalImage = globalThis.Image, originalDocument = globalThis.document;
+    const requests = [], probed = [];
+    const [cdn, mirror] = imageSources("aldo");
+    const displayed = {src: cdn, complete: scenario !== "unloaded page image", naturalWidth: 80, naturalHeight: 80};
+    const stop = new Error("resources ready; do not render in this unit test");
+    globalThis.document = {createElement: () => ({getContext: () => {
+      let current;
+      return {
+        drawImage(image) {current = image;probed.push(image);},
+        getImageData() {
+          if (scenario === "unsafe page image" && current === displayed) throw new Error("Canvas is tainted");
+          return {data: new Uint8ClampedArray(4)};
+        },
+      };
+    }})};
+    globalThis.Image = class {
+      naturalWidth = 80;
+      naturalHeight = 80;
+      set src(value) {
+        if (!value) return;
+        assert.equal(this.crossOrigin, "anonymous");
+        requests.push(value);
+        queueMicrotask(() => {
+          if (scenario === "CDN failure" && value === cdn) this.onerror?.();
+          else this.onload?.();
+        });
+      }
+    };
+    clearExportImageCache();
+    try {
+      if (scenario !== "CDN failure") rememberCollectionImage("aldo", displayed);
+      const prepare = () => exportCollectionImage({
+        characters: [characters[0]],
+        onProgress(progress) {if (progress.phase === "loading" && progress.completed === progress.total) throw stop;},
+      });
+      await assert.rejects(prepare(), error => error === stop);
+      if (scenario === "loaded page image") {
+        assert.deepEqual(requests, []);
+        assert.deepEqual(probed, [displayed]);
+      } else {
+        assert.deepEqual(requests, scenario === "CDN failure" ? [cdn, mirror] : [cdn]);
+      }
+      const previousRequests = [...requests];
+      await assert.rejects(prepare(), error => error === stop);
+      assert.deepEqual(requests, previousRequests, "a second export must reuse the resolved resource");
+      assert.equal(displayed.src, cdn, "export must not change a page image's source");
+    } finally {
+      clearExportImageCache();
+      if (originalImage === undefined) delete globalThis.Image;else globalThis.Image = originalImage;
+      if (originalDocument === undefined) delete globalThis.document;else globalThis.document = originalDocument;
+    }
+  });
+}
 
 test("current catalog uses the preferred 9:21 canvas and the largest possible portraits", () => {
   const layout = calculateLayout(322);
@@ -139,7 +195,7 @@ test("canceling a stalled image export rejects promptly without canceling shared
     // The canceled consumer must leave the cached source intact for other consumers.
     assert.equal(pendingImages[0].sources.length, 1);
     assert.equal(typeof pendingImages[0].onerror, "function");
-    // Fail the background local source and its CDN fallback after export has canceled.
+    // Fail the background CDN source and its mirror fallback after export has canceled.
     // An unhandled rejection here causes node:test to fail.
     pendingImages[0].onerror();
     for (let i = 0; i < 10; i += 1) await Promise.resolve();

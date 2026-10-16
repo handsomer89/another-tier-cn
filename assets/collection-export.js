@@ -1,10 +1,11 @@
 import { getCharacterStatus } from "./collection-data.js?v=4314887c04fa";
 
-// Standalone image export: never read the filtered DOM or mutable personal records.
+// Render catalog snapshots; page images are optional resources, never the character list.
 const CDN = "https://res.cloudinary.com/ryanditjia/image/upload/";
 const PORTRAIT_PATH = "dpr_2.0/c_lfill,h_80,w_80/q_auto:low/f_auto/v1/another-eden/characters/";
 const STAR_PATH = "dpr_2.0/c_limit,h_24,w_24/q_auto:low/f_auto/v1/another-eden/sa";
 const imageCache = new Map();
+const pageImages = new Map();
 const MAX_CACHED_IMAGES = 512;
 const IMAGE_TIMEOUT = 20000;
 const FONT = '"Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif';
@@ -85,7 +86,15 @@ export function imageFilename(date = new Date()) {
 export function imageSources(slug) {
   const path = slug === "__stellar__" ? STAR_PATH : `${PORTRAIT_PATH}${encodeURIComponent(slug)}/portrait`;
   const localPath = path.replace(/[^a-zA-Z0-9/._-]/g, "_") + ".webp";
-  return [new URL(`../mirror-images/${localPath}`, import.meta.url).href, CDN + path];
+  return [CDN + path, new URL(`../mirror-images/${localPath}`, import.meta.url).href];
+}
+
+/** Remember loaded images even after filtering removes their cards from the DOM. */
+export function rememberCollectionImage(slug, image) {
+  const src = image.currentSrc || image.src;
+  if (!image.complete || !image.naturalWidth || !image.naturalHeight || !imageSources(slug).includes(src)) return;
+  pageImages.set(slug, { image, src });
+  if (pageImages.size > MAX_CACHED_IMAGES) pageImages.delete(pageImages.keys().next().value);
 }
 
 function makeCanvas(width, height) {
@@ -97,10 +106,23 @@ function makeCanvas(width, height) {
   return { canvas, context };
 }
 
+async function validateImage(image) {
+  if (typeof image.decode === "function") await image.decode();
+  if (!image.naturalWidth || !image.naturalHeight) throw new Error("图片解码失败");
+  // Visible images may still taint Canvas. Check before reusing them for export.
+  const probe = makeCanvas(1, 1);
+  try {
+    probe.context.drawImage(image, 0, 0, 1, 1);
+    probe.context.getImageData(0, 0, 1, 1);
+  } finally {
+    probe.canvas.width = probe.canvas.height = 0;
+  }
+}
+
 function loadSource(src) {
   return new Promise((resolve, reject) => {
     const image = new Image();
-    // CORS must be configured before src, including CDN fallback.
+    // Match page portraits' request mode so the browser can share its HTTP cache.
     image.crossOrigin = "anonymous";
     let settled = false;
     const finish = (error) => {
@@ -117,19 +139,11 @@ function loadSource(src) {
     const timer = setTimeout(() => finish(new Error("图片加载超时")), IMAGE_TIMEOUT);
     image.onerror = () => finish(new Error("图片加载失败"));
     image.onload = async () => {
-      let probe;
       try {
-        if (typeof image.decode === "function") await image.decode();
-        if (!image.naturalWidth || !image.naturalHeight) throw new Error("图片解码失败");
-        // Detect a tainted source now so it can use the next source before export.
-        probe = makeCanvas(1, 1);
-        probe.context.drawImage(image, 0, 0, 1, 1);
-        probe.context.getImageData(0, 0, 1, 1);
+        await validateImage(image);
         finish();
       } catch (error) {
         finish(error);
-      } finally {
-        if (probe) probe.canvas.width = probe.canvas.height = 0;
       }
     };
     image.src = src;
@@ -140,8 +154,14 @@ async function loadImage(slug) {
   const cached = imageCache.get(slug);
   if (cached) return cached;
   const loading = (async () => {
+    const displayed = pageImages.get(slug);
+    if (displayed && displayed.src === (displayed.image.currentSrc || displayed.image.src)
+        && displayed.image.complete && displayed.image.naturalWidth && displayed.image.naturalHeight) {
+      try { await validateImage(displayed.image); return displayed.image; }
+      catch { pageImages.delete(slug); /* Reload with CORS if the page image cannot be exported. */ }
+    }
     for (const src of imageSources(slug)) {
-      try { return await loadSource(src); } catch { /* Try the CORS CDN fallback. */ }
+      try { return await loadSource(src); } catch { /* Try the mirror after the original CDN. */ }
     }
     throw new Error(`无法加载 ${slug}`);
   })();
@@ -161,6 +181,7 @@ async function loadImage(slug) {
 
 export function clearExportImageCache() {
   imageCache.clear();
+  pageImages.clear();
 }
 
 function checkCancelled(signal) {
