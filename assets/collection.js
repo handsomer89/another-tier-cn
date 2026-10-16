@@ -2,6 +2,7 @@ import {createCollectionStore, COLLECTION_STORAGE_KEY, MAX_IMPORT_BYTES} from '.
 import {displayName, filterOptions, emptyFilters, matchesCharacter, readPublicFilters, publicFilterSearch} from './collection-filter.js?v=02ee76bdf270';
 import {exportCollectionImage, imageSources, rememberCollectionImage} from './collection-export.js?v=ba0751dfda40';
 import {loadCollectionCatalog} from './collection-catalog.js?v=b51f7f5dd12e';
+import {otherForms} from './collection-forms.js?v=c4169ee85442';
 import {installImageFallback, setImageSource} from './image-fallback.js?v=5c58a213a051';
 
 const $ = id => document.getElementById(id);
@@ -40,7 +41,7 @@ async function saveWithLock(dialog, action) {
   if (pendingWrites.has(dialog)) return null;
   const controller = new AbortController();
   pendingWrites.set(dialog,controller);
-  const buttons = [...dialog.querySelectorAll('[data-set-status], #confirm-import')];
+  const buttons = [...dialog.querySelectorAll('[data-set-status], [data-state-form], #confirm-import')];
   const disabled = buttons.map(button => button.disabled);
   buttons.forEach(button => {button.disabled = true;});
   dialog.setAttribute('aria-busy','true');
@@ -57,6 +58,7 @@ async function saveWithLock(dialog, action) {
     pendingWrites.delete(dialog);
     buttons.forEach((button,index) => {button.disabled = disabled[index];});
     dialog.removeAttribute('aria-busy');
+    if (dialog === $('state-dialog') && dialog.open) refreshStateDialog();
   }
 }
 for (const dialog of document.querySelectorAll('dialog')) {
@@ -291,10 +293,27 @@ window.addEventListener('popstate',() => {const personal = {status:filters.statu
 
 function refreshStateDialog() {
   const character = selectedCharacter, status = store.getStatus(character.slug);
-  $('state-title').textContent = `${displayName(character)} · ${character.style || 'NS'}`;
+  $('state-title').textContent = displayName(character);
   $('state-avatar').replaceChildren(portrait(character,status));
   $('state-avatar').dataset.status = status;
-  $('state-current').textContent = `当前状态：${labels[status]}`;
+  const forms = otherForms(catalog.characters,character);
+  $('state-forms-section').hidden = forms.length === 0;
+  $('state-forms').replaceChildren(...forms.map(form => {
+    const formStatus = store.getStatus(form.slug);
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'state-form';
+    button.dataset.stateForm = form.slug;
+    button.dataset.status = formStatus;
+    button.disabled = pendingWrites.has($('state-dialog'));
+    button.setAttribute('aria-label',`${displayName(form)}，${labels[formStatus]}，切换到此形态`);
+    button.append(portrait(form,formStatus));
+    const name = document.createElement('span');
+    name.textContent = displayName(form);
+    button.append(name);
+    button.addEventListener('click',() => openCharacter(form));
+    return button;
+  }));
   $('sa-unavailable').hidden = character.canSA === true;
   for (const button of document.querySelectorAll('[data-set-status]')) {
     button.disabled = pendingWrites.has($('state-dialog')) || (button.dataset.setStatus === 'awakened' && character.canSA !== true);
@@ -302,12 +321,15 @@ function refreshStateDialog() {
     if (button.dataset.setStatus === 'awakened') {
       if (button.disabled) button.setAttribute('aria-describedby','sa-unavailable');else button.removeAttribute('aria-describedby');
     }
-    if (button.dataset.setStatus === 'owned') button.querySelector('small').textContent = character.canSA === true ? '已拥有，尚未星导' : '已拥有该角色形态';
   }
 }
 function openCharacter(character) {
-  selectedCharacter = character;notice($('state-error'),'');refreshStateDialog();showDialog($('state-dialog'));
-  const current = $('state-dialog').querySelector('[aria-pressed="true"]');current?.focus();
+  const dialog = $('state-dialog');
+  if (pendingWrites.has(dialog)) return;
+  selectedCharacter = character;notice($('state-error'),'');refreshStateDialog();
+  if (!dialog.open) showDialog(dialog);
+  dialog.scrollTop = 0;
+  const current = dialog.querySelector('[data-set-status][aria-pressed="true"]');current?.focus({preventScroll:true});
 }
 document.querySelectorAll('[data-set-status]').forEach(button => button.addEventListener('click',async () => {
   const slug = selectedCharacter.slug, status = button.dataset.setStatus;

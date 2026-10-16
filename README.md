@@ -19,7 +19,7 @@
 
 每次打开图鉴时获取原站梦见、配布两组数据，整批校验后生成当前目录；任一组不可用时，整批回退到 `data/collection.json`，避免混用新旧数据。角色新增及开放星导无需等待仓库静态副本更新；已核实的中文译名仍使用本站映射，尚无译名的角色显示原名。
 
-角色头像、完整名称及下方的属性、天冥、武器、护甲图标沿用原站样式；头像与星导标志按个人记录分别呈现灰色或彩色。
+角色头像、完整名称及下方的属性、天冥、武器、护甲图标沿用原站样式；头像与星导标志按个人记录分别呈现灰色或彩色。状态弹窗同时展示该角色其他形态的小头像与名称，颜色反映各形态的拥有及星导状态；点击小头像可直接切换到该形态的状态选择，切换本身不会修改记录。弹窗通过右上角关闭按钮、空白遮罩或 Esc 关闭。
 
 图鉴保留中文、英文、AC 别名及书籍搜索和原有属性、武器、定位、个性筛选，另提供“全部”“已拥有”“未拥有”三项持有状态筛选。“已拥有”包含“拥有”和“已星导”。
 
@@ -200,6 +200,7 @@ python3 scripts/version-collection-assets.py
 python3 scripts/check-collection.py
 node scripts/test-collection-data.mjs
 node tests/collection-filter.test.mjs
+node tests/collection-forms.test.mjs
 node tests/collection-export.test.mjs
 node tests/image-fallback.test.mjs
 node tests/image-cache.test.mjs

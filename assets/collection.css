@@ -327,7 +327,7 @@ h1 {
   height:100%;
   object-fit:cover;
 }
-.character-card[data-status=unowned] .portrait,.dialog-avatar[data-status=unowned] .portrait {
+.character-card[data-status=unowned] .portrait,.dialog-avatar[data-status=unowned] .portrait,.state-form[data-status=unowned] .portrait {
   filter:grayscale(1);
   opacity:.62;
 }
@@ -496,23 +496,68 @@ h1 {
   line-height:1.8;
   margin:8px 0 18px;
 }
+.state-forms-section {
+  margin:16px 0;
+}
+.state-forms-section h3 {
+  margin:0 0 10px;
+  color:var(--muted);
+  font-size:12px;
+  font-weight:400;
+}
+.state-forms {
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:8px;
+}
+.state-form {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:6px;
+  min-width:0;
+  padding:8px 3px;
+  border:1px solid var(--line);
+  border-radius:6px;
+  background:var(--surface);
+  color:var(--text);
+  font-size:11px;
+  line-height:1.4;
+  overflow-wrap:anywhere;
+}
+.state-form:not(:disabled):hover {
+  background:var(--surface-muted);
+  border-color:var(--accent);
+}
+.state-form .portrait-wrap {
+  width:48px;
+  height:48px;
+}
+.state-form .sa-mark {
+  width:17px;
+  height:17px;
+  top:-3px;
+  left:-3px;
+}
 .state-options {
   display:flex;
   flex-direction:column;
-  gap:8px;
-  margin:20px 0 12px;
+  gap:6px;
+  margin:16px 0 4px;
 }
 .state-options button {
   display:flex;
   align-items:center;
-  gap:12px;
+  gap:8px;
   text-align:left;
-  padding:13px 14px;
+  padding:9px 12px;
   border:1px solid var(--line);
   border-radius:8px;
   background:var(--surface);
   color:var(--text);
-  min-height:64px;
+  min-height:44px;
+  font-size:14px;
+  line-height:1.5;
 }
 .state-options button[aria-pressed=true] {
   border-color:var(--accent);
@@ -521,14 +566,9 @@ h1 {
 .state-options button:not(:disabled):hover {
   background:var(--surface-muted);
 }
-.state-options small {
-  display:block;
-  color:var(--muted);
-  font-size:11px;
-  margin-top:2px;
-}
 .option-symbol {
-  font-size:20px;
+  font-size:18px;
+  line-height:1;
   color:var(--accent);
 }
 .option-check {
@@ -538,16 +578,6 @@ h1 {
 }
 .state-options [aria-pressed=true] .option-check {
   opacity:1;
-}
-.dialog-cancel {
-  display:block;
-  width:100%;
-  border:0;
-  background:none;
-  color:var(--muted);
-  padding:10px;
-  border-radius:6px;
-  font-size:12px;
 }
 .dialog-actions {
   display:flex;
