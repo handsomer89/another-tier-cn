@@ -6,6 +6,7 @@ from __future__ import annotations
 import html
 import json
 import re
+import subprocess
 import sys
 from html.parser import HTMLParser
 from pathlib import Path
@@ -344,6 +345,7 @@ def main() -> int:
         from cn_aliases import apply_aliases
 
         apply_aliases(ROOT)
+        subprocess.run([sys.executable, str(ROOT / "scripts" / "patch-collection-navigation.py")], check=True)
         return 0
     except Exception as error:
         print(f"[ERROR] {error}", file=sys.stderr)

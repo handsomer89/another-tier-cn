@@ -10,6 +10,8 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import subprocess
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -136,6 +138,8 @@ def main() -> None:
     optimize_assets()
     if not args.assets_only:
         optimize_html()
+    navigation_args = ["--assets-only"] if args.assets_only else []
+    subprocess.run([sys.executable, str(ROOT / "scripts" / "patch-collection-navigation.py"), *navigation_args], check=True)
     print("Public entry excludes admin/login routes; source-site analytics disabled; fonts use swap.")
 
 

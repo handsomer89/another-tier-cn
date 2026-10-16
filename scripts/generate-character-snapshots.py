@@ -38,6 +38,11 @@ def main():
         )
     print(f"[OK] Public snapshots: {len(snapshots['paid'])} paid, {len(snapshots['free'])} free, "
           f"{len(snapshots) - 2} character details")
+    # The collection is a separate derived artifact. A failure leaves the new
+    # public snapshots and the last successfully generated catalog intact.
+    collection_status = runpy.run_path(str(ROOT / "scripts/generate-collection.py"))["main"]()
+    if collection_status:
+        raise SystemExit(collection_status)
 
 
 if __name__ == "__main__":

@@ -69,6 +69,17 @@ def main() -> int:
         for url in images["image_urls"]():
             if not images["image_path"](url).is_file():
                 raise ValueError(f"Missing image backup: {url}")
+        collection = runpy.run_path(str(ROOT / "scripts/generate-collection.py"))
+        expected_catalog, collection_diagnostics = collection["build_catalog"](*collection["load_inputs"]())
+        collection["validate_catalog"](
+            json.loads((ROOT / "data/collection.json").read_text(encoding="utf-8")), expected_catalog)
+        collection_image_count = collection["validate_images"](expected_catalog)
+        for diagnostic in collection_diagnostics:
+            print("[WARN] " + diagnostic, file=sys.stderr)
+        collection_page = ROOT / "collection/index.html"
+        if not collection_page.is_file():
+            raise ValueError("Missing independent collection page: collection/index.html")
+        runpy.run_path(str(ROOT / "scripts/patch-collection-navigation.py"))["apply_navigation"](ROOT, check=True)
 
         names = json.loads((ROOT / "data" / "cn-names.json").read_text(encoding="utf-8"))
         generated = (ROOT / "assets" / "cn-names.js").read_text(encoding="utf-8")
@@ -139,6 +150,22 @@ def main() -> int:
         detail_pages = 0
         for path in pages:
             page = path.read_text(encoding="utf-8")
+            if path == collection_page:
+                # This page deliberately has no original app hydration/loader;
+                # validate its independent module and public-path contract.
+                for asset in ("collection.js", "collection.css", "collection-data.js", "collection-export.js", "collection-filter.js", "collection-catalog.js"):
+                    if not (ROOT / "assets" / asset).is_file():
+                        raise ValueError(f"Missing collection module: {asset}")
+                for asset in ("collection.js", "collection.css"):
+                    if f'/another-tier-cn/assets/{asset}' not in page:
+                        raise ValueError(f"Missing base-prefixed collection asset: {asset}")
+                if not re.search(r'<script\b(?=[^>]*\btype=[\"\']module[\"\'])(?=[^>]*\bsrc=[\"\']/another-tier-cn/assets/collection\.js[\"\'])', page):
+                    raise ValueError("Collection page must load its independent ES module")
+                if ('window.$_TSR' in page or 'state:$R[' in page
+                        or any('/assets/index-' in script for script in re.findall(r'<script\b.*?</script>', page, re.S))):
+                    raise ValueError("Collection page unexpectedly loads original application hydration")
+            if path.relative_to(ROOT).as_posix() in {"index.html", "free/index.html", "no-sa/index.html", "collection/index.html"} and '/another-tier-cn/collection/' not in page:
+                raise ValueError(f"Collection navigation is missing: {path.relative_to(ROOT)}")
             if path.relative_to(ROOT).parts[:1] == ("c",):
                 detail_pages += 1
                 if "-ac" in path.parent.name:
@@ -173,6 +200,8 @@ def main() -> int:
             raise ValueError(f"English names remain in visible HTML text or alt attributes: {preview}")
 
         print("[OK] Ranking/detail snapshots agree; manifest icons and image backups exist")
+        print(f"[OK] Collection: {len(expected_catalog['characters'])} unique forms in unified tier order, "
+              f"{collection_image_count} image backups; independent page and navigation verified")
         print(f"[OK] {sum(map(len, verified.values()))} verified mappings match site data and visible detail fields")
         print(f"[OK] {len(names)} name mappings, {len(ui)} UI strings, {sum(len(group) for group in terms.values())} terms")
         print(f"[OK] {detail_pages} character pages and {len(pages)} rendered pages, browser display/search/copy patches verified")

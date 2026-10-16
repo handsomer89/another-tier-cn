@@ -2,6 +2,7 @@
 """Refresh rankings and changed character details, including hydration data.
 
 Requires Python 3 and Node.js. Existing localized bundles and page chrome stay intact.
+Use --full-details for a complete refresh that also detects detail-only edits.
 """
 
 import argparse
@@ -102,13 +103,20 @@ def refresh(original, upstream):
     if cards != expected or len(cards) != len(set(cards)):
         raise ValueError("Rendered cards do not match embedded tier data")
     section = section.replace('href="/c/', 'href="/another-tier-cn/c/')
-    replacement = old_match[1] + js_value(new_data) + old_match[3] + new_match[4]
+    # Upstream SSR timestamps change on every fetch, even when its data does not.
+    # Keep our existing hydration expression and times in that case, while still
+    # accepting real changes to rendered markup below.
+    changed = new_data != old_data
+    timestamp = new_match[4] if changed else old_match[4]
+    expression = js_value(new_data) if changed else old_match[2]
+    replacement = old_match[1] + expression + old_match[3] + timestamp
     result = original[:old_match.start()] + replacement + original[old_match.end():]
     start, end = tier_span(result)
     result = result[:start] + section + result[end:]
     # The router's successful loader timestamp should agree with the refreshed query.
-    result = result.replace('u:' + old_match[4], 'u:' + new_match[4])
-    return result, old_data, new_data, new_match[4]
+    if changed:
+        result = result.replace('u:' + old_match[4], 'u:' + timestamp)
+    return result, old_data, new_data, timestamp
 
 
 def character_changes(card, detail):
@@ -139,17 +147,22 @@ def refresh_character(original, upstream, card):
     if not old_loader or not new_loader:
         raise ValueError("Expected character loader metadata")
     loader = evaluate(new_loader[2])
-    result = original[:old_loader.start(2)] + js_value(loader) + original[old_loader.end(2):]
+    changed = new_data != old_data
+    timestamp = new_match[4] if changed else old_match[4]
+    loader_expression = old_loader[2] if evaluate(old_loader[2]) == loader else js_value(loader)
+    result = original[:old_loader.start(2)] + loader_expression + original[old_loader.end(2):]
     # Recalculate the data span after replacing loader metadata.
     old_match, _ = extract_data(result)
-    replacement = old_match[1] + js_value(new_data) + old_match[3] + new_match[4]
+    expression = js_value(new_data) if changed else old_match[2]
+    replacement = old_match[1] + expression + old_match[3] + timestamp
     result = result[:old_match.start()] + replacement + result[old_match.end():]
     start, end = main_span(result).span()
     body = main_span(upstream)[0]
     body = re.sub(r'(href|src)="(/(?!/))', rf'\1="{BASE}\2', body)
     result = result[:start] + body + result[end:]
-    result = re.sub(r'\bu:\d+(?=,s:"success")', 'u:' + new_match[4], result)
-    result = re.sub(r'\bdehydratedAt:\d+', 'dehydratedAt:' + new_match[4], result)
+    if changed:
+        result = re.sub(r'\bu:\d+(?=,s:"success")', 'u:' + timestamp, result)
+        result = re.sub(r'\bdehydratedAt:\d+', 'dehydratedAt:' + timestamp, result)
 
     # A new character uses an existing detail page as its compatible local shell.
     old_slug, slug = old_data["slug"], new_data["slug"]
@@ -190,7 +203,7 @@ def fetch_source(route, source_dir):
         return response.read().decode("utf-8")
 
 
-def prepare_outputs(source_dir=None):
+def prepare_outputs(source_dir=None, full_details=False):
     outputs = []
     characters = {}
     for path, route in ROUTES.items():
@@ -210,12 +223,12 @@ def prepare_outputs(source_dir=None):
         existing = ROOT / path
         original = existing.read_text(encoding="utf-8") if existing.exists() else template
         changes = character_changes(card, extract_data(original)[1]) if existing.exists() else ["new"]
-        if not changes:
+        if not changes and not full_details:
             continue
         upstream = fetch_source("/c/" + slug, source_dir)
         outputs.append((path, refresh_character(original, upstream, card)))
         refreshed += 1
-        print(f"[OK] {path}: refreshed ({', '.join(changes)})")
+        print(f"[OK] {path}: refreshed ({', '.join(changes) if changes else 'full detail check'})")
     print(f"[OK] character details: refreshed {refreshed}; unchanged {len(characters) - refreshed}")
     return outputs
 
@@ -223,15 +236,21 @@ def prepare_outputs(source_dir=None):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--source-dir", type=Path, help="Use cached index.html, free.html, no-sa.html and c/<slug>/index.html")
+    parser.add_argument("--full-details", action="store_true", help="Fetch every listed character, including detail-only edits")
+    parser.add_argument("--refresh-images", action="store_true", help="Refresh existing image backups to detect same-URL changes")
     args = parser.parse_args()
-    outputs = prepare_outputs(args.source_dir)
+    outputs = prepare_outputs(args.source_dir, full_details=args.full_details)
     # Validate every source before writing any output.
     for path, result in outputs:
         target = ROOT / path
         target.parent.mkdir(parents=True, exist_ok=True)
-        target.write_text(result, encoding="utf-8")
-    for script in ("localize-cn.py", "optimize-mirror.py", "generate-character-snapshots.py", "download-images.py", "check-cn.py"):
-        subprocess.run(["python3", str(ROOT / "scripts" / script)], check=True)
+        if not target.is_file() or target.read_text(encoding="utf-8") != result:
+            target.write_text(result, encoding="utf-8")
+    image_command = ("download-images.py", "--refresh") if args.refresh_images else ("download-images.py",)
+    for command in (("localize-cn.py",), ("optimize-mirror.py",),
+                    ("generate-character-snapshots.py",), image_command,
+                    ("generate-collection.py", "--check", "--check-images"), ("check-cn.py",)):
+        subprocess.run(["python3", str(ROOT / "scripts" / command[0]), *command[1:]], check=True)
 
 
 if __name__ == "__main__":

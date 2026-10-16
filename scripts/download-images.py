@@ -3,6 +3,7 @@
 
 import argparse
 import concurrent.futures
+import json
 import re
 from html.parser import HTMLParser
 from pathlib import Path
@@ -33,7 +34,32 @@ def image_urls():
     for page in ROOT.rglob("*.html"):
         if not page.is_relative_to(ROOT / "dist"):
             parser.feed(page.read_text(encoding="utf-8"))
+    # Collection cards are created in the browser, so their portraits and icons
+    # may never occur in static HTML (for example, a newly introduced element).
+    catalog = ROOT / "data/collection.json"
+    if catalog.is_file():
+        parser.urls.update(collection_image_urls(json.loads(catalog.read_text(encoding="utf-8"))))
     return sorted(parser.urls)
+
+
+def collection_image_urls(catalog):
+    """Include exactly the variants used by collection cards and PNG exports."""
+    urls = set()
+    for card in catalog["characters"]:
+        urls.add(CDN + "dpr_2.0/c_lfill,h_80,w_80/q_auto:low/f_auto/v1/another-eden/characters/"
+                 + card["slug"] + "/portrait")
+        if card["canSA"]:
+            urls.update(CDN + "dpr_2.0/c_limit,h_24,w_24/" + effect + "q_auto:low/f_auto/v1/another-eden/sa"
+                        for effect in ("", "e_grayscale/"))
+        for group, values, size in (
+            ("elements", card.get("elements") or [], 18),
+            ("light-shadow", [card.get("lightShadow")], 16),
+            ("weapons", [card.get("weapon")], 18),
+            ("armors", [card.get("armor")], 18),
+        ):
+            urls.update(CDN + f"dpr_2.0/c_lfill,h_{size},w_{size}/q_auto:low/f_auto/v1/another-eden/{group}/{value}"
+                        for value in values if value)
+    return urls
 
 
 def download(url, refresh=False):
